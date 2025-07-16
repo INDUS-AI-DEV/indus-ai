@@ -83,7 +83,7 @@ export default function Contact() {
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 font-raleway">
-              Have questions about our AI solutions? We&apos;re here to help.
+              Have questions about our AI solutions? We&apos;re here to help :)
             </p>
           </div>
         </Container>
