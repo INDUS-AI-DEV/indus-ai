@@ -32,9 +32,12 @@ export default function HotelbotDemoPage() {
     let cleanupFns: (() => void)[] = [];
     (async () => {
       const livekit = await import("livekit-client");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const handleTrackSubscribed = (track: unknown, publication: unknown, participant: { identity: string }) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((track as any).kind === livekit.Track.Kind.Audio) {
           setIsSpeaking(true);
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const audioElement = (track as any).attach();
           document.body.appendChild(audioElement);
           setChatMessages(prev => [...prev, { sender: participant.identity, text: "Agent is responding..." }]);
@@ -46,8 +49,11 @@ export default function HotelbotDemoPage() {
           };
         }
       };
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const handleTrackUnsubscribed = (track: unknown) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((track as any).kind === livekit.Track.Kind.Audio) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (track as any).detach().forEach((element: HTMLElement) => element.remove());
           setIsSpeaking(false);
         }
@@ -56,12 +62,18 @@ export default function HotelbotDemoPage() {
         const message = new TextDecoder().decode(payload);
         setChatMessages(prev => [...prev, { sender: participant.identity, text: message }]);
       };
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (room as any).on("trackSubscribed", handleTrackSubscribed);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (room as any).on("trackUnsubscribed", handleTrackUnsubscribed);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (room as any).on("dataReceived", handleDataReceived);
       cleanupFns = [
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         () => { (room as any).off("trackSubscribed", handleTrackSubscribed); },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         () => { (room as any).off("trackUnsubscribed", handleTrackUnsubscribed); },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         () => { (room as any).off("dataReceived", handleDataReceived); },
       ];
     })();
@@ -82,8 +94,8 @@ export default function HotelbotDemoPage() {
     setConnecting(true);
     try {
       const livekit = await import("livekit-client");
-      const server_url = process.env.NEXT_PUBLIC_HOTELBOT_TOKEN_SERVER_URL || '';
-      const ws_url = process.env.NEXT_PUBLIC_HOTELBOT_WS_URL || '';
+      const server_url = process.env.NEXT_PUBLIC_HOTELBOT_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/hotel?';
+      const ws_url = process.env.NEXT_PUBLIC_HOTELBOT_WS_URL || 'wss://hotel-66i1z7m4.livekit.cloud';
       const userId = `user-${Math.random().toString(36).substring(2, 8)}`;
       const roomId = `room-${Math.random().toString(36).substring(2, 8)}`;
       const fullUrl = `${server_url}room=${roomId}&user=${userId}&language=${language}`;
@@ -106,6 +118,7 @@ export default function HotelbotDemoPage() {
     if (!room || connecting) return;
     setConnecting(true);
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       await (room as any).disconnect();
       setConnected(false);
       setRoom(null);
@@ -187,8 +200,8 @@ export default function HotelbotDemoPage() {
             </div>
             <div className={styles.logoContainer} style={{ marginBottom: 2, marginTop: 6 }}>
               {/* Try SVG, fallback to PNG if SVG fails */}
-              <Image src="/images/indus.svg" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 2 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/indus.png'; }} />
-              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2 }}>AI Hotel Management System</div>
+              <Image src="/images/indus.svg" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/indus.png'; }} />
+              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop: 12 }}>AI Hotel Management System</div>
             </div>
             {callType === "telephony" && (
               <div style={{ marginTop: 24, marginBottom: 16, width: "100%" }}>
@@ -244,6 +257,12 @@ export default function HotelbotDemoPage() {
               <div className={styles.buttonLabel} style={{ fontSize: 16, marginTop: 10, marginBottom: 18 }}>
                 {connecting ? "END CALL" : (!connected ? "START CALL" : "END CALL")}
               </div>
+              {!connected && !connecting && (
+                <div style={{ textAlign: 'center', marginTop: 16, marginBottom: 70 }}>
+                  <div style={{ color: '#fff', fontSize: 14, marginBottom: 4 }}>OR CALL</div>
+                  <div style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>8071296529</div>
+                </div>
+              )}
               {callType === "telephony" && telephonyStatus && (
                 <div style={{ color: telephonyStatus === "Call Initiated" ? "green" : "red", marginTop: 8 }}>{telephonyStatus}</div>
               )}
@@ -277,8 +296,8 @@ export default function HotelbotDemoPage() {
               className={styles.botContainer}
               style={
                 !connected && isDesktop
-                  ? { marginBottom: 80 }
-                  : undefined
+                  ? { marginBottom: 120 }
+                  : { marginBottom: 40}
               }
             >
               <Image src="/images/maisy-image.png" alt="mAIsy Assistant" className={styles.botImage} width={170} height={170} />

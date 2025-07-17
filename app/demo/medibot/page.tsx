@@ -92,8 +92,8 @@ export default function MedibotDemoPage() {
     setConnecting(true);
     try {
       const livekit = await import("livekit-client");
-      const server_url = process.env.NEXT_PUBLIC_LIVEKIT_TOKEN_SERVER_URL || '';
-      const ws_url = process.env.NEXT_PUBLIC_LIVEKIT_WS_URL || '';
+      const server_url = process.env.NEXT_PUBLIC_LIVEKIT_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/medibot?';
+      const ws_url = process.env.NEXT_PUBLIC_LIVEKIT_WS_URL || 'wss://medibot-axdx77yw.livekit.cloud';
       const userId = `user-${Math.random().toString(36).substring(2, 8)}`;
       const roomId = `room-${Math.random().toString(36).substring(2, 8)}`;
       const fullUrl = `${server_url}room=${roomId}&user=${userId}&language=${language}`;
@@ -198,8 +198,8 @@ export default function MedibotDemoPage() {
             </div>
             <div className={styles.logoContainer} style={{ marginBottom: 2, marginTop: 6 }}>
               {/* Try SVG, fallback to PNG if SVG fails */}
-              <Image src="/images/indus.svg" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 2 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/indus.png'; }} />
-              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2 }}>AI Medicare System</div>
+              <Image src="/images/indus.svg" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/indus.png'; }} />
+              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop:12 }}>AI Medicare System</div>
             </div>
             {callType === "telephony" && (
               <div style={{ marginTop: 24, marginBottom: 16, width: "100%" }}>
@@ -252,7 +252,7 @@ export default function MedibotDemoPage() {
                   {connecting && <div className={styles.loadingRing}></div>}
                 </button>
               </div>
-              <div className={styles.buttonLabel} style={{ fontSize: 16, marginTop: 10, marginBottom: 18 }}>
+              <div className={styles.buttonLabel} style={{ fontSize: 16, marginTop: 10, marginBottom: connected ? 30 : 140 }}>
                 {connecting ? "END CALL" : (!connected ? "START CALL" : "END CALL")}
               </div>
               {callType === "telephony" && telephonyStatus && (
@@ -288,8 +288,8 @@ export default function MedibotDemoPage() {
               className={styles.botContainer}
               style={
                 !connected && isDesktop
-                  ? { marginBottom: 80 }
-                  : undefined
+                  ? { marginBottom: 120 }
+                  : { marginBottom: 40 }
               }
             >
               <Image src="/images/maisy-image.png" alt="mAIsy Assistant" className={styles.botImage} width={170} height={170} />
