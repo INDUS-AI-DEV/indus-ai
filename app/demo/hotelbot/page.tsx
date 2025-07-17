@@ -300,7 +300,7 @@ export default function HotelbotDemoPage() {
                   : { marginBottom: 40}
               }
             >
-              <Image src="/images/maisy-image.png" alt="mAIsy Assistant" className={styles.botImage} width={170} height={170} />
+              <Image src="/images/bot.png" alt="AI Assistant" className={styles.botImage} width={170} height={170} />
             </div>
           </div>
         </div>
