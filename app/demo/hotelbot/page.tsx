@@ -260,7 +260,7 @@ export default function HotelbotDemoPage() {
               {!connected && !connecting && (
                 <div style={{ textAlign: 'center', marginTop: 16, marginBottom: 70 }}>
                   <div style={{ color: '#fff', fontSize: 14, marginBottom: 4 }}>OR CALL</div>
-                  <div style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>8071296529</div>
+                  <div style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>08071296529</div>
                 </div>
               )}
               {callType === "telephony" && telephonyStatus && (
