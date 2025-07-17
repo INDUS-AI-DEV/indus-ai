@@ -1,0 +1,370 @@
+/* Medibot styles ported from livekit-frontend App.css */
+
+.appContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.phoneMockup {
+  background-image: url('/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  width: 400px;
+  max-width: 100vw;
+  height: 750px;
+  max-height: 100vh;
+  padding: 36px 28px 0 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  gap: 1.2rem;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 32px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.languageDropdownContainer {
+  margin-left: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.languageDropdown {
+  background: transparent;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 8px 8px 8px;
+  border-radius: 6px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: background 0.2s;
+  letter-spacing: 0.2px;
+  width: auto;
+  min-width: unset;
+}
+
+.languageDropdown:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.languageDropdown:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+
+.languageDropdownArrow {
+  position: absolute;
+  right: 2px;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+}
+
+.logoContainer {
+  text-align: center;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+.logoWhite {
+  filter: none !important;
+  opacity: 1 !important;
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 8px auto;
+}
+
+.logoSubtitle {
+  font-size: 22px;
+  color: #b0bec5;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 8px;
+  gap: 6px;
+}
+
+/* Ensure all text in the top bar is white and bold */
+.toggleLabel {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.switchInput { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #666;
+  transition: .4s;
+  border-radius: 28px;
+  height: 28px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.switchInput:checked + .slider {
+  background-color: #4CAF50;
+}
+
+.switchInput:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.callButton {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto 0 auto;
+}
+
+.callButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.callIcon svg {
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  fill: #fff;
+  display: block;
+  margin: auto;
+}
+
+/* Add .endCall for red button when connected */
+.endCall {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+}
+
+/* Add .startCall for green button when not connected */
+.startCall {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+.buttonLabel {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* ...continue porting the rest of the relevant classes from App.css as needed for the Medibot page... */
+
+.speakingIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: #4CAF50;
+  font-weight: bold;
+  gap: 8px;
+}
+
+.speakingDot {
+  width: 12px;
+  height: 12px;
+  background: #4CAF50;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chatBox {
+  background: rgba(30, 60, 120, 0.7);
+  border: 1.5px solid #b0bec5;
+  border-radius: 16px;
+  padding: 18px 22px 12px 22px;
+  margin: 0 auto 32px auto;
+  min-width: 320px;
+  max-width: 380px;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.chatMessages {
+  overflow-x: unset;
+  white-space: normal;
+}
+
+.chatHeader {
+  color: #ffc107;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.chatMessage {
+  margin-bottom: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.agentName {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.endCallIcon {
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  display: block;
+  margin: auto;
+}
+
+.connectingLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  min-height: 90px;
+}
+
+.loaderSpinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid rgba(255, 255, 255, 0.12);
+  border-top: 4px solid #ffc107;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loaderText {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+  letter-spacing: 0.2px;
+  margin-top: 0;
+}
+
+.botContainer {
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.botImage {
+  width: 170px;
+  height: auto;
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 700px) {
+  .botContainer {
+    padding-left: 4px !important;
+    margin-bottom: 60px !important;
+  }
+  .botImage {
+    width: 100px !important;
+  }
+} 
+
+.languageDropdown {
+  color: #fff !important;
+  background: rgba(30,60,120,0.5) !important;
+}
+.telephonyInput {
+  color: #fff !important;
+  background: rgba(30,60,120,0.5) !important;
+}
+.languageDropdown option {
+  color: #000;
+  background: #fff;
+} 
