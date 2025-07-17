@@ -198,7 +198,7 @@ export default function MedibotDemoPage() {
             </div>
             <div className={styles.logoContainer} style={{ marginBottom: 2, marginTop: 6 }}>
               {/* Try SVG, fallback to PNG if SVG fails */}
-              <Image src="/images/logo.png" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/indus.png'; }} />
+              <Image src="/images/Indus.png" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/indus.png'; }} />
               <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop:12 }}>AI Medicare System</div>
             </div>
             {callType === "telephony" && (
