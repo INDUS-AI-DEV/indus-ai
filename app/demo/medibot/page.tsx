@@ -83,7 +83,7 @@ export default function MedibotDemoPage() {
     try {
       const livekit = await import("livekit-client");
       const server_url = process.env.NEXT_PUBLIC_LIVEKIT_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/medibot?';
-      const ws_url = process.env.NEXT_PUBLIC_LIVEKIT_WS_URL || 'wss://medibot-axdx77yw.livekit.cloud';
+      const ws_url = process.env.NEXT_PUBLIC_LIVEKIT_WS_URL || 'wss://medicarebot-mkbfja8k.livekit.cloud';
       const userId = `user-${Math.random().toString(36).substring(2, 8)}`;
       const roomId = `room-${Math.random().toString(36).substring(2, 8)}`;
       const fullUrl = `${server_url}room=${roomId}&user=${userId}`;
