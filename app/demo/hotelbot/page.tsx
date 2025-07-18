@@ -169,7 +169,7 @@ export default function HotelbotDemoPage() {
       `}</style>
       <div style={{ background: 'var(--background-dark)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className={styles.appContainer}>
-          <div className={styles.phoneMockup} style={{ position: 'relative' }}>
+          <div className={styles.phoneMockup} style={{ position: 'relative', backgroundImage: "url('/images/Hotel1.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <div className={styles.topBar}>
               <span className={styles.toggleLabel} style={{ fontWeight: callType === "web" ? "bold" : "normal" }}>Web Call</span>
               <label className={styles.switch}>
@@ -279,10 +279,10 @@ export default function HotelbotDemoPage() {
                   <div className={styles.chatHeader} style={{ fontSize: 15 }}>Live Chat</div>
                   <div className={styles.chatMessages}>
                     {chatMessages.length === 0 ? (
-                      <div className={styles.noMessages}>Call connected. Start speaking!</div>
+                      <div className={styles.noMessages} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Agent will start speaking now</div>
                     ) : (
                       chatMessages.map((msg, idx) => (
-                        <div key={idx} className={styles.chatMessage}>
+                        <div key={idx} className={styles.chatMessage} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           <span className={styles.agentName}>{msg.sender}:</span> <span style={{color:'#fff'}}>{msg.text}</span>
                         </div>
                       ))
