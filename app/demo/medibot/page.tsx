@@ -3,15 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./medibot.module.css";
 import Image from "next/image";
 
-// Language options for dropdown (full names)
-const LANGUAGE_OPTIONS = [
-  { value: "Hi", label: "Hindi" },
-  { value: "En", label: "English" },
-  { value: "Ta", label: "Tamil" },
-  { value: "Ar", label: "Arabic" },
-  { value: "Af", label: "African" },
-];
-
 export default function MedibotDemoPage() {
   type ChatMessage = { sender: string; text: string };
   const [room, setRoom] = useState<unknown>(null); // Will be cast to Room after import
@@ -23,7 +14,6 @@ export default function MedibotDemoPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [clientName, setClientName] = useState("");
   const [telephonyStatus, setTelephonyStatus] = useState("");
-  const [language, setLanguage] = useState("Hi");
   const roomRef = useRef<unknown>(null); // Will be cast to Room after import
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -96,7 +86,7 @@ export default function MedibotDemoPage() {
       const ws_url = process.env.NEXT_PUBLIC_LIVEKIT_WS_URL || 'wss://medibot-axdx77yw.livekit.cloud';
       const userId = `user-${Math.random().toString(36).substring(2, 8)}`;
       const roomId = `room-${Math.random().toString(36).substring(2, 8)}`;
-      const fullUrl = `${server_url}room=${roomId}&user=${userId}&language=${language}`;
+      const fullUrl = `${server_url}room=${roomId}&user=${userId}`;
       const resp = await fetch(fullUrl);
       const data = await resp.json();
       const token = data.token;
@@ -167,14 +157,15 @@ export default function MedibotDemoPage() {
       `}</style>
       <div style={{ background: 'var(--background-dark)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className={styles.appContainer}>
-          <div className={styles.phoneMockup} style={{ position: 'relative' }}>
+          <div className={styles.phoneMockup} style={{ position: 'relative', backgroundImage: "url('/images/MedibotBackground.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <div className={styles.topBar}>
-              <span className={styles.toggleLabel} style={{ fontWeight: callType === "web" ? "bold" : "normal" }}>Web Call</span>
+              <span className={styles.toggleLabel} style={{ fontWeight: 'bold', fontSize: 22, color: '#444', textShadow: '0 1px 4px #fff' }}>Web Call</span>
               <label className={styles.switch}>
                 <input type="checkbox" checked={callType === "telephony"} onChange={e => setCallType(e.target.checked ? "telephony" : "web")} className={styles.switchInput} />
                 <span className={styles.slider}></span>
               </label>
-              <span className={styles.toggleLabel} style={{ fontWeight: callType === "telephony" ? "bold" : "normal" }}>Telephony</span>
+              <span className={styles.toggleLabel} style={{ fontWeight: 'bold', fontSize: 22, color: '#444', textShadow: '0 1px 4px #fff' }}>Telephony</span>
+              {/*
               <div className={styles.languageDropdownContainer}>
                 <select
                   className={styles.languageDropdown}
@@ -195,11 +186,12 @@ export default function MedibotDemoPage() {
                   </svg>
                 </span>
               </div>
+              */}
             </div>
             <div className={styles.logoContainer} style={{ marginBottom: 2, marginTop: 6 }}>
               {/* Try SVG, fallback to PNG if SVG fails */}
-              <Image src="/images/indus.svg" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/indus.png'; }} />
-              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop:12 }}>AI Medicare System</div>
+              <Image src="/images/logo.png" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} />
+              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop:12, color: '#444', fontWeight: 'bold', textShadow: '0 1px 4px #fff' }}>AI Medicare System</div>
             </div>
             {callType === "telephony" && (
               <div style={{ marginTop: 24, marginBottom: 16, width: "100%" }}>
@@ -226,7 +218,7 @@ export default function MedibotDemoPage() {
               {connecting && (
                 <div className={styles.connectingLoader}>
                   <div className={styles.loaderSpinner}></div>
-                  <div className={styles.loaderText}>Connecting to the agent...</div>
+                  <div className={styles.loaderText} style={{ color: '#444', fontWeight: 'bold', textShadow: '0 1px 4px #fff' }}>Connecting to the agent...</div>
                 </div>
               )}
               <div className={styles.callButtonContainer}>
@@ -252,7 +244,7 @@ export default function MedibotDemoPage() {
                   {connecting && <div className={styles.loadingRing}></div>}
                 </button>
               </div>
-              <div className={styles.buttonLabel} style={{ fontSize: 16, marginTop: 10, marginBottom: connected ? 30 : 140 }}>
+              <div className={styles.buttonLabel} style={{ fontSize: 20, fontWeight: 'bold', color: '#444', textShadow: '0 1px 4px #fff', marginTop: 10, marginBottom: connected ? 30 : 100 }}>
                 {connecting ? "END CALL" : (!connected ? "START CALL" : "END CALL")}
               </div>
               {callType === "telephony" && telephonyStatus && (
@@ -271,10 +263,10 @@ export default function MedibotDemoPage() {
                   <div className={styles.chatHeader} style={{ fontSize: 15 }}>Live Chat</div>
                   <div className={styles.chatMessages}>
                     {chatMessages.length === 0 ? (
-                      <div className={styles.noMessages}>Call connected. Start speaking!</div>
+                      <div className={styles.noMessages} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Agent will start speaking now</div>
                     ) : (
                       chatMessages.map((msg, idx) => (
-                        <div key={idx} className={styles.chatMessage}>
+                        <div key={idx} className={styles.chatMessage} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           <span className={styles.agentName}>{msg.sender}:</span> <span style={{color:'#fff'}}>{msg.text}</span>
                         </div>
                       ))
