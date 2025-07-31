@@ -32,7 +32,6 @@ export default function HotelbotDemoPage() {
     let cleanupFns: (() => void)[] = [];
     (async () => {
       const livekit = await import("livekit-client");
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const handleTrackSubscribed = (track: unknown, publication: unknown, participant: { identity: string }) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((track as any).kind === livekit.Track.Kind.Audio) {

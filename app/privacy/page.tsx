@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 mb-4">
-                IndusAI ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy describes how we collect, use, process, and share your Personal Data in compliance with the Digital Personal Data Protection Act, 2023 and other applicable laws.
+                IndusAI (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy describes how we collect, use, process, and share your Personal Data in compliance with the Digital Personal Data Protection Act, 2023 and other applicable laws.
               </p>
             </section>
 

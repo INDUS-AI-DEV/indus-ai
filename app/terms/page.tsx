@@ -32,7 +32,7 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of the Terms</h2>
               <p className="text-gray-700 mb-4">
-                By accessing or using https://indusai.app/ (the "Site") and related services, you agree to be bound by these Terms. If you do not agree, please do not use the Site.
+                By accessing or using https://indusai.app/ (the &quot;Site&quot;) and related services, you agree to be bound by these Terms. If you do not agree, please do not use the Site.
               </p>
             </section>
 
