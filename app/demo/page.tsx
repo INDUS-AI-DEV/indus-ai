@@ -109,13 +109,13 @@ export default function DemoBotsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16">
+      <section className="relative pt-16 pb-12">
         <Container>
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6 font-raleway">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4 font-raleway">
               Experience Our AI Solutions
             </h1>
-            <p className="text-xl text-gray-600 mb-12 leading-relaxed font-raleway max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed font-raleway max-w-2xl mx-auto">
               Discover the power of AI with our interactive demo bots. Each solution is designed to transform your business operations with intelligent automation.
             </p>
           </div>
@@ -123,27 +123,27 @@ export default function DemoBotsPage() {
       </section>
 
       {/* Bots Grid Section */}
-      <section className="pb-24">
+      <section className="pb-16">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {BOTS.map((bot) => (
               <div
                 key={bot.slug}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 group hover:-translate-y-1"
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 group hover:-translate-y-1"
               >
                 {/* Icon and Category */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-600 group-hover:text-[#2C514C] group-hover:bg-[#2C514C]/5 transition-all duration-300">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gray-600 group-hover:text-[#2C514C] group-hover:bg-[#2C514C]/5 transition-all duration-300">
                     {bot.icon}
                   </div>
-                  <span className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-raleway">
+                  <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded-full font-raleway">
                     {bot.category}
                   </span>
                 </div>
 
                 {/* Bot Image */}
-                <div className="flex justify-center mb-6">
-                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                <div className="flex justify-center mb-4">
+                  <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
                     <Image
                       src={bot.image}
                       alt={`${bot.name} preview`}
@@ -154,8 +154,8 @@ export default function DemoBotsPage() {
                 </div>
 
                 {/* Content */}
-                <div className="text-center mb-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 font-raleway">
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 font-raleway">
                     {bot.name}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed font-raleway">
@@ -167,7 +167,7 @@ export default function DemoBotsPage() {
                 <Link href={`/demo/${bot.slug}`} className="block">
                   <Button
                     variant="primary"
-                    size="md"
+                    size="sm"
                     className="w-full group-hover:bg-[#132A22] transition-all duration-300"
                   >
                     Try {bot.name}
@@ -180,27 +180,27 @@ export default function DemoBotsPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-12">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-raleway">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 font-raleway">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-lg text-gray-600 mb-8 font-raleway">
+            <p className="text-gray-600 mb-6 font-raleway">
               Schedule a personalized demo to see how our AI solutions can be tailored to your specific needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button size="md">
                 <a href="https://calendly.com/indusai-app/meet" className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   Schedule Demo
                 </a>
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="md">
                 <a href="https://www.linkedin.com/company/indus-ai/" className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Learn More
