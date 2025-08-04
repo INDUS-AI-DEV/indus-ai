@@ -162,190 +162,158 @@ export default function LoanbotDemoPage() {
               }}
               style={styles.form}
             >
-              <div style={styles.formSection}>
-                <h3 style={styles.sectionTitle}>Basic Settings</h3>
-                <div style={styles.formRow}>
-                  <div style={styles.formField}>
-                    <label htmlFor="language" style={styles.label}>
-                      Language
-                    </label>
-                    <select
-                      id="language"
-                      name="language"
-                      value={language}
-                      onChange={(e) => setLanguage(e.target.value)}
-                      style={styles.select}
-                    >
-                      <option value="en">English</option>
-                      <option value="hi">Hindi</option>
-                      <option value="es">Tamil</option>
-                      <option value="fr">African</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div style={styles.formSection}>
-                <h3 style={styles.sectionTitle}>Bot Configuration</h3>
-                <div style={styles.formRow}>
-                  <div style={styles.formField}>
-                    <label htmlFor="bot_name" style={styles.label}>
-                      Bot Name
-                    </label>
-                    <input
-                      id="bot_name"
-                      name="bot_name"
-                      type="text"
-                      value={formData.bot_name}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="Enter bot name"
-                    />
-                  </div>
-                  <div style={styles.formField}>
-                    <label htmlFor="bank_name" style={styles.label}>
-                      Bank Name
-                    </label>
-                    <input
-                      id="bank_name"
-                      name="bank_name"
-                      type="text"
-                      value={formData.bank_name}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="Enter bank name"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div style={styles.formSection}>
-                <h3 style={styles.sectionTitle}>Customer Information</h3>
-                <div style={styles.formRow}>
-                  <div style={styles.formField}>
-                    <label htmlFor="customer_name" style={styles.label}>
-                      Customer Name
-                    </label>
-                    <input
-                      id="customer_name"
-                      name="customer_name"
-                      type="text"
-                      value={formData.customer_name}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="Enter customer name"
-                    />
-                  </div>
-                  <div style={styles.formField}>
-                    <label htmlFor="loan_type" style={styles.label}>
-                      Loan Type
-                    </label>
-                    <input
-                      id="loan_type"
-                      name="loan_type"
-                      type="text"
-                      value={formData.loan_type}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="e.g., home, personal, business"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div style={styles.formSection}>
-                <h3 style={styles.sectionTitle}>Loan Details</h3>
-                <div style={styles.formRow}>
-                  <div style={styles.formField}>
-                    <label htmlFor="amount_disbursed" style={styles.label}>
-                      Amount Disbursed
-                    </label>
-                    <input
-                      id="amount_disbursed"
-                      name="amount_disbursed"
-                      type="number"
-                      value={formData.amount_disbursed}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="Enter amount"
-                    />
-                  </div>
-                  <div style={styles.formField}>
-                    <label htmlFor="principal_outstanding" style={styles.label}>
-                      Principal Outstanding
-                    </label>
-                    <input
-                      id="principal_outstanding"
-                      name="principal_outstanding"
-                      type="number"
-                      value={formData.principal_outstanding}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="Enter outstanding amount"
-                    />
-                  </div>
-                </div>
-                <div style={styles.formRow}>
-                  <div style={styles.formField}>
-                    <label htmlFor="over_due_total_amount" style={styles.label}>
-                      Total Overdue Amount
-                    </label>
-                    <input
-                      id="over_due_total_amount"
-                      name="over_due_total_amount"
-                      type="number"
-                      value={formData.over_due_total_amount}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="Enter overdue amount"
-                    />
-                  </div>
-                  <div style={styles.formField}>
-                    <label htmlFor="over_due_days" style={styles.label}>
-                      Overdue Days
-                    </label>
-                    <input
-                      id="over_due_days"
-                      name="over_due_days"
-                      type="number"
-                      value={formData.over_due_days}
-                      onChange={handleChange}
-                      style={styles.input}
-                      placeholder="Enter overdue days"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div style={styles.formSection}>
-                <h3 style={styles.sectionTitle}>Recovery Context</h3>
-                <div style={styles.formRow}>
-                  <div style={{ ...styles.formField, width: '100%' }}>
-                    <label htmlFor="reason" style={styles.label}>
-                      Recovery Reason
-                    </label>
-                    <textarea
-                      id="reason"
-                      name="reason"
-                      value={formData.reason}
-                      onChange={handleChange}
-                      style={styles.textarea}
-                      placeholder="Describe the reason for recovery"
-                      rows={3}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div style={styles.formActions}>
-                <button type="submit" style={styles.startButton}>
-                  <span style={styles.buttonIcon}>🎙️</span>
-                  Start Voice Call
-                </button>
-              </div>
-            </form>
+        {/* Row 1: Language | Bot Name */}
+        <div style={styles.formRow}>
+          <div style={styles.formField}>
+            <label htmlFor="language" style={styles.label}>Language</label>
+            <select
+              id="language"
+              name="language"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              style={styles.select}
+            >
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="es">Tamil</option>
+              <option value="fr">African</option>
+            </select>
+          </div>
+          <div style={styles.formField}>
+            <label htmlFor="bot_name" style={styles.label}>Bot Name</label>
+            <input
+              id="bot_name"
+              name="bot_name"
+              type="text"
+              value={formData.bot_name}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="Enter bot name"
+            />
           </div>
         </div>
+        {/* Row 2: Bank Name | Customer Name */}
+        <div style={styles.formRow}>
+          <div style={styles.formField}>
+            <label htmlFor="bank_name" style={styles.label}>Bank Name</label>
+            <input
+              id="bank_name"
+              name="bank_name"
+              type="text"
+              value={formData.bank_name}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="Enter bank name"
+            />
+          </div>
+          <div style={styles.formField}>
+            <label htmlFor="customer_name" style={styles.label}>Customer Name</label>
+            <input
+              id="customer_name"
+              name="customer_name"
+              type="text"
+              value={formData.customer_name}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="Enter customer name"
+            />
+          </div>
+        </div>
+        {/* Row 3: Loan Type | Amount Disbursed */}
+        <div style={styles.formRow}>
+          <div style={styles.formField}>
+            <label htmlFor="loan_type" style={styles.label}>Loan Type</label>
+            <input
+              id="loan_type"
+              name="loan_type"
+              type="text"
+              value={formData.loan_type}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="e.g., home, personal, business"
+            />
+          </div>
+          <div style={styles.formField}>
+            <label htmlFor="amount_disbursed" style={styles.label}>Amount Disbursed</label>
+            <input
+              id="amount_disbursed"
+              name="amount_disbursed"
+              type="number"
+              value={formData.amount_disbursed}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="Enter amount"
+            />
+          </div>
+        </div>
+        {/* Row 4: Principal Outstanding | Total Overdue Amount */}
+        <div style={styles.formRow}>
+          <div style={styles.formField}>
+            <label htmlFor="principal_outstanding" style={styles.label}>Principal Outstanding</label>
+            <input
+              id="principal_outstanding"
+              name="principal_outstanding"
+              type="number"
+              value={formData.principal_outstanding}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="Enter outstanding amount"
+            />
+          </div>
+          <div style={styles.formField}>
+            <label htmlFor="over_due_total_amount" style={styles.label}>Total Overdue Amount</label>
+            <input
+              id="over_due_total_amount"
+              name="over_due_total_amount"
+              type="number"
+              value={formData.over_due_total_amount}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="Enter overdue amount"
+            />
+          </div>
+        </div>
+        {/* Row 5: Overdue Days | (empty) */}
+        <div style={styles.formRow}>
+          <div style={styles.formField}>
+            <label htmlFor="over_due_days" style={styles.label}>Overdue Days</label>
+            <input
+              id="over_due_days"
+              name="over_due_days"
+              type="number"
+              value={formData.over_due_days}
+              onChange={handleChange}
+              style={styles.input}
+              placeholder="Enter overdue days"
+            />
+          </div>
+          <div style={styles.formField}></div>
+        </div>
+        {/* Row 6: Recovery Reason (textarea, full width) */}
+        <div style={styles.formRow}>
+          <div style={{ ...styles.formField, width: '100%' }}>
+            <label htmlFor="reason" style={styles.label}>Recovery Reason</label>
+            <textarea
+              id="reason"
+              name="reason"
+              value={formData.reason}
+              onChange={handleChange}
+              style={styles.textarea}
+              placeholder="Describe the reason for recovery"
+              rows={2}
+            />
+          </div>
+        </div>
+        {/* Row 7: Start Voice Call button */}
+        <div style={styles.formActions}>
+          <button type="submit" style={styles.startButton}>
+            <span style={styles.buttonIcon}>🎙️</span>
+            Start Voice Call
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
       ) : (
         <div style={styles.sessionContainer}>
           <div style={styles.sessionHeader}>
@@ -406,23 +374,23 @@ export default function LoanbotDemoPage() {
     header: {
       backgroundColor: "#ffffff",
       borderBottom: "1px solid #e2e8f0",
-      padding: "24px 0",
-      marginBottom: "32px",
+      padding: "6px 0",
+      marginBottom: "6px",
     },
     logoSection: {
       maxWidth: "1200px",
       margin: "0 auto",
-      padding: "0 24px",
+      padding: "0 6px",
       display: "flex",
       alignItems: "center",
-      gap: "16px",
+      gap: "4px",
     },
     logo: {
-      fontSize: "48px",
+      fontSize: "24px",
       lineHeight: "1",
     },
     title: {
-      fontSize: "32px",
+      fontSize: "20px",
       fontWeight: "700",
       color: "#2C514C",
       margin: "0 0 4px 0",
@@ -433,37 +401,54 @@ export default function LoanbotDemoPage() {
       margin: "0",
     },
     formContainer: {
-      maxWidth: "1200px",
-      margin: "0 auto",
-      padding: "0 24px",
+      width: "100%",
+      maxWidth: "550px",
+      margin: "0",
+      padding: "12px",
+      boxSizing: "border-box",
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
     },
     formCard: {
       backgroundColor: "#ffffff",
-      borderRadius: "16px",
-      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-      overflow: "hidden",
+      borderRadius: "10px",
+      boxShadow: "0 2px 4px -1px rgba(0,0,0,0.08)",
+      overflow: "visible",
+      width: "100%",
+      maxWidth: "550px",
+      marginLeft: 0,
+      padding: "20px",
+      boxSizing: "border-box",
     },
     formHeader: {
-      padding: "32px 32px 24px 32px",
+      padding: "8px 12px 6px 12px",
       borderBottom: "1px solid #e2e8f0",
     },
     formTitle: {
-      fontSize: "24px",
+      fontSize: "18px",
       fontWeight: "600",
       color: "#2C514C",
-      margin: "0 0 8px 0",
+      margin: "0 0 4px 0",
     },
     formDescription: {
-      fontSize: "16px",
+      fontSize: "13px",
       color: "#64748b",
       margin: "0",
-      lineHeight: "1.5",
+      lineHeight: "1.4",
     },
     form: {
-      padding: "32px",
+      padding: "10px 0",
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "12px 12px",
+      width: "100%",
+      boxSizing: "border-box",
+      alignItems: "start",
     },
     formSection: {
-      marginBottom: "32px",
+      marginBottom: "0",
+      gridColumn: "1 / -1",
     },
     sectionTitle: {
       fontSize: "18px",
@@ -474,14 +459,17 @@ export default function LoanbotDemoPage() {
       borderBottom: "2px solid #2C514C",
     },
     formRow: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "20px",
-      marginBottom: "16px",
+      display: "flex",
+      flexDirection: "row",
+      gap: "12px",
+      marginBottom: "8px",
     },
     formField: {
       display: "flex",
       flexDirection: "column",
+      width: "100%",
+      minWidth: 0,
+      marginBottom: "0",
     },
     label: {
       fontSize: "14px",
@@ -490,23 +478,24 @@ export default function LoanbotDemoPage() {
       marginBottom: "6px",
     },
     input: {
-      padding: "12px 16px",
-      fontSize: "16px",
-      border: "2px solid #e2e8f0",
-      borderRadius: "8px",
-      backgroundColor: "#ffffff",
-      transition: "border-color 0.2s ease",
-      outline: "none",
+      padding: "6px 10px",
+      fontSize: "14px",
+      border: "1px solid #cbd5e1",
+      borderRadius: "6px",
+      backgroundColor: "#f9fafb",
+      transition: "border 0.2s",
+      height: "36px",
+      boxSizing: "border-box",
     },
     select: {
-      padding: "12px 16px",
-      fontSize: "16px",
-      border: "2px solid #e2e8f0",
-      borderRadius: "8px",
-      backgroundColor: "#ffffff",
-      transition: "border-color 0.2s ease",
-      outline: "none",
-      cursor: "pointer",
+      padding: "6px 10px",
+      fontSize: "14px",
+      border: "1px solid #cbd5e1",
+      borderRadius: "6px",
+      backgroundColor: "#f9fafb",
+      transition: "border 0.2s",
+      height: "36px",
+      boxSizing: "border-box",
     },
     textarea: {
       padding: "12px 16px",
@@ -518,12 +507,15 @@ export default function LoanbotDemoPage() {
       outline: "none",
       resize: "vertical",
       fontFamily: "inherit",
+      width: "100%",
+      boxSizing: "border-box",
     },
     formActions: {
       display: "flex",
       justifyContent: "center",
-      paddingTop: "24px",
+      paddingTop: "10px",
       borderTop: "1px solid #e2e8f0",
+      gridColumn: "1 / -1",
     },
     startButton: {
       display: "flex",
