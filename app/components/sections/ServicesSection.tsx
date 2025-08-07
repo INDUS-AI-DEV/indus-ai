@@ -1,26 +1,26 @@
 "use client";
-import Container from "../ui/Container";
 import { useState } from "react";
+import Container from "../ui/Container";
 
 const industries = [
   {
-    title: "Automotive",
-    subtitle: "Drive Sales & Service Excellence",
-    description: "24/7 lead qualification, service automation, and customer engagement for dealerships and OEMs",
+    title: "Hospitality",
+    subtitle: "Elevate Guest Experience",
+    description: "24/7 multilingual support for hotels, resorts, and travel services with seamless booking and guest services",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
     ),
     benefits: [
-      "24/7 Test Drive Scheduling",
-      "Automated Service Appointments",
-      "Lead Qualification & Follow-up",
-      "After-sales Support Automation",
-      "Logistics Communication"
+      "24/7 Room Booking & Reservations",
+      "Multilingual Guest Support",
+      "Concierge Services Automation",
+      "Dining & Amenities Booking",
+      "Feedback & Review Collection"
     ],
-    metrics: { primary: "65%", secondary: "Faster Service Bookings" },
-    color: "from-blue-500 to-cyan-500"
+    metrics: { primary: "50%", secondary: "Faster Bookings" },
+    color: "from-amber-500 to-yellow-500"
   },
   {
     title: "Banking & Finance",
@@ -78,14 +78,41 @@ const industries = [
     ],
     metrics: { primary: "40%", secondary: "Reduced No-shows" },
     color: "from-red-500 to-orange-500"
+  },
+  {
+    title: "Automotive",
+    subtitle: "Drive Sales & Service Excellence",
+    description: "24/7 lead qualification, service automation, and customer engagement for dealerships and OEMs",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      </svg>
+    ),
+    benefits: [
+      "24/7 Test Drive Scheduling",
+      "Automated Service Appointments",
+      "Lead Qualification & Follow-up",
+      "After-sales Support Automation",
+      "Logistics Communication"
+    ],
+    metrics: { primary: "65%", secondary: "Faster Service Bookings" },
+    color: "from-blue-500 to-cyan-500"
   }
 ];
 
 export default function ServicesSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
+  // Reorder industries to put Automotive at the end
+  const reorderedIndustries = [...industries];
+  const automotiveIndex = reorderedIndustries.findIndex(ind => ind.title === 'Automotive');
+  if (automotiveIndex > -1) {
+    const [automotive] = reorderedIndustries.splice(automotiveIndex, 1);
+    reorderedIndustries.push(automotive);
+  }
+
   return (
-    <section className="py-32 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"></div>
@@ -94,27 +121,23 @@ export default function ServicesSection() {
       
       <Container className="relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-6">
-            <span className="text-sm font-medium text-blue-800 font-raleway">
-              ✨ Industry-Specific Solutions
-            </span>
-          </div>
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-raleway">
-            Voice AI Solutions,{" "}
+            Voice AI Solutions,{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Purpose-Built
-            </span>{" "}
+            </span>{' '}
             for Your Industry
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-raleway">
-            From automotive dealerships to banking institutions, our AI agents understand your industry's unique challenges and deliver measurable results.
+            Our AI voice agents are customized to meet the unique needs of your business, 
+            delivering exceptional customer experiences across multiple languages.
           </p>
         </div>
 
         {/* Industry Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {industries.map((industry, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reorderedIndustries.map((industry, index) => (
             <div
               key={industry.title}
               className="group relative bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"

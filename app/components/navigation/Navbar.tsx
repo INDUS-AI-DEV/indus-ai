@@ -12,6 +12,16 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ];
 
+const languages = [
+  { code: 'en', name: 'English' },
+  { code: 'hi', name: 'हिंदी' },
+  { code: 'ta', name: 'தமிழ்' },
+  { code: 'te', name: 'తెలుగు' },
+  { code: 'kn', name: 'ಕನ್ನಡ' },
+  { code: 'mr', name: 'मराठी' },
+  { code: 'bn', name: 'বাংলা' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -46,9 +56,26 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            {/* <Button variant="secondary" size="sm" className="font-raleway">
-              Sign In
-            </Button> */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors font-raleway">
+                <span>🌐</span>
+                <span className="hidden md:inline">English</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                {languages.map((lang) => (
+                  <a
+                    key={lang.code}
+                    href={`?lang=${lang.code}`}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    {lang.name}
+                  </a>
+                ))}
+              </div>
+            </div>
             <a href="https://calendly.com/indusai-app/meet">
               <Button size="sm" className="font-raleway">
                 Book a Demo

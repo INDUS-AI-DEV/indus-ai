@@ -8,7 +8,7 @@ function FloatingGeometry({ position, color, shape = "sphere" }: {
   position: [number, number, number]; 
   color: string; 
   shape?: "sphere" | "box" | "torus" 
-}) {
+}) { 
   const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
@@ -65,6 +65,7 @@ function ParticleField() {
           count={particleCount}
           array={positions}
           itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial color="#3B38A0" size={0.05} transparent opacity={0.6} />
