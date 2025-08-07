@@ -71,7 +71,7 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 border-t border-gray-200 font-raleway">
+    <footer className="bg-gradient-to-br from-slate-900 to-blue-900 relative overflow-hidden">
       <Container>
         <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -86,14 +86,14 @@ export default function Footer() {
                   className="h-12 w-auto"
                 />
               </Link>
-              <p className="text-sm text-gray-600 mb-6">
-                Transforming businesses through innovative AI solutions.
+              <p className="text-sm text-blue-200 mb-6">
+                The Proven Voice AI Platform for India's Leading Enterprises. Automate 80% of customer conversations and reduce costs by 40%.
               </p>
             </div>
 
             {/* Company Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">Company</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Company</h3>
               <ul className="space-y-3">
                 {navigation.company.map((item) => (
                   <li key={item.name}>

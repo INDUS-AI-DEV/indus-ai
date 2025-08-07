@@ -419,7 +419,7 @@ export default function LoanbotDemoPage() {
       maxWidth: "550px",
       marginLeft: 0,
       padding: "20px",
-      boxSizing: "border-box",
+      boxSizing: "border-box"
     },
     formHeader: {
       padding: "8px 12px 6px 12px",

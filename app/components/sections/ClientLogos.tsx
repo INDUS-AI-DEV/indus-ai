@@ -1,6 +1,6 @@
 import Container from "../ui/Container";
 import Image from "next/image";
-// import Marquee from "react-fast-marquee";
+import Marquee from "react-fast-marquee";
 
 // const clients = [
 //   { name: "Microsoft" },
@@ -30,45 +30,62 @@ const clients = [
 
 export default function ClientLogos() {
   return (
-    <section className="py-24 overflow-hidden bg-white mx-auto max-w-7xl px-4">
+    <section className="pt-8 pb-16 overflow-hidden bg-white">
       <Container>
-        <h2 className="text-center text-sm font-medium text-gray-500 mb-16 font-raleway">
+        <h2 className="text-center text-sm font-medium text-gray-500 mb-8 font-raleway">
           Supported by
         </h2>
       </Container>
-      {/* <Marquee
+      <Marquee
         gradient={true}
-        gradientColor="#F9FAFB"
-        speed={50}
+        gradientColor="#ffffff"
+        speed={40}
         className="overflow-hidden"
+        pauseOnHover={true}
       >
-        <div className="flex">
-          {clients.map((client) => (
+        <div className="flex items-center">
+          {clients.map((client, index) => (
             <div
-              key={client.name}
-              className="text-2xl font-medium text-gray-400 hover:text-gray-600 transition-colors duration-300 w-[200px] flex items-center justify-center font-raleway"
+              key={`${client.image}-${index}`}
+              className="mx-8 flex items-center justify-center"
             >
-              {client.name}
+              <Image
+                src={client.image}
+                alt={`Supported by ${client.image.split('/').pop()?.split('.')[0]}`}
+                width={160}
+                height={80}
+                className="h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
+              />
             </div>
           ))}
         </div>
-      </Marquee> */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center">
-        {clients.map((client) => (
-          <div
-            key={client.image}
-            className="text-2xl font-medium text-gray-400 hover:text-gray-600 transition-colors duration-300 w-[200px] flex items-center justify-center font-raleway"
-          >
-            <Image
-              src={client.image}
-              alt={client.image}
-              width={200}
-              height={200}
-              className="w-full h-30 p-4 object-contain border border-gray-200 rounded-md hover:scale-105 transition-all duration-300"
-            />
-          </div>
-        ))}
-      </div>
+      </Marquee>
+      {/* Duplicate for continuous effect */}
+      <Marquee
+        gradient={true}
+        gradientColor="#ffffff"
+        speed={30}
+        className="overflow-hidden mt-8"
+        direction="right"
+        pauseOnHover={true}
+      >
+        <div className="flex items-center">
+          {clients.map((client, index) => (
+            <div
+              key={`${client.image}-reverse-${index}`}
+              className="mx-8 flex items-center justify-center"
+            >
+              <Image
+                src={client.image}
+                alt={`Supported by ${client.image.split('/').pop()?.split('.')[0]}`}
+                width={160}
+                height={80}
+                className="h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
+              />
+            </div>
+          ))}
+        </div>
+      </Marquee>
     </section>
   );
 }
