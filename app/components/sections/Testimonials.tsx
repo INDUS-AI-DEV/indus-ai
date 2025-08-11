@@ -10,7 +10,7 @@ const testimonials = [
     role: "Chief Technology Officer",
     company: "HDFC Bank",
     industry: "Banking & Finance",
-    metrics: "89% FCR, 45% Cost Reduction",
+    metrics: "95% FCR, 45% Cost Reduction",
     avatar: "/images/avatars/rajesh-kumar.jpg",
     companyLogo: "/images/logos/hdfc.png"
   },
@@ -128,7 +128,7 @@ export default function Testimonials() {
                 
                 {/* Floating stats */}
                 <div className="absolute -top-4 -right-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg animate-bounce">
-                  <div className="text-2xl font-bold text-gray-900 font-raleway">200+</div>
+                  <div className="text-2xl font-bold text-gray-900 font-raleway">20+</div>
                   <div className="text-xs text-gray-600 font-raleway">Enterprises</div>
                 </div>
                 
@@ -159,8 +159,8 @@ export default function Testimonials() {
         {/* Additional Stats */}
         <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {[
-            { number: "200+", label: "Enterprise Clients" },
-            { number: "89%", label: "Avg. FCR Rate" },
+            { number: "22+", label: "Enterprise Clients" },
+            { number: "95%", label: "Avg. FCR Rate" },
             { number: "45%", label: "Cost Reduction" },
             { number: "24/7", label: "AI Availability" }
           ].map((stat, index) => (
