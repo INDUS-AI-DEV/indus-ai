@@ -57,20 +57,20 @@ export default function Hero() {
             
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6 font-raleway leading-tight">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Multilingual AI Voice
+                AI Voice Agents
               </span>{" "}
-              for Every Business
+              for Everyone
             </h1>
             
             <p className="text-xl text-gray-700 mb-8 leading-relaxed font-raleway">
-              Experience human-like voice interactions in <span className="font-semibold text-gray-900">10+ Indian languages</span>.
-              Our AI voice agents deliver natural, context-aware conversations that feel real.
+              Experience the future of communication with our <span className="font-semibold text-gray-900">AI-powered voice agents</span>.
+              Perfect for businesses of all sizes, now speaking <span className="font-semibold text-gray-900">40+ languages</span> with human-like clarity.
             </p>
             
             {/* Key metrics */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100">
-                <div className="text-2xl font-bold text-blue-600 font-raleway">10+</div>
+                <div className="text-2xl font-bold text-blue-600 font-raleway">40+</div>
                 <div className="text-sm text-gray-600 font-raleway">Languages</div>
               </div>
               <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100">
