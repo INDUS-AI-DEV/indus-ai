@@ -59,9 +59,17 @@ const faqs = [
   },
 ];
 
-const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const FAQItem = ({ 
+  question, 
+  answer, 
+  isOpen, 
+  onClick 
+}: { 
+  question: string; 
+  answer: string; 
+  isOpen: boolean; 
+  onClick: () => void 
+}) => {
   return (
     <motion.div 
       className="overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 mb-4 transition-all duration-300 hover:shadow-md"
@@ -72,8 +80,8 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
       }}
     >
       <motion.button
-        className="flex justify-between items-center w-full p-6 text-left"
-        onClick={() => setIsOpen(!isOpen)}
+        className="flex justify-between items-center w-full p-6 text-left cursor-pointer"
+        onClick={onClick}
         whileTap={{ scale: 0.98 }}
       >
         <h3 className="text-lg font-semibold text-gray-800">{question}</h3>
@@ -118,6 +126,12 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 };
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleClick = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section className="py-20 bg-gradient-to-b from-white to-blue-50/20">
       <Container>
@@ -162,7 +176,13 @@ export default function FAQ() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            <FAQItem 
+              key={index} 
+              question={faq.question} 
+              answer={faq.answer} 
+              isOpen={openIndex === index}
+              onClick={() => handleClick(index)}
+            />
           ))}
         </motion.div>
         

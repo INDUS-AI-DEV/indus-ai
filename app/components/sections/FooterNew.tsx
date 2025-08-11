@@ -97,11 +97,11 @@ export default function FooterNew() {
               {/* Key Stats */}
               <div className="grid grid-cols-3 gap-4 mb-8">
                 <div className="text-center">
-                  <div className="text-lg font-bold text-white">200+</div>
+                  <div className="text-lg font-bold text-white">22+</div>
                   <div className="text-xs text-blue-300">Enterprises</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg font-bold text-white">89%</div>
+                  <div className="text-lg font-bold text-white">95%</div>
                   <div className="text-xs text-blue-300">FCR Rate</div>
                 </div>
                 <div className="text-center">
@@ -204,7 +204,7 @@ export default function FooterNew() {
               Ready to Transform Your Customer Experience?
             </h3>
             <p className="text-blue-200 mb-6 max-w-2xl mx-auto">
-              Join 200+ enterprises already using IndusAI to automate conversations, increase sales, and reduce operational costs.
+              Join 20+ enterprises already using IndusAI to automate conversations, increase sales, and reduce operational costs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

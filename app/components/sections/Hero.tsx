@@ -57,29 +57,33 @@ export default function Hero() {
             
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6 font-raleway leading-tight">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                AI Voice Agents
+                Elevate Your Customer Experience
               </span>{" "}
-              for Everyone
+              with AI Voice Agents
             </h1>
             
             <p className="text-xl text-gray-700 mb-8 leading-relaxed font-raleway">
-              Experience the future of communication with our <span className="font-semibold text-gray-900">AI-powered voice agents</span>.
-              Perfect for businesses of all sizes, now speaking <span className="font-semibold text-gray-900">40+ languages</span> with human-like clarity.
+              Multilingual, intelligent, and always available – your next-gen support partner.
+              Perfect for businesses of all sizes, now speaking <span className="font-semibold text-gray-900">22+ languages</span> with human-like clarity.
             </p>
             
             {/* Key metrics */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-4 gap-4 mb-8">
               <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100">
-                <div className="text-2xl font-bold text-blue-600 font-raleway">40+</div>
+                <div className="text-2xl font-bold text-blue-600 font-raleway">22+</div>
                 <div className="text-sm text-gray-600 font-raleway">Languages</div>
               </div>
               <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100">
-                <div className="text-2xl font-bold text-green-600 font-raleway">40%</div>
+                <div className="text-2xl font-bold text-green-600 font-raleway">45%</div>
                 <div className="text-sm text-gray-600 font-raleway">Cost Savings</div>
               </div>
               <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100">
                 <div className="text-2xl font-bold text-purple-600 font-raleway">24/7</div>
                 <div className="text-sm text-gray-600 font-raleway">Availability</div>
+              </div>
+              <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100">
+                <div className="text-2xl font-bold text-orange-600 font-raleway">&lt;1s</div>
+                <div className="text-sm text-gray-600 font-raleway">Response Time</div>
               </div>
             </div>
             
@@ -129,7 +133,7 @@ export default function Hero() {
               </div>
               
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg animate-bounce delay-1000">
-                <div className="text-xs font-medium text-gray-700">40+ Languages</div>
+                <div className="text-xs font-medium text-gray-700">22+ Languages</div>
               </div>
             </div>
           </div>

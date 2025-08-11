@@ -172,7 +172,7 @@ const industries = [
         />
       </svg>
     ),
-    solutions: ["Risk Assessment", "Fraud Detection", "Trading Analytics"],
+    solutions: ["Risk Assessment", "Fraud Detection", "Trading Analytics", "Loan Recovery System"],
   },
   {
     name: "Manufacturing",
