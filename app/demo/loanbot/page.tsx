@@ -133,6 +133,308 @@ export default function LoanbotDemoPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Define styles inside the component
+  // Extend CSSProperties to include pseudo-selectors
+  type CSSPropertiesWithPseudo = React.CSSProperties & {
+    '&:hover'?: React.CSSProperties;
+    '&:focus'?: React.CSSProperties;
+    '&:active'?: React.CSSProperties;
+  };
+
+  const styles: Record<string, CSSPropertiesWithPseudo> = {
+    container: {
+      fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      minHeight: '100vh',
+      backgroundColor: '#f8f9fa',
+      padding: '10px',
+      margin: '0 auto',
+      boxSizing: 'border-box',
+      maxWidth: '1400px',
+    },
+    header: {
+      backgroundColor: '#2c3e50',
+      color: 'white',
+      padding: '10px 20px',
+      marginBottom: '15px',
+      borderRadius: '8px',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      textAlign: 'center',
+    },
+    logoSection: {
+      maxWidth: '1000px',
+      margin: '0 auto',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '15px',
+      justifyContent: 'center',
+    },
+    logo: {
+      fontSize: '28px',
+      lineHeight: 1,
+      backgroundColor: '#3498db',
+      padding: '8px 12px',
+      borderRadius: '6px',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    title: {
+      fontSize: '20px',
+      fontWeight: 600,
+      margin: 0,
+      color: 'white',
+    },
+    subtitle: {
+      fontSize: '14px',
+      color: '#ecf0f1',
+      margin: '4px 0 0',
+      opacity: 0.9,
+    },
+    formContainer: {
+      width: '100%',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+      overflow: 'hidden',
+    },
+    formCard: {
+      padding: '15px 20px',
+    },
+    formHeader: {
+      marginBottom: '20px',
+      paddingBottom: '15px',
+      borderBottom: '1px solid #eee',
+    },
+    formTitle: {
+      fontSize: '18px',
+      fontWeight: 600,
+      color: '#2c3e50',
+      margin: '0 0 5px 0',
+    },
+    formDescription: {
+      fontSize: '14px',
+      color: '#7f8c8d',
+      margin: 0,
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    formGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+      gap: '12px',
+      marginBottom: '15px',
+    },
+    formField: {
+      marginBottom: '8px',
+    },
+    label: {
+      display: 'block',
+      marginBottom: '6px',
+      fontSize: '14px',
+      fontWeight: 500,
+      color: '#2c3e50',
+    },
+    input: {
+      width: '100%',
+      padding: '8px 10px',
+      borderRadius: '4px',
+      border: '1px solid #ddd',
+      fontSize: '13px',
+      color: '#333',
+      boxSizing: 'border-box',
+      height: '36px',
+      outline: 'none',
+      '&:focus': {
+        borderColor: '#3498db',
+        boxShadow: '0 0 0 2px rgba(52, 152, 219, 0.2)',
+      } as React.CSSProperties,
+    },
+    select: {
+      width: '100%',
+      padding: '8px 10px',
+      borderRadius: '4px',
+      border: '1px solid #ddd',
+      fontSize: '13px',
+      color: '#333',
+      backgroundColor: 'white',
+      appearance: 'none',
+      backgroundImage: 'url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right 8px center',
+      backgroundSize: '10px',
+      height: '36px',
+      outline: 'none',
+      '&:focus': {
+        borderColor: '#3498db',
+        boxShadow: '0 0 0 2px rgba(52, 152, 219, 0.2)',
+      } as React.CSSProperties,
+    },
+    textarea: {
+      width: '100%',
+      padding: '8px 10px',
+      borderRadius: '4px',
+      border: '1px solid #ddd',
+      fontSize: '13px',
+      color: '#333',
+      resize: 'vertical',
+      minHeight: '60px',
+      boxSizing: 'border-box',
+      outline: 'none',
+      '&:focus': {
+        borderColor: '#3498db',
+        boxShadow: '0 0 0 2px rgba(52, 152, 219, 0.2)',
+      } as React.CSSProperties,
+    },
+    formActions: {
+      marginTop: '10px',
+      display: 'flex',
+      justifyContent: 'flex-end',
+    },
+    startButton: {
+      backgroundColor: '#2ecc71',
+      color: 'white',
+      border: 'none',
+      borderRadius: '6px',
+      padding: '12px 24px',
+      fontSize: '16px',
+      fontWeight: 600,
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      transition: 'background-color 0.2s',
+      '&:hover': {
+        backgroundColor: '#27ae60',
+      } as React.CSSProperties,
+    },
+    buttonIcon: {
+      fontSize: '16px',
+    },
+    sessionContainer: {
+      maxWidth: '1000px',
+      margin: '0 auto',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+      overflow: 'hidden',
+    },
+    sessionHeader: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '15px 25px',
+      borderBottom: '1px solid #eee',
+    },
+    sessionInfo: {
+      flex: 1,
+    },
+    sessionTitle: {
+      fontSize: '18px',
+      fontWeight: 600,
+      margin: '0 0 4px 0',
+      color: '#2c3e50',
+    },
+    sessionStatus: {
+      fontSize: '14px',
+      color: '#7f8c8d',
+      margin: 0,
+    },
+    endButton: {
+      backgroundColor: '#e74c3c',
+      color: 'white',
+      border: 'none',
+      borderRadius: '6px',
+      padding: '8px 16px',
+      fontSize: '14px',
+      fontWeight: 500,
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '6px',
+      transition: 'background-color 0.2s',
+      '&:hover': {
+        backgroundColor: '#c0392b',
+      },
+    },
+    speakingIndicator: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '10px 25px',
+      backgroundColor: '#f8f9fa',
+      borderBottom: '1px solid #eee',
+      fontSize: '14px',
+      color: '#2c3e50',
+    },
+    speakingIcon: {
+      fontSize: '16px',
+    },
+    chatContainer: {
+      padding: '20px 25px',
+    },
+    chatHeader: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '15px',
+    },
+    chatTitle: {
+      fontSize: '16px',
+      fontWeight: 600,
+      margin: 0,
+      color: '#2c3e50',
+    },
+    chatStatus: {
+      fontSize: '12px',
+      color: '#7f8c8d',
+      backgroundColor: '#f1f2f6',
+      padding: '4px 8px',
+      borderRadius: '10px',
+    },
+    chatMessages: {
+      backgroundColor: '#f8f9fa',
+      borderRadius: '8px',
+      padding: '15px',
+      minHeight: '200px',
+      maxHeight: '400px',
+      overflowY: 'auto',
+    },
+    emptyChat: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '200px',
+      color: '#95a5a6',
+      textAlign: 'center',
+    },
+    emptyIcon: {
+      fontSize: '32px',
+      marginBottom: '10px',
+      opacity: 0.7,
+    },
+    chatMessage: {
+      marginBottom: '15px',
+      padding: '10px 15px',
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+    },
+    messageSender: {
+      fontSize: '12px',
+      fontWeight: 600,
+      color: '#3498db',
+      marginBottom: '4px',
+    },
+    messageText: {
+      fontSize: '14px',
+      color: '#2c3e50',
+      lineHeight: 1.5,
+    },
+  };
+
   return (
     <div style={styles.container}>
       <div style={styles.header}>
@@ -149,9 +451,9 @@ export default function LoanbotDemoPage() {
         <div style={styles.formContainer}>
           <div style={styles.formCard}>
             <div style={styles.formHeader}>
-              <h2 style={styles.formTitle}>Configure Loan Details</h2>
+              <h2 style={styles.formTitle}>Loan Recovery Call Configuration</h2>
               <p style={styles.formDescription}>
-                Set up the loan information and start a voice conversation with our AI assistant
+                Configure the loan details to initiate the recovery call
               </p>
             </div>
             
@@ -162,158 +464,169 @@ export default function LoanbotDemoPage() {
               }}
               style={styles.form}
             >
-        {/* Row 1: Language | Bot Name */}
-        <div style={styles.formRow}>
-          <div style={styles.formField}>
-            <label htmlFor="language" style={styles.label}>Language</label>
-            <select
-              id="language"
-              name="language"
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-              style={styles.select}
-            >
-              <option value="en">English</option>
-              <option value="hi">Hindi</option>
-              <option value="es">Tamil</option>
-              <option value="fr">African</option>
-            </select>
-          </div>
-          <div style={styles.formField}>
-            <label htmlFor="bot_name" style={styles.label}>Bot Name</label>
-            <input
-              id="bot_name"
-              name="bot_name"
-              type="text"
-              value={formData.bot_name}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="Enter bot name"
-            />
+              <div style={styles.formGrid}>
+                {/* Language */}
+                <div style={styles.formField}>
+                  <label htmlFor="language" style={styles.label}>Language</label>
+                  <select
+                    id="language"
+                    name="language"
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                    style={styles.select}
+                  >
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ta">Tamil</option>
+                    <option value="af">African</option>
+                  </select>
+                </div>
+
+                {/* Bot Name */}
+                <div style={styles.formField}>
+                  <label htmlFor="bot_name" style={styles.label}>Bot Name</label>
+                  <input
+                    id="bot_name"
+                    name="bot_name"
+                    type="text"
+                    value={formData.bot_name}
+                    onChange={handleChange}
+                    style={styles.input}
+                    placeholder="Enter bot name"
+                  />
+                </div>
+
+                {/* Bank Name */}
+                <div style={styles.formField}>
+                  <label htmlFor="bank_name" style={styles.label}>Bank Name</label>
+                  <input
+                    id="bank_name"
+                    name="bank_name"
+                    type="text"
+                    value={formData.bank_name}
+                    onChange={handleChange}
+                    style={styles.input}
+                    placeholder="Enter bank name"
+                  />
+                </div>
+
+                {/* Customer Name */}
+                <div style={styles.formField}>
+                  <label htmlFor="customer_name" style={styles.label}>Customer Name</label>
+                  <input
+                    id="customer_name"
+                    name="customer_name"
+                    type="text"
+                    value={formData.customer_name}
+                    onChange={handleChange}
+                    style={styles.input}
+                    placeholder="Enter customer name"
+                  />
+                </div>
+
+                {/* Loan Type */}
+                <div style={styles.formField}>
+                  <label htmlFor="loan_type" style={styles.label}>Loan Type</label>
+                  <select
+                    id="loan_type"
+                    name="loan_type"
+                    value={formData.loan_type}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => 
+                      setFormData(prev => ({...prev, loan_type: e.target.value}))
+                    }
+                    style={styles.select}
+                  >
+                    <option value="home">Home Loan</option>
+                    <option value="personal">Personal Loan</option>
+                    <option value="business">Business Loan</option>
+                    <option value="auto">Auto Loan</option>
+                  </select>
+                </div>
+
+                {/* Amount Disbursed */}
+                <div style={styles.formField}>
+                  <label htmlFor="amount_disbursed" style={styles.label}>Amount Disbursed</label>
+                  <input
+                    id="amount_disbursed"
+                    name="amount_disbursed"
+                    type="number"
+                    value={formData.amount_disbursed}
+                    onChange={handleChange}
+                    style={styles.input}
+                    placeholder="Enter amount"
+                  />
+                </div>
+
+                {/* Principal Outstanding */}
+                <div style={styles.formField}>
+                  <label htmlFor="principal_outstanding" style={styles.label}>Principal Outstanding</label>
+                  <input
+                    id="principal_outstanding"
+                    name="principal_outstanding"
+                    type="number"
+                    value={formData.principal_outstanding}
+                    onChange={handleChange}
+                    style={styles.input}
+                    placeholder="Enter outstanding amount"
+                  />
+                </div>
+
+                {/* Total Overdue Amount */}
+                <div style={styles.formField}>
+                  <label htmlFor="over_due_total_amount" style={styles.label}>Total Overdue Amount</label>
+                  <input
+                    id="over_due_total_amount"
+                    name="over_due_total_amount"
+                    type="number"
+                    value={formData.over_due_total_amount}
+                    onChange={handleChange}
+                    style={styles.input}
+                    placeholder="Enter overdue amount"
+                  />
+                </div>
+
+                {/* Overdue Days */}
+                <div style={styles.formField}>
+                  <label htmlFor="over_due_days" style={styles.label}>Overdue Days</label>
+                  <input
+                    id="over_due_days"
+                    name="over_due_days"
+                    type="number"
+                    value={formData.over_due_days}
+                    onChange={handleChange}
+                    style={styles.input}
+                    placeholder="Enter overdue days"
+                  />
+                </div>
+
+                {/* Empty field for grid alignment */}
+                <div style={styles.formField}></div>
+
+                {/* Recovery Reason */}
+                <div style={{ ...styles.formField, gridColumn: '1 / -1' }}>
+                  <label htmlFor="reason" style={styles.label}>Recovery Reason</label>
+                  <textarea
+                    id="reason"
+                    name="reason"
+                    value={formData.reason}
+                    onChange={handleChange}
+                    style={styles.textarea}
+                    placeholder="Describe the reason for recovery"
+                    rows={2}
+                  />
+                </div>
+              </div>
+
+              {/* Start Voice Call button */}
+              <div style={styles.formActions}>
+                <button type="submit" style={styles.startButton}>
+                  <span style={styles.buttonIcon}>🎙️</span>
+                  Start Voice Call
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-        {/* Row 2: Bank Name | Customer Name */}
-        <div style={styles.formRow}>
-          <div style={styles.formField}>
-            <label htmlFor="bank_name" style={styles.label}>Bank Name</label>
-            <input
-              id="bank_name"
-              name="bank_name"
-              type="text"
-              value={formData.bank_name}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="Enter bank name"
-            />
-          </div>
-          <div style={styles.formField}>
-            <label htmlFor="customer_name" style={styles.label}>Customer Name</label>
-            <input
-              id="customer_name"
-              name="customer_name"
-              type="text"
-              value={formData.customer_name}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="Enter customer name"
-            />
-          </div>
-        </div>
-        {/* Row 3: Loan Type | Amount Disbursed */}
-        <div style={styles.formRow}>
-          <div style={styles.formField}>
-            <label htmlFor="loan_type" style={styles.label}>Loan Type</label>
-            <input
-              id="loan_type"
-              name="loan_type"
-              type="text"
-              value={formData.loan_type}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="e.g., home, personal, business"
-            />
-          </div>
-          <div style={styles.formField}>
-            <label htmlFor="amount_disbursed" style={styles.label}>Amount Disbursed</label>
-            <input
-              id="amount_disbursed"
-              name="amount_disbursed"
-              type="number"
-              value={formData.amount_disbursed}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="Enter amount"
-            />
-          </div>
-        </div>
-        {/* Row 4: Principal Outstanding | Total Overdue Amount */}
-        <div style={styles.formRow}>
-          <div style={styles.formField}>
-            <label htmlFor="principal_outstanding" style={styles.label}>Principal Outstanding</label>
-            <input
-              id="principal_outstanding"
-              name="principal_outstanding"
-              type="number"
-              value={formData.principal_outstanding}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="Enter outstanding amount"
-            />
-          </div>
-          <div style={styles.formField}>
-            <label htmlFor="over_due_total_amount" style={styles.label}>Total Overdue Amount</label>
-            <input
-              id="over_due_total_amount"
-              name="over_due_total_amount"
-              type="number"
-              value={formData.over_due_total_amount}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="Enter overdue amount"
-            />
-          </div>
-        </div>
-        {/* Row 5: Overdue Days | (empty) */}
-        <div style={styles.formRow}>
-          <div style={styles.formField}>
-            <label htmlFor="over_due_days" style={styles.label}>Overdue Days</label>
-            <input
-              id="over_due_days"
-              name="over_due_days"
-              type="number"
-              value={formData.over_due_days}
-              onChange={handleChange}
-              style={styles.input}
-              placeholder="Enter overdue days"
-            />
-          </div>
-          <div style={styles.formField}></div>
-        </div>
-        {/* Row 6: Recovery Reason (textarea, full width) */}
-        <div style={styles.formRow}>
-          <div style={{ ...styles.formField, width: '100%' }}>
-            <label htmlFor="reason" style={styles.label}>Recovery Reason</label>
-            <textarea
-              id="reason"
-              name="reason"
-              value={formData.reason}
-              onChange={handleChange}
-              style={styles.textarea}
-              placeholder="Describe the reason for recovery"
-              rows={2}
-            />
-          </div>
-        </div>
-        {/* Row 7: Start Voice Call button */}
-        <div style={styles.formActions}>
-          <button type="submit" style={styles.startButton}>
-            <span style={styles.buttonIcon}>🎙️</span>
-            Start Voice Call
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
       ) : (
         <div style={styles.sessionContainer}>
           <div style={styles.sessionHeader}>
@@ -362,295 +675,3 @@ export default function LoanbotDemoPage() {
     </div>
   );
 }
-
-  const styles: { [key: string]: React.CSSProperties } = {
-    container: {
-      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-      minHeight: "100vh",
-      backgroundColor: "#f8fafc",
-      padding: "0",
-      margin: "0",
-    },
-    header: {
-      backgroundColor: "#ffffff",
-      borderBottom: "1px solid #e2e8f0",
-      padding: "6px 0",
-      marginBottom: "6px",
-    },
-    logoSection: {
-      maxWidth: "1200px",
-      margin: "0 auto",
-      padding: "0 6px",
-      display: "flex",
-      alignItems: "center",
-      gap: "4px",
-    },
-    logo: {
-      fontSize: "24px",
-      lineHeight: "1",
-    },
-    title: {
-      fontSize: "20px",
-      fontWeight: "700",
-      color: "#2C514C",
-      margin: "0 0 4px 0",
-    },
-    subtitle: {
-      fontSize: "16px",
-      color: "#64748b",
-      margin: "0",
-    },
-    formContainer: {
-      width: "100%",
-      maxWidth: "550px",
-      margin: "0",
-      padding: "12px",
-      boxSizing: "border-box",
-      display: "flex",
-      justifyContent: "flex-start",
-      alignItems: "flex-start",
-    },
-    formCard: {
-      backgroundColor: "#ffffff",
-      borderRadius: "10px",
-      boxShadow: "0 2px 4px -1px rgba(0,0,0,0.08)",
-      overflow: "visible",
-      width: "100%",
-      maxWidth: "550px",
-      marginLeft: 0,
-      padding: "20px",
-      boxSizing: "border-box"
-    },
-    formHeader: {
-      padding: "8px 12px 6px 12px",
-      borderBottom: "1px solid #e2e8f0",
-    },
-    formTitle: {
-      fontSize: "18px",
-      fontWeight: "600",
-      color: "#2C514C",
-      margin: "0 0 4px 0",
-    },
-    formDescription: {
-      fontSize: "13px",
-      color: "#64748b",
-      margin: "0",
-      lineHeight: "1.4",
-    },
-    form: {
-      padding: "10px 0",
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "12px 12px",
-      width: "100%",
-      boxSizing: "border-box",
-      alignItems: "start",
-    },
-    formSection: {
-      marginBottom: "0",
-      gridColumn: "1 / -1",
-    },
-    sectionTitle: {
-      fontSize: "18px",
-      fontWeight: "600",
-      color: "#2C514C",
-      margin: "0 0 16px 0",
-      paddingBottom: "8px",
-      borderBottom: "2px solid #2C514C",
-    },
-    formRow: {
-      display: "flex",
-      flexDirection: "row",
-      gap: "12px",
-      marginBottom: "8px",
-    },
-    formField: {
-      display: "flex",
-      flexDirection: "column",
-      width: "100%",
-      minWidth: 0,
-      marginBottom: "0",
-    },
-    label: {
-      fontSize: "14px",
-      fontWeight: "500",
-      color: "#374151",
-      marginBottom: "6px",
-    },
-    input: {
-      padding: "6px 10px",
-      fontSize: "14px",
-      border: "1px solid #cbd5e1",
-      borderRadius: "6px",
-      backgroundColor: "#f9fafb",
-      transition: "border 0.2s",
-      height: "36px",
-      boxSizing: "border-box",
-    },
-    select: {
-      padding: "6px 10px",
-      fontSize: "14px",
-      border: "1px solid #cbd5e1",
-      borderRadius: "6px",
-      backgroundColor: "#f9fafb",
-      transition: "border 0.2s",
-      height: "36px",
-      boxSizing: "border-box",
-    },
-    textarea: {
-      padding: "12px 16px",
-      fontSize: "16px",
-      border: "2px solid #e2e8f0",
-      borderRadius: "8px",
-      backgroundColor: "#ffffff",
-      transition: "border-color 0.2s ease",
-      outline: "none",
-      resize: "vertical",
-      fontFamily: "inherit",
-      width: "100%",
-      boxSizing: "border-box",
-    },
-    formActions: {
-      display: "flex",
-      justifyContent: "center",
-      paddingTop: "10px",
-      borderTop: "1px solid #e2e8f0",
-      gridColumn: "1 / -1",
-    },
-    startButton: {
-      display: "flex",
-      alignItems: "center",
-      gap: "8px",
-      padding: "16px 32px",
-      fontSize: "18px",
-      fontWeight: "600",
-      backgroundColor: "#2C514C",
-      color: "#ffffff",
-      border: "none",
-      borderRadius: "12px",
-      cursor: "pointer",
-      transition: "all 0.2s ease",
-      boxShadow: "0 4px 6px -1px rgba(44, 81, 76, 0.3)",
-    },
-    buttonIcon: {
-      fontSize: "20px",
-    },
-    sessionContainer: {
-      maxWidth: "1200px",
-      margin: "0 auto",
-      padding: "0 24px",
-    },
-    sessionHeader: {
-      backgroundColor: "#ffffff",
-      borderRadius: "16px 16px 0 0",
-      padding: "24px 32px",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      borderBottom: "1px solid #e2e8f0",
-      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    },
-    sessionInfo: {
-      display: "flex",
-      flexDirection: "column",
-    },
-    sessionTitle: {
-      fontSize: "24px",
-      fontWeight: "600",
-      color: "#2C514C",
-      margin: "0 0 4px 0",
-    },
-    sessionStatus: {
-      fontSize: "16px",
-      color: "#2C514C",
-      fontWeight: "500",
-      margin: "0",
-    },
-    endButton: {
-      display: "flex",
-      alignItems: "center",
-      gap: "8px",
-      padding: "12px 24px",
-      fontSize: "16px",
-      fontWeight: "600",
-      backgroundColor: "#ef4444",
-      color: "#ffffff",
-      border: "none",
-      borderRadius: "8px",
-      cursor: "pointer",
-      transition: "all 0.2s ease",
-    },
-    speakingIndicator: {
-      display: "flex",
-      alignItems: "center",
-      gap: "8px",
-      backgroundColor: "#f0fdf4",
-      border: "1px solid #2C514C",
-      borderRadius: "8px",
-      padding: "12px 16px",
-      margin: "16px 0",
-      color: "#2C514C",
-      fontWeight: "500",
-    },
-    speakingIcon: {
-      fontSize: "20px",
-    },
-    chatContainer: {
-      backgroundColor: "#ffffff",
-      borderRadius: "0 0 16px 16px",
-      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    },
-    chatHeader: {
-      padding: "24px 32px 16px 32px",
-      borderBottom: "1px solid #e2e8f0",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-    chatTitle: {
-      fontSize: "20px",
-      fontWeight: "600",
-      color: "#2C514C",
-      margin: "0",
-    },
-    chatStatus: {
-      fontSize: "14px",
-      color: "#64748b",
-      fontWeight: "500",
-    },
-    chatMessages: {
-      padding: "24px 32px",
-      maxHeight: "400px",
-      overflowY: "auto",
-    },
-    emptyChat: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      padding: "48px 24px",
-      color: "#64748b",
-      textAlign: "center",
-    },
-    emptyIcon: {
-      fontSize: "48px",
-      marginBottom: "16px",
-    },
-    chatMessage: {
-      marginBottom: "16px",
-      padding: "16px",
-      backgroundColor: "#f8fafc",
-      borderRadius: "12px",
-      border: "1px solid #e2e8f0",
-    },
-    messageSender: {
-      fontSize: "14px",
-      fontWeight: "600",
-      color: "#2C514C",
-      marginBottom: "4px",
-    },
-    messageText: {
-      fontSize: "16px",
-      color: "#1e293b",
-      lineHeight: "1.5",
-    },
-  }; 
