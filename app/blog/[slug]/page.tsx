@@ -10,7 +10,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function BlogPostPage({ params }: PageProps) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -118,7 +124,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   );
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: PageProps) {
   const post = blogPosts.find((post) => post.slug === params.slug);
   
   if (!post) {
