@@ -159,15 +159,10 @@ export default function HotelbotDemoPage() {
     }
   };
 
+  // Move global styles to a separate CSS file or use a different approach
+  // For now, using inline style for the specific input
   return (
-    <>
-      <style jsx global>{`
-        input.${styles.telephonyInput}::placeholder {
-          color: #fff;
-          opacity: 1;
-        }
-      `}</style>
-      <div style={{ background: 'var(--background-dark)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ background: 'var(--background-dark)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className={styles.appContainer}>
           <div className={styles.phoneMockup} style={{ position: 'relative', backgroundImage: "url('/images/Hotel1.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <div className={styles.topBar}>
@@ -257,12 +252,7 @@ export default function HotelbotDemoPage() {
               <div className={styles.buttonLabel} style={{ fontSize: 16, marginTop: 10, marginBottom: 18 }}>
                 {connecting ? "END CALL" : (!connected ? "START CALL" : "END CALL")}
               </div>
-              {!connected && !connecting && (
-                <div style={{ textAlign: 'center', marginTop: 16, marginBottom: 70 }}>
-                  <div style={{ color: '#fff', fontSize: 14, marginBottom: 4 }}>OR CALL</div>
-                  <div style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>08071296529</div>
-                </div>
-              )}
+              {!connected && !connecting && null}
               {callType === "telephony" && telephonyStatus && (
                 <div style={{ color: telephonyStatus === "Call Initiated" ? "green" : "red", marginTop: 8 }}>{telephonyStatus}</div>
               )}
@@ -305,6 +295,5 @@ export default function HotelbotDemoPage() {
           </div>
         </div>
       </div>
-    </>
   );
-} 
+}
