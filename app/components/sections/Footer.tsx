@@ -11,7 +11,7 @@ const navigation = {
   // ],
   company: [
     { name: "Solutions", href: "/solutions" },
-    { name: "Services", href: "/services" },
+    { name: "Products", href: "/products" },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
   ],
@@ -69,9 +69,13 @@ const navigation = {
   ],
 };
 
-export default function Footer() {
+interface FooterProps {
+  className?: string;
+}
+
+export default function Footer({ className = '' }: FooterProps) {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 to-blue-900 relative overflow-hidden">
+    <footer className={`relative overflow-hidden ${className}`}>
       <Container>
         <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
