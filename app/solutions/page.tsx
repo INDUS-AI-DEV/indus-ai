@@ -1,219 +1,194 @@
 import Navbar from "../components/navigation/Navbar";
-import Footer from "../components/sections/Footer";
+import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
 import Button from "../components/ui/Button";
 import Image from "next/image";
 import ReadyToTransform from "../components/sections/ReadyToTransform";
+
 const solutions = [
-  // {
-  //   title: "Machine Learning & AI",
-  //   description:
-  //     "Custom machine learning solutions tailored to your business needs",
-  //   image: "/images/solutions/machine-learning.webp",
-  //   features: [
-  //     "Predictive Analytics",
-  //     "Pattern Recognition",
-  //     "Anomaly Detection",
-  //     "Deep Learning Models",
-  //     "Computer Vision",
-  //     "Neural Networks",
-  //   ],
-  //   benefits: [
-  //     "Increase operational efficiency by 300%",
-  //     "Reduce manual errors by 95%",
-  //     "Cut operational costs by 50%",
-  //     "Accelerate decision-making process",
-  //   ],
-  //   useCase: {
-  //     title: "Global Manufacturing Company",
-  //     description:
-  //       "Implemented predictive maintenance system that reduced downtime by 75% and maintenance costs by 50%.",
-  //   },
-  // },
-  // {
-  //   title: "Natural Language Processing",
-  //   description: "Transform how you process and understand text data",
-  //   image: "/images/solutions/nlp.webp",
-  //   features: [
-  //     "Text Classification",
-  //     "Sentiment Analysis",
-  //     "Named Entity Recognition",
-  //     "Language Translation",
-  //     "Text Summarization",
-  //     "Chatbot Development",
-  //   ],
-  //   benefits: [
-  //     "Automate customer service operations",
-  //     "Process documents 10x faster",
-  //     "Improve customer satisfaction by 60%",
-  //     "Real-time language translation",
-  //   ],
-  //   useCase: {
-  //     title: "International Bank",
-  //     description:
-  //       "Deployed AI-powered customer service system that handles 80% of inquiries automatically.",
-  //   },
-  // },
-  // {
-  //   title: "Computer Vision",
-  //   description:
-  //     "See your business through the lens of artificial intelligence",
-  //   image: "/images/solutions/computer-vision.webp",
-  //   features: [
-  //     "Object Detection",
-  //     "Image Classification",
-  //     "Facial Recognition",
-  //     "Video Analysis",
-  //     "Quality Control",
-  //     "Visual Search",
-  //   ],
-  //   benefits: [
-  //     "Automate visual inspection tasks",
-  //     "Enhance security systems",
-  //     "Improve product quality",
-  //     "Real-time monitoring",
-  //   ],
-  //   useCase: {
-  //     title: "Retail Chain",
-  //     description:
-  //       "Implemented visual search system that increased online sales conversion by 45%.",
-  //   },
-  // },
   {
-    title: "Vijaya AI – Secure & Personalized LLMs for Enterprises",
+    title: "AI-Powered Voicebot Solutions",
     description:
-      "Vijaya AI is a cutting-edge Large Language Model (LLM) solution designed to help enterprises and government organizations deploy custom AI models tailored to their data. With on-premise and cloud options, it ensures data security, cost efficiency (up to 70% savings), and seamless AI adoption for businesses looking to leverage generative AI.",
-    image: "/images/solutions/vijaya-ai.png",
+      "Transform customer interactions with our advanced voicebot technology that delivers natural, human-like conversations 24/7.",
+    icon: (
+      <svg className="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+      </svg>
+    ),
     features: [
-      "Custom AI Models",
-      "On-Premise and Cloud Options",
-      "Data Security",
-      "Cost Efficiency",
-      "Seamless AI Adoption",
+      "Natural Language Understanding",
+      "Multi-turn Dialog Management",
+      "Seamless IVR Integration",
+      "Real-time Analytics",
+      "Omnichannel Deployment"
     ],
     benefits: [
-      "Up to 70% cost savings",
-      "Enhanced data security",
-      "Tailored solutions for enterprises",
-      "Improved operational efficiency",
-    ],
-    useCase: {
-      title: "Enterprise Deployment",
-      description:
-        "Implemented custom LLMs for various enterprises, ensuring data security and cost efficiency.",
-    },
+      "Reduce call center costs by up to 60%",
+      "Handle 10,000+ concurrent calls",
+      "99.9% uptime guarantee",
+      "Customizable brand voice"
+    ]
   },
   {
-    title: "VivOne AI– Intelligent Chat & Voice AI",
+    title: "Intelligent Chatbot Platform",
     description:
-      "Our AI Agent is a next-gen customer support solution that offers real-time chat and voice assistance, automating interactions with human-like accuracy. Designed for businesses across industries, it enhances customer experiences by providing instant, context-aware responses, reducing operational costs, and improving support efficiency.",
-    image: "/images/solutions/vivone-ai.png",
+      "Deploy AI chatbots that understand context, learn from interactions, and provide instant, accurate responses.",
+    icon: (
+      <svg className="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+    ),
     features: [
-      "Real-time Chat Assistance",
-      "Voice Interaction",
-      "Context-aware Responses",
-      "Human-like Accuracy",
-      "Operational Cost Reduction",
+      "Contextual Conversations",
+      "Multi-intent Recognition",
+      "Seamless Handoff to Agents",
+      "Sentiment Analysis",
+      "Knowledge Base Integration"
     ],
     benefits: [
-      "Enhanced customer experience",
-      "Instant support",
-      "Improved support efficiency",
-      "Adaptable for various enterprises",
-    ],
-    useCase: {
-      title: "Customer Support Automation",
-      description:
-        "Deployed AI Agent for customer support, automating interactions and improving response times.",
-    },
+      "Handle 80% of routine inquiries automatically",
+      "30% increase in customer satisfaction",
+      "24/7 customer support",
+      "Reduced response time to seconds"
+    ]
   },
+  {
+    title: "Multilingual AI Solutions",
+    description:
+      "Break language barriers with our AI that understands and responds in 22+ languages with native proficiency.",
+    icon: (
+      <svg className="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+      </svg>
+    ),
+    features: [
+      "22+ Language Support",
+      "Dialect Recognition",
+      "Real-time Translation",
+      "Cultural Nuance Understanding",
+      "Accent Adaptation"
+    ],
+    benefits: [
+      "Expand to global markets instantly",
+      "95% accuracy in language understanding",
+      "Localized customer experiences",
+      "Reduced need for multilingual staff"
+    ]
+  },
+  {
+    title: "Conversational AI for Enterprise",
+    description:
+      "Enterprise-grade AI solutions that integrate with your existing systems and scale with your business needs.",
+    icon: "🏢",
+    features: [
+      "Custom AI Model Training",
+      "Enterprise Security & Compliance",
+      "CRM & ERP Integration",
+      "Advanced Analytics Dashboard",
+      "Dedicated Support Team"
+    ],
+    benefits: [
+      "End-to-end encryption",
+      "SLA-backed performance",
+      "Custom integration support",
+      "Dedicated account management"
+    ]
+  },
+  {
+    title: "AI-Powered Analytics & Insights",
+    description:
+      "Transform customer interactions into actionable insights with our advanced analytics platform.",
+    icon: "📊",
+    features: [
+      "Conversation Analytics",
+      "Customer Sentiment Analysis",
+      "Trend Identification",
+      "Custom Reporting",
+      "Predictive Analytics"
+    ],
+    benefits: [
+      "Improve customer experience",
+      "Identify business opportunities",
+      "Make data-driven decisions",
+      "Real-time performance tracking"
+    ]
+  },
+  {
+    title: "Omnichannel AI Engagement",
+    description:
+      "Deliver consistent, personalized experiences across all customer touchpoints with our unified AI platform.",
+    icon: "🔄",
+    features: [
+      "Cross-channel Context Retention",
+      "Unified Customer View",
+      "Seamless Channel Switching",
+      "Consistent Brand Voice",
+      "Centralized Management"
+    ],
+    benefits: [
+      "45% higher customer retention",
+      "Unified customer journey",
+      "Reduced operational complexity",
+      "Faster resolution times"
+    ]
+  }
 ];
 
 const industries = [
   {
     name: "Healthcare",
-    description: "Improving patient care and operational efficiency with AI",
+    description: "Enhancing patient care with AI-powered virtual assistants",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M4.5 12.75l6 6 9-13.5"
-        />
+      <svg className="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     ),
     solutions: [
-      "Diagnostic Assistance",
-      "Patient Monitoring",
-      "Resource Optimization",
-    ],
+      "Appointment Scheduling & Reminders",
+      "Medication Adherence Support",
+      "Symptom Checking & Triage",
+      "Health Education & Guidance",
+      "HIPAA-compliant Communication"
+    ]
   },
   {
-    name: "Finance",
-    description: "Transforming financial services with intelligent automation",
+    name: "Banking & Finance",
+    description: "Securely automate financial services with AI",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
-    solutions: ["Risk Assessment", "Fraud Detection", "Trading Analytics", "Loan Recovery System"],
-  },
-  {
-    name: "Manufacturing",
-    description: "Optimizing production and quality control processes",
-    icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
-        />
+      <svg className="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     solutions: [
-      "Predictive Maintenance",
-      "Quality Control",
-      "Supply Chain Optimization",
-    ],
+      "Account Balance & Transaction Queries",
+      "Fraud Detection & Alerts",
+      "Loan Application Assistance",
+      "Personal Finance Management",
+      "KYC & Identity Verification"
+    ]
+  },
+  {
+    name: "E-commerce & Retail",
+    description: "Deliver personalized shopping experiences at scale",
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      </svg>
+    ),
+    solutions: [
+      "Product Recommendations",
+      "Order Tracking & Support",
+      "Personalized Promotions",
+      "Inventory & Stock Inquiries",
+      "Returns & Refunds Processing"
+    ]
   },
   {
     name: "Retail",
     description: "Enhancing customer experience and operations",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-        />
+      <svg className="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
       </svg>
     ),
     solutions: [
@@ -226,188 +201,122 @@ const industries = [
 
 export default function Solutions() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-24 bg-gradient-to-b from-gray-50 to-white">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 font-raleway">
-              AI Solutions for Every Industry
-            </h1>
-            <p className="text-xl text-gray-600 mb-12 font-raleway">
-              Transform your business with our cutting-edge AI solutions. We
-              combine industry expertise with advanced technology to deliver
-              measurable results.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg">
-                <a href="https://calendly.com/indusai-app/meet">
-                  Schedule Demo
-                </a>
-              </Button>
-              <Button variant="secondary" size="lg">
-                <a href="https://www.linkedin.com/company/indus-ai/">
-                  View Case Studies
-                </a>
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Solutions Section */}
-      {solutions.map((solution, index) => (
-        <section
-          key={solution.title}
-          className={`pb-24 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
-        >
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="py-16 bg-white">
           <Container>
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className={index % 2 === 0 ? "" : "order-2"}>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 font-raleway">
-                  {solution.title}
-                </h2>
-                <p className="text-xl text-gray-600 mb-8 font-raleway">
-                  {solution.description}
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 font-raleway">
-                      Key Features
-                    </h3>
-                    <ul className="space-y-3">
-                      {solution.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center text-gray-600 font-raleway"
-                        >
-                          <svg
-                            className="w-5 h-5 text-green-500 mr-3"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 font-raleway">
-                      Benefits
-                    </h3>
-                    <ul className="space-y-3">
-                      {solution.benefits.map((benefit) => (
-                        <li
-                          key={benefit}
-                          className="flex items-center text-gray-600 font-raleway"
-                        >
-                          <svg
-                            className="w-5 h-5 text-[#2C514C] mr-3"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                            />
-                          </svg>
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="bg-gray-50 p-6 rounded-xl">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 font-raleway">
-                    Case Study: {solution.useCase.title}
-                  </h3>
-                  <p className="text-gray-600 font-raleway">
-                    {solution.useCase.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className={index % 2 === 0 ? "" : "order-1"}>
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#2C514C] to-[#729F99] rounded-3xl blur-3xl opacity-20" />
-                  <Image
-                    src={solution.image}
-                    alt={solution.title}
-                    width={1000}
-                    height={1000}
-                    className="relative rounded-3xl shadow-xl"
-                  />
-                </div>
+            <div className="text-center">
+              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+                Transform Your Business with AI
+              </h1>
+              <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-5 sm:text-xl md:mt-5">
+                Discover how our AI solutions can help you automate processes, enhance customer experience, and drive growth.
+              </p>
+              <div className="mt-8 flex justify-center gap-4">
+                <Button variant="primary" size="lg">
+                  <a href="https://calendly.com/indusai-app/meet">
+                    Schedule Consultation
+                  </a>
+                </Button>
+                <Button variant="secondary" size="lg">
+                  <a href="#solutions">
+                    Explore Solutions
+                  </a>
+                </Button>
               </div>
             </div>
           </Container>
         </section>
-      ))}
 
-      {/* Industries Section */}
-      <section className="pb-24 bg-gray-50">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-raleway">
-              Industries We Serve
-            </h2>
-            <p className="text-gray-600 font-raleway">
-              Our AI solutions are tailored for various industries, each with
-              its unique challenges and opportunities.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {industries.map((industry) => (
-              <div
-                key={industry.name}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-xl bg-black/5 flex items-center justify-center text-gray-900 group-hover:text-[#2C514C] transition-colors">
-                    {industry.icon}
+        {/* Solutions Grid */}
+        <section id="solutions" className="py-12 bg-white">
+          <Container>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                Our AI Solutions
+              </h2>
+              <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                Comprehensive AI solutions designed to transform your business operations and customer experience.
+              </p>
+            </div>
+
+            <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+              {solutions.map((solution, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl"
+                >
+                  <div className="px-6">
+                    {solution.icon}
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 font-raleway">
-                      {industry.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4 font-raleway">
-                      {industry.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {industry.solutions.map((solution) => (
-                        <span
-                          key={solution}
-                          className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 group-hover:bg-blue-50 group-hover:text-[#2C514C] transition-colors font-raleway"
-                        >
-                          {solution}
-                        </span>
-                      ))}
+                  <div className="flex-1 p-6 flex flex-col justify-between">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {solution.title}
+                      </h3>
+                      <p className="mt-3 text-base text-gray-500">{solution.description}</p>
+                      
+                      <div className="mt-6">
+                        <h4 className="text-sm font-medium text-gray-900">Key Features:</h4>
+                        <ul className="mt-2 space-y-2">
+                          {solution.features.map((feature, i) => (
+                            <li key={i} className="flex items-start">
+                              <svg
+                                className="h-5 w-5 text-indigo-500 mr-2 mt-0.5 flex-shrink-0"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span className="text-sm text-gray-600">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 border-t border-gray-200 pt-6">
+                      <h4 className="text-sm font-medium text-gray-900">Business Benefits:</h4>
+                      <ul className="mt-3 space-y-2">
+                        {solution.benefits.map((benefit, i) => (
+                          <li key={i} className="flex items-start">
+                            <svg
+                              className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                              />
+                            </svg>
+                            <span className="text-sm text-gray-600">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-      <ReadyToTransform />
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* CTA Section */}
+        <ReadyToTransform />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

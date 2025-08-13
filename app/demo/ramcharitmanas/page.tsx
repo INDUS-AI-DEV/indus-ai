@@ -26,7 +26,7 @@ export default function HotelbotDemoPage() {
   const [language, setLanguage] = useState("Hi");
   const roomRef = useRef<unknown>(null); // Will be cast to Room after import
   const [isDesktop, setIsDesktop] = useState(false);
-  const [agentType, setAgentType] = useState("hotel_booking");
+  const [agentType, setAgentType] = useState("ramcharitmanas");
 
   useEffect(() => {
     if (!room) return;
@@ -94,8 +94,8 @@ export default function HotelbotDemoPage() {
     setConnecting(true);
     try {
       const livekit = await import("livekit-client");
-      const server_url = process.env.NEXT_PUBLIC_HOTELBOT_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/test?';
-      const ws_url = process.env.NEXT_PUBLIC_HOTELBOT_WS_URL || 'wss://testing-77v0hbsk.livekit.cloud';
+      const server_url = process.env.NEXT_PUBLIC_RAMCHARITMANAS_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/test?';
+      const ws_url = process.env.NEXT_PUBLIC_RAMCHARITMANAS_WS_URL || 'wss://testing-77v0hbsk.livekit.cloud';
       const userId = `user-${Math.random().toString(36).substring(2, 8)}`;
       const roomId = `room-${Math.random().toString(36).substring(2, 8)}`;
       const fullUrl = `${server_url}room=${roomId}&user=${userId}&language=${language}&agent_type=${agentType}`;
@@ -201,7 +201,7 @@ export default function HotelbotDemoPage() {
             <div className={styles.logoContainer} style={{ marginBottom: 2, marginTop: 6 }}>
               {/* Try SVG, fallback to PNG if SVG fails */}
               <Image src="/images/Indus.svg" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/Indus.png'; }} />
-              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop: 12 }}>AI Hotel Management System</div>
+              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop: 12 }}>AI Queries System</div>
             </div>
             {callType === "telephony" && (
               <div style={{ marginTop: 24, marginBottom: 16, width: "100%" }}>
