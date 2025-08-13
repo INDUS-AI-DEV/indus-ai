@@ -26,7 +26,7 @@ export default function HotelbotDemoPage() {
   const [language, setLanguage] = useState("Hi");
   const roomRef = useRef<unknown>(null); // Will be cast to Room after import
   const [isDesktop, setIsDesktop] = useState(false);
-  const [agentType, setAgentType] = useState("hotel_booking");
+  const [agentType, setAgentType] = useState("ramcharitmanas");
 
   useEffect(() => {
     if (!room) return;
@@ -94,8 +94,8 @@ export default function HotelbotDemoPage() {
     setConnecting(true);
     try {
       const livekit = await import("livekit-client");
-      const server_url = process.env.NEXT_PUBLIC_HOTELBOT_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/test?';
-      const ws_url = process.env.NEXT_PUBLIC_HOTELBOT_WS_URL || 'wss://testing-77v0hbsk.livekit.cloud';
+      const server_url = process.env.NEXT_PUBLIC_RAMCHARITMANAS_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/test?';
+      const ws_url = process.env.NEXT_PUBLIC_RAMCHARITMANAS_WS_URL || 'wss://testing-77v0hbsk.livekit.cloud';
       const userId = `user-${Math.random().toString(36).substring(2, 8)}`;
       const roomId = `room-${Math.random().toString(36).substring(2, 8)}`;
       const fullUrl = `${server_url}room=${roomId}&user=${userId}&language=${language}&agent_type=${agentType}`;
@@ -159,15 +159,10 @@ export default function HotelbotDemoPage() {
     }
   };
 
+  // Move global styles to a separate CSS file or use a different approach
+  // For now, using inline style for the specific input
   return (
-    <>
-      <style jsx global>{`
-        input.${styles.telephonyInput}::placeholder {
-          color: #fff;
-          opacity: 1;
-        }
-      `}</style>
-      <div style={{ background: 'var(--background-dark)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ background: 'var(--background-dark)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className={styles.appContainer}>
           <div className={styles.phoneMockup} style={{ position: 'relative', backgroundImage: "url('/images/Hotel1.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <div className={styles.topBar}>
@@ -201,7 +196,7 @@ export default function HotelbotDemoPage() {
             <div className={styles.logoContainer} style={{ marginBottom: 2, marginTop: 6 }}>
               {/* Try SVG, fallback to PNG if SVG fails */}
               <Image src="/images/Indus.svg" alt="Indus AI Logo" className={styles.logoWhite} width={80} height={40} style={{ marginBottom: 16 }} onError={(e) => { e.currentTarget.onerror=null; e.currentTarget.src='/images/Indus.png'; }} />
-              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop: 12 }}>AI Hotel Management System</div>
+              <div className={styles.logoSubtitle} style={{ fontSize: 16, marginBottom: 2, marginTop: 12 }}>AI Queries System</div>
             </div>
             {callType === "telephony" && (
               <div style={{ marginTop: 24, marginBottom: 16, width: "100%" }}>
@@ -257,12 +252,7 @@ export default function HotelbotDemoPage() {
               <div className={styles.buttonLabel} style={{ fontSize: 16, marginTop: 10, marginBottom: 18 }}>
                 {connecting ? "END CALL" : (!connected ? "START CALL" : "END CALL")}
               </div>
-              {!connected && !connecting && (
-                <div style={{ textAlign: 'center', marginTop: 16, marginBottom: 70 }}>
-                  <div style={{ color: '#fff', fontSize: 14, marginBottom: 4 }}>OR CALL</div>
-                  <div style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>08071296529</div>
-                </div>
-              )}
+              {!connected && !connecting && null}
               {callType === "telephony" && telephonyStatus && (
                 <div style={{ color: telephonyStatus === "Call Initiated" ? "green" : "red", marginTop: 8 }}>{telephonyStatus}</div>
               )}
@@ -305,6 +295,5 @@ export default function HotelbotDemoPage() {
           </div>
         </div>
       </div>
-    </>
   );
-} 
+}

@@ -16,6 +16,7 @@ export default function MedibotDemoPage() {
   const [telephonyStatus, setTelephonyStatus] = useState("");
   const roomRef = useRef<unknown>(null); // Will be cast to Room after import
   const [isDesktop, setIsDesktop] = useState(false);
+  const [agentType, setAgentType] = useState("medibot");
 
   useEffect(() => {
     const checkDesktop = () => setIsDesktop(window.innerWidth > 700);
@@ -82,11 +83,11 @@ export default function MedibotDemoPage() {
     setConnecting(true);
     try {
       const livekit = await import("livekit-client");
-      const server_url = process.env.NEXT_PUBLIC_LIVEKIT_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/medibot?';
-      const ws_url = process.env.NEXT_PUBLIC_LIVEKIT_WS_URL || 'wss://medicarebot-mkbfja8k.livekit.cloud';
+      const server_url = process.env.NEXT_PUBLIC_LIVEKIT_TOKEN_SERVER_URL || 'https://api.vijaya.ai/api/token/test?';
+      const ws_url = process.env.NEXT_PUBLIC_LIVEKIT_WS_URL || 'wss://testing-77v0hbsk.livekit.cloud';
       const userId = `user-${Math.random().toString(36).substring(2, 8)}`;
       const roomId = `room-${Math.random().toString(36).substring(2, 8)}`;
-      const fullUrl = `${server_url}room=${roomId}&user=${userId}`;
+      const fullUrl = `${server_url}room=${roomId}&user=${userId}&agent_type=${agentType}`;
       const resp = await fetch(fullUrl);
       const data = await resp.json();
       const token = data.token;
