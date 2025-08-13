@@ -208,12 +208,9 @@ export default function ServicesSection() {
             <p className="text-gray-600 mb-6 font-raleway">
               Join 20+ enterprises already using IndusAI to automate conversations and boost efficiency.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a href="https://calendly.com/indusai-app/meet" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-raleway inline-block">
                 Request Industry Demo
-              </a>
-              <a href="/case-studies" className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-blue-500 hover:text-blue-600 transition-all duration-300 font-raleway inline-block">
-                View Case Studies
               </a>
             </div>
           </div>

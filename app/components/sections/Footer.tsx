@@ -17,7 +17,6 @@ const navigation = {
     { name: "Contact Us", href: "/contact" },
   ],
   resources: [
-    { name: "Case Studies", href: "/case-studies" },
     { name: "Documentation", href: "/docs" },
   ],
   legal: [
