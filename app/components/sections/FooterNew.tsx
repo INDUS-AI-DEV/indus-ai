@@ -18,7 +18,6 @@ const navigation = {
   resources: [
     { name: "Case Studies", href: "/case-studies" },
     { name: "Whitepapers", href: "/whitepapers" },
-    { name: "Blog", href: "/blog" },
     { name: "API Documentation", href: "/docs" },
   ],
   support: [
