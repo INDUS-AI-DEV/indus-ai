@@ -49,7 +49,7 @@ const expertise = [
   },
   {
     area: "Natural Language Processing",
-    description: "Unlock the power of human language with our NLP products that understand, interpret, and generate text with human-like accuracy.",
+    description: "Unlock the power of human language with our NLP solutions that understand, interpret, and generate text with human-like accuracy.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -61,11 +61,31 @@ const expertise = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={1.5}
-          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+          d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
         />
       </svg>
     ),
-    tools: ["BERT", "GPT", "NLTK", "spaCy"],
+    tools: ["Sentiment Analysis", "Chatbots", "Text Classification", "Translation"]
+  },
+  {
+    area: "AI-Powered Analytics",
+    description: "Transform raw data into strategic insights with our advanced analytics solutions that drive data-informed business decisions.",
+    icon: (
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+        />
+      </svg>
+    ),
+    tools: ["Predictive Analytics", "Business Intelligence", "Data Visualization", "KPI Tracking"]
   },
   {
     area: "Computer Vision",
@@ -155,36 +175,36 @@ export default function Products() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))]" />
         <div className="absolute inset-0 bg-gradient-to-b from-indus-50/50 to-transparent" />
         <Container className="relative">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-indus-100 text-indus-700 mb-6">
-              <span className="relative flex h-2 w-2 mr-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indus-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indus-600"></span>
-              </span>
-              Enterprise AI Solutions
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 text-center font-raleway bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">
-              Transform Your Business with <span className="text-indus-600">AI-Powered</span> Products
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 text-center font-raleway">
+              Transform Your <span className="gradient-text">Business</span> with{' '}
+              <span className="animated-underline gradient-text">AI-Powered</span> Solutions
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 text-center mb-8 font-raleway font-medium max-w-4xl mx-auto">
-              Enterprise-grade AI solutions that deliver measurable impact and drive digital transformation
+              <span className="animated-underline">Enterprise-grade</span> AI solutions that deliver <span className="animated-underline">measurable impact</span> and drive <span className="gradient-text font-semibold">digital transformation</span>
             </p>
-            <p className="text-lg text-gray-600 text-center mb-12 font-raleway max-w-3xl mx-auto">
-              Our AI products are engineered to solve complex business challenges, enhance customer experiences, and unlock new opportunities for growth in the age of artificial intelligence.
+            <p className="text-lg text-gray-600 text-center mb-8 font-raleway max-w-3xl mx-auto">
+              Our <span className="font-semibold">AI products</span> are engineered to solve complex business challenges, enhance customer experiences, and unlock new opportunities for growth in the age of <span className="font-semibold">artificial intelligence</span>.
             </p>
-            <div className="flex justify-center gap-4 flex-wrap whitespace-nowrap">
-              <Button size="lg">
-                <a href="https://calendly.com/indusai-app/meet">
-                  Schedule Consultation
+            <div className="flex justify-center gap-4 flex-wrap whitespace-nowrap mt-10">
+              <Button size="lg" className="group">
+                <a href="https://calendly.com/indusai-app/meet" className="flex items-center">
+                  <span className="mr-2">Schedule Consultation</span>
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
                 </a>
               </Button>
-              <Button variant="secondary" size="lg">
-                <a href="https://www.linkedin.com/company/indus-ai/">
-                  View Case Studies
+              <Button variant="secondary" size="lg" className="group">
+                <a href="https://www.linkedin.com/company/indus-ai/" className="flex items-center">
+                  <span className="mr-2">View Case Studies</span>
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </a>
               </Button>
             </div>
@@ -193,18 +213,18 @@ export default function Products() {
       </section>
 
       {/* Technical Expertise Section */}
-      <section className="py-20 relative">
+      <section className="pt-10 pb-16 relative">
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))]" />
         <Container className="relative">
           <div className="max-w-4xl mx-auto text-center mb-16 px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-raleway">
-              Our <span className="text-indus-600">Technical</span> Expertise
-            </h2>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 text-center font-raleway">
+              Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Technical Expertise</span>
+            </h1>
             <p className="text-lg text-gray-600 font-raleway max-w-2xl mx-auto">
               Leveraging cutting-edge AI technologies to deliver innovative solutions that drive business transformation
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
             {expertise.map((item) => (
               <div
                 key={item.area}
@@ -250,7 +270,7 @@ export default function Products() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
             {[
               {
                 name: 'Banking & Finance',
@@ -266,7 +286,7 @@ export default function Products() {
                 description: 'Enhance customer experience and optimize network performance with intelligent telecom solutions.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 00.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 )
               },
@@ -314,6 +334,24 @@ export default function Products() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                   </svg>
                 )
+              },
+              {
+                name: 'Healthcare',
+                description: 'Revolutionize patient care with AI-driven diagnostics, treatment planning, and medical research.',
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                )
+              },
+              {
+                name: 'Retail & E-commerce',
+                description: 'Enhance customer experiences with personalized recommendations and AI-powered inventory management.',
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                )
               }
             ].map((industry, index) => (
               <div 
@@ -325,9 +363,9 @@ export default function Products() {
                   <div className="w-12 h-12 rounded-xl bg-indus-50 text-indus-600 flex items-center justify-center mb-4 group-hover:bg-indus-100 transition-colors duration-300">
                     {industry.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-raleway">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
                     {industry.name}
-                  </h3>
+                  </h2>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {industry.description}
                   </p>

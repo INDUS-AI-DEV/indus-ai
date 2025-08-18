@@ -18,8 +18,14 @@ const clients = [
   // { image: "/images/support/startupindia.png" },
   { image: "/images/support/7span.png" },
   { image: "/images/support/codelessly.png" },
+  { 
+    image: "/images/support/dabur.svg",
+    className: "h-20 w-auto" // Larger size for Dabur logo
+  },
+  { image: "/images/support/Flipkart.png" },
   { image: "/images/support/flutter.png" },
   { image: "/images/support/hdfc_sky.png" },
+  { image: "/images/support/massist.png" },
   { image: "/images/support/nonstop.png" },
   { image: "/images/support/serverpod.png" },
   { image: "/images/support/tata_digital.png" },
@@ -54,7 +60,7 @@ export default function ClientLogos() {
                 alt={`Supported by ${client.image.split('/').pop()?.split('.')[0]}`}
                 width={160}
                 height={80}
-                className="h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
+                className={`h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0 ${client.className || ''}`}
               />
             </div>
           ))}
@@ -80,7 +86,7 @@ export default function ClientLogos() {
                 alt={`Supported by ${client.image.split('/').pop()?.split('.')[0]}`}
                 width={160}
                 height={80}
-                className="h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
+                className={`h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0 ${client.className || ''}`}
               />
             </div>
           ))}

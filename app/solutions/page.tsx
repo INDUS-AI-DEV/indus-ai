@@ -5,6 +5,72 @@ import Button from "../components/ui/Button";
 import Image from "next/image";
 import ReadyToTransform from "../components/sections/ReadyToTransform";
 
+const features = [
+  {
+    name: 'Contextual Conversations',
+    description: 'Advanced NLP for natural, human-like interactions',
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+    ),
+  },
+  {
+    name: '22+ Languages',
+    description: 'Support for Indian & global languages',
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Scalable Self-Service',
+    description: 'Handle millions of queries with ease',
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+  },
+  {
+    name: '24×7 Availability',
+    description: 'Always on, always ready to assist',
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    name: '75% Cost Savings',
+    description: 'Significant reduction in operations cost',
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Custom Bot Personality',
+    description: 'Aligned with your brand tone',
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Advanced Analytics',
+    description: 'Sentiment analysis and performance tracking',
+    icon: (
+      <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    ),
+  },
+];
+
 const solutions = [
   {
     title: "AI-Powered Voicebot Solutions",
@@ -79,7 +145,27 @@ const solutions = [
     title: "Conversational AI for Enterprise",
     description:
       "Enterprise-grade AI solutions that integrate with your existing systems and scale with your business needs.",
-    icon: "🏢",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6 text-indigo-600"
+      >
+        <rect x="3" y="21" width="18" height="3" />
+        <rect x="6" y="17" width="3" height="4" />
+        <rect x="15" y="17" width="3" height="4" />
+        <rect x="3" y="7" width="18" height="10" />
+        <line x1="3" y1="7" x2="12" y2="2" />
+        <line x1="21" y1="7" x2="12" y2="2" />
+      </svg>
+    ),
     features: [
       "Custom AI Model Training",
       "Enterprise Security & Compliance",
@@ -98,7 +184,24 @@ const solutions = [
     title: "AI-Powered Analytics & Insights",
     description:
       "Transform customer interactions into actionable insights with our advanced analytics platform.",
-    icon: "📊",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6 text-indigo-600"
+      >
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+    ),
     features: [
       "Conversation Analytics",
       "Customer Sentiment Analysis",
@@ -117,7 +220,23 @@ const solutions = [
     title: "Omnichannel AI Engagement",
     description:
       "Deliver consistent, personalized experiences across all customer touchpoints with our unified AI platform.",
-    icon: "🔄",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6 text-indigo-600"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14" />
+      </svg>
+    ),
     features: [
       "Cross-channel Context Retention",
       "Unified Customer View",
@@ -199,43 +318,22 @@ const industries = [
   },
 ];
 
+
 export default function Solutions() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Navbar />
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="py-16 bg-white">
-          <Container>
-            <div className="text-center">
-              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                Transform Your Business with AI
-              </h1>
-              <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-5 sm:text-xl md:mt-5">
-                Discover how our AI solutions can help you automate processes, enhance customer experience, and drive growth.
-              </p>
-              <div className="mt-8 flex justify-center gap-4">
-                <Button variant="primary" size="lg">
-                  <a href="https://calendly.com/indusai-app/meet">
-                    Schedule Consultation
-                  </a>
-                </Button>
-                <Button variant="secondary" size="lg">
-                  <a href="#solutions">
-                    Explore Solutions
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </Container>
-        </section>
+      <div className="pt-24">
+      <main>
+        
 
         {/* Solutions Grid */}
         <section id="solutions" className="py-12 bg-white">
+          
           <Container>
             <div className="text-center mb-12">
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                Our AI Solutions
+                Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI Solutions</span>
               </h2>
               <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
                 Comprehensive AI solutions designed to transform your business operations and customer experience.
@@ -316,6 +414,7 @@ export default function Solutions() {
         {/* CTA Section */}
         <ReadyToTransform />
       </main>
+      </div>
       <Footer />
     </div>
   );
