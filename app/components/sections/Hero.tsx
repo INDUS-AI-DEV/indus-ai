@@ -98,7 +98,7 @@ export default function Hero() {
                   </svg>
                 </Button>
               </a>
-              <a href="#contact">
+              <a href="/contact">
                 <Button variant="secondary" size="lg" className="font-raleway group">
                   <span className="group-hover:translate-x-1 transition-transform inline-block">
                     Contact Sales

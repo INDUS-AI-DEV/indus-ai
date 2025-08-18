@@ -1,13 +1,27 @@
+import { Inter, Playfair_Display } from 'next/font/google';
 import Navbar from "../components/navigation/Navbar";
-import Footer from "../components/sections/Footer";
+import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
 import TeamMember from "../components/about/TeamMember";
 import Image from "next/image";
 import ReadyToTransform from "../components/sections/ReadyToTransform";
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
 const stats = [
   { label: "Years of Experience", value: "10+" },
   { label: "AI Solutions Delivered", value: "500+" },
-  { label: "Global Clients", value: "200+" },
+  { label: "Global Clients", value: "22+" },
 ];
 
 const values = [
@@ -96,169 +110,201 @@ const values = [
 const team = [
   {
     name: "Vivek Gupta",
-    role: "Chief Executive Officer",
+    role: "Founder & CEO",
     image: "/images/team/Vivek.jpg",
-    bio: "Vivek Gupta is an AI entrepreneur, engineering leader, and innovator with over 13 years of experience in building scalable technology solutions across industries.",
+    bio: "AI entrepreneur and engineering leader with over 13 years of experience in building scalable technology solutions across industries.",
     linkedin: "https://www.linkedin.com/in/vivekgupta668/",
   },
   {
-    name: "Nihar Ranjan Rout",
-    role: "Chief Information Officer",
-    image: "/images/team/Nihar.jpg",
-    bio: "Transforming Businesses with Custom Software Solutions",
-    linkedin: "https://www.linkedin.com/in/niharrout/",
+    name: "Sachin Keshav",
+    role: "Co-Founder & Lead",
+    image: "/images/team/Sachin.jpeg",
+    bio: "Technology leader with expertise in AI/ML and enterprise software solutions.",
+    linkedin: "https://www.linkedin.com/in/sachin-keshav-349b7884/",
   },
   {
-    name: "Zameer Khan",
-    role: "Chief Marketing Officer",
-    image: "/images/team/Zameer.jpg",
-    bio: "IIMC ( Fintech and Blockchain) EX Banker",
-    linkedin: "https://www.linkedin.com/in/zameerkhan/",
+    name: "Shreeyash Kanwade",
+    role: "AI Product Manager",
+    image: "/images/team/Shreeyash.jpg",
+    bio: "Product strategist specializing in AI-driven solutions and user experience.",
+    linkedin: "https://www.linkedin.com/in/shreeyash-kanwade-ab2741223/",
+  },
+  {
+    name: "Dr. Laxmi Gupta",
+    role: "Assistant Professor",
+    image: "/images/team/LaxmiGupta.jpg",
+    bio: "Expert in AI research and development with a focus on practical applications.",
+    linkedin: "https://www.linkedin.com/in/dr-laxmi-gupta-05a0b378/",
   },
   {
     name: "Dr. Ravi Shankar",
-    role: "Professor, IIT Delhi",
+    role: "Advisor, IIT Delhi",
     image: "/images/team/Ravi.jpg",
     bio: "Mentor and Advisor in AI and Machine Learning",
     linkedin: "https://www.linkedin.com/in/ravi-shankar/",
+  },
+  {
+    name: "Dr. Madhuri Gupta",
+    role: "Advisor",
+    image: "/images/team/MadhuriGupta.jpg",
+    bio: "Specialist in advanced machine learning algorithms and data analysis.",
+    linkedin: "https://www.linkedin.com/in/dr-madhuri-gupta-606b8572/",
+  },
+  {
+    name: "Bittu Kumar",
+    role: "Advisor",
+    image: "/images/team/BittuKumar.jpg",
+    bio: "Mentor and Advisor in AI and Machine Learning",
+    linkedin: "https://www.linkedin.com/in/bittukr/",
+  },
+  {
+    name: "Vineet Vaid",
+    role: "Advisor",
+    image: "/images/team/Vineet.jpg",
+    bio: "Seasoned technology leader with expertise in digital transformation and business strategy.",
+    linkedin: "https://www.linkedin.com/in/vineet-vaid-aa2b03/"
   },
 ];
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className={`${inter.variable} font-sans min-h-screen bg-white`}>
       <Navbar />
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden bg-gray-50">
+      <main className={`${playfair.variable} font-serif`}>
+        {/* Hero Section */}
+        <section className="pt-28 pb-20 bg-white">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-24 items-center justify-between">
+          <div className="text-center max-w-5xl mx-auto mb-20">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 font-serif leading-tight">
+              About <span className="text-indigo-600">IndusAI</span>
+            </h1>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12">
+              Pioneering the future of voice AI with cutting-edge technology and human-centered design. Since our inception, we've been at the forefront of artificial intelligence innovation, helping businesses transform their operations and customer experiences through intelligent voice solutions.
+            </p>
+            <div className="w-16 h-1 bg-indigo-600 mx-auto"></div>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            {[
+              { ...stats[0], description: 'Delivering cutting-edge AI solutions since 2015' },
+              { ...stats[1], description: 'Successfully implemented across various industries' },
+              { ...stats[2], description: 'Serving clients across 15+ countries' }
+            ].map((stat, index) => (
+              <div key={index} className="bg-white p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="text-5xl font-bold text-indigo-600 mb-3 font-serif">{stat.value}</div>
+                <div className="text-lg font-medium text-gray-900 mb-2">{stat.label}</div>
+                <p className="text-gray-600 text-sm">{stat.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Mission Section */}
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mb-20">
             <div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-6 font-raleway">
-                Pioneering the Future of AI Technology
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed font-raleway">
-                Indus AI is a leading software development and IT consulting
-                company, known for delivering innovative and robust digital
-                solutions. We empower businesses to scale and thrive by
-                leveraging the expertise of our highly skilled product
-                development team. With deep expertise in Artificial
-                Intelligence, Machine Learning, Cloud Computing, and
-                cutting-edge software development, we help you transform ideas
-                into profitable ventures. Our elite team of professionals
-                ensures seamless, future-ready solutions for web and mobile app
-                development, driving growth and expanding your customer base.
+              <span className="inline-block text-sm font-medium text-indigo-600 mb-4">OUR VISION</span>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">
+                Shaping the Future of Voice Technology
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                At IndusAI, we're on a mission to bridge the gap between human communication and artificial intelligence. Our vision is to create voice solutions that understand not just words, but context, emotion, and intent.
               </p>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                We believe in building technology that serves people first. Our team of world-class engineers, linguists, and AI specialists work tirelessly to develop solutions that are not just powerful, but also intuitive and accessible to everyone.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="ml-3 text-gray-700">Cutting-edge AI research and development</p>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="ml-3 text-gray-700">Enterprise-grade security and compliance</p>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="ml-3 text-gray-700">24/7 dedicated support</p>
+                </div>
+              </div>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 justify-center items-center" />
+            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[32rem] rounded-3xl overflow-hidden bg-gray-50 flex items-center justify-center p-6 shadow-sm border border-gray-100">
               <Image
                 src="/images/about/hero.png"
                 alt="AI Technology"
-                className="relative rounded-3xl max-w-[400px]"
-                width={1000}
-                height={1000}
+                className="object-contain h-full w-auto max-w-full"
+                width={600}
+                height={600}
+                priority
+                sizes="(max-width: 768px) 90vw, 40vw"
               />
             </div>
           </div>
-        </Container>
-      </section>
 
-      {/* Stats Section */}
-      <section className="py-24">
-        <Container>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-4xl font-bold text-gray-900 mb-2 font-raleway">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-600 font-raleway">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Mission Section */}
-      <section className="py-24 bg-[#2C514C] text-white">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6 font-raleway">
-              Our Mission
+          {/* Values Section */}
+          <div className="mb-20">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              Our Core Values
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed font-raleway">
-              At Indus AI, our mission is to redefine the digital experience by
-              delivering cost-effective, user-centric, and innovative technology
-              solutions. We empower businesses with cutting-edge AI, software
-              development, and cloud solutions, ensuring seamless adaptability
-              in an ever-evolving digital landscape. By prioritizing efficiency,
-              functionality, and innovation, we help our clients enhance their
-              market presence and drive sustainable growth.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-24 bg-gray-50">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-raleway">
-              Our Values
-            </h2>
-            <p className="text-gray-600 font-raleway">
-              The principles that guide our work and relationships.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 flex gap-6"
-              >
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-[#2C514C]">
-                  {value.icon}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {values.map((value, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all duration-300 hover:border-indigo-100"
+                >
+                  <div className="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center mb-4">
+                    <div className="text-indigo-600">
+                      {value.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+                  <p className="text-gray-600">{value.description}</p>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 font-raleway">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 font-raleway">
-                    {value.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Container>
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <Container>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-raleway">
-              Our Leadership Team
+          <div className="text-center max-w-5xl mx-auto mb-12">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6 font-serif">
+              Our Expert Team
             </h2>
-            <p className="text-gray-600 font-raleway">
-              Meet the experts leading our mission to transform businesses
-              through AI.
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              A dedicated team of AI specialists, engineers, and industry experts committed to delivering exceptional voice AI solutions.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <TeamMember key={member.name} {...member} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {team.map((member, index) => (
+              <TeamMember key={index} {...member} />
             ))}
           </div>
         </Container>
       </section>
 
-      <ReadyToTransform />
-
+        <ReadyToTransform />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
