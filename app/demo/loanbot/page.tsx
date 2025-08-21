@@ -466,7 +466,7 @@ export default function LoanbotDemoPage() {
             >
               <div style={styles.formGrid}>
                 {/* Language */}
-                {/*
+                {
                 <div style={styles.formField}>
                   <label htmlFor="language" style={styles.label}>Language</label>
                   <select
@@ -478,11 +478,10 @@ export default function LoanbotDemoPage() {
                   >
                     <option value="en">English</option>
                     <option value="hi">Hindi</option>
-                    <option value="ta">Tamil</option>
-                    <option value="af">African</option>
+                    <option value="te">Telugu</option>
                   </select>
                 </div>
-                */}
+                }
                 {/* Bot Name */}
                 <div style={styles.formField}>
                   <label htmlFor="bot_name" style={styles.label}>Bot Name</label>
