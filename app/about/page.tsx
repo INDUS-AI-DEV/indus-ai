@@ -284,7 +284,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <Container>
           <div className="text-center max-w-5xl mx-auto mb-12">
             <h2 className="text-5xl font-bold text-gray-900 mb-6 font-serif">
@@ -300,7 +300,7 @@ export default function About() {
             ))}
           </div>
         </Container>
-      </section>
+      </section> */}
 
         <ReadyToTransform />
       </main>
