@@ -15,7 +15,7 @@
     "framer-motion": "^12.23.12",
     "heroicons": "^2.2.0",
     "livekit-client": "^2.15.2",
-    "next": "^15.4.6",
+    "next": "15.4.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",
