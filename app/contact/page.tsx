@@ -1,5 +1,5 @@
 import Navbar from "../components/navigation/Navbar";
-import Footer from "../components/sections/Footer";
+import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
 // import Button from "../components/ui/Button";
 import ReadyToTransform from "../components/sections/ReadyToTransform";
@@ -83,7 +83,7 @@ export default function Contact() {
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 font-raleway">
-              Have questions about our AI solutions? We&apos;re here to help :)
+              Talk to us about the right product, workflow, or enterprise deployment path for your team.
             </p>
           </div>
         </Container>

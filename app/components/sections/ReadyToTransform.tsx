@@ -7,22 +7,27 @@ export default function ReadyToTransform() {
       <Container>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6 font-raleway">
-            Ready to Transform Your Business?
+            Ready to Deploy Agentic AI in Production?
           </h2>
           <p className="text-xl text-gray-400 mb-8 font-raleway">
-            Let&apos;s discuss how our AI solutions can help you achieve your
-            goals.
+            Let&apos;s map the right product, workflow, and deployment model for
+            your enterprise team.
           </p>
           <div className="flex justify-center gap-4">
-            <Button size="lg" className="">
-              <a href="https://calendly.com/indusai-app/meet">Get Started</a>
+            <Button
+              href="https://calendly.com/indusai-app/meet"
+              size="lg"
+              className="font-raleway"
+            >
+              Book a Demo
             </Button>
             <Button
+              href="/contact"
               variant="secondary"
               size="lg"
-              className="border-white text-white hover:bg-white/10"
+              className="border-white text-white hover:bg-white/10 font-raleway"
             >
-              <a href="https://calendly.com/indusai-app/meet">Talk to Expert</a>
+              Talk to Sales
             </Button>
           </div>
         </div>

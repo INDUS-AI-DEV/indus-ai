@@ -3,109 +3,128 @@ import Button from "../ui/Button";
 
 const products = [
   {
-    title: "Vijaya AI – Secure & Personalized LLMs for Enterprises",
+    id: "induslabs",
+    name: "IndusLabs",
+    domain: "induslabs.io",
+    category: "Enterprise Voice AI Platform",
     description:
-      "Vijaya AI is a cutting-edge Large Language Model (LLM) solution designed to help enterprises and government organizations deploy custom AI models tailored to their data. With on-premise and cloud options, it ensures data security, cost efficiency (up to 70% savings), and seamless AI adoption for businesses looking to leverage generative AI.",
+      "Build and deploy multilingual voice agents for support, sales, collections, booking, onboarding, and customer operations.",
     features: [
-      "Data Security",
-      "Cost Efficiency",
-      "Seamless AI Adoption",
-      "Custom AI Models",
+      "Real-time voice agents",
+      "Multilingual conversations",
+      "Telephony and CRM integrations",
+      "Analytics and workflow automation",
     ],
   },
   {
-    title: "VivOne AI– Intelligent Chat & Voice AI",
+    id: "finolabs",
+    name: "FinoLabs",
+    domain: "finolabs.io",
+    category: "AI for Financial Operations",
     description:
-      "Our AI Agent is a next-gen customer support solution that offers real-time chat and voice assistance, automating interactions with human-like accuracy. Designed for businesses across industries, it enhances customer experiences by providing instant, context-aware responses, reducing operational costs, and improving support efficiency — adaptable for various enterprises.",
+      "Purpose-built AI workflows for lending, collections, financial servicing, customer verification, and process automation in BFSI.",
     features: [
-      "Real-time Chat",
-      "Voice Assistance",
-      "Human-like Accuracy",
-      "Context-aware Responses",
+      "Loan servicing and collections",
+      "Financial customer support",
+      "Verification and compliance workflows",
+      "Automation for operations teams",
     ],
   },
-  // {
-  //   title: "Machine Learning Solutions",
-  //   description:
-  //     "Custom ML models tailored to your business needs, from predictive analytics to computer vision.",
-  //   features: [
-  //     "Predictive Analytics",
-  //     "Computer Vision",
-  //     "Pattern Recognition",
-  //     "Data Mining",
-  //   ],
-  // },
-  // {
-  //   title: "Natural Language Processing",
-  //   description:
-  //     "Advanced NLP solutions for chatbots, text analysis, and automated content generation.",
-  //   features: [
-  //     "Sentiment Analysis",
-  //     "Text Generation",
-  //     "Language Understanding",
-  //     "Chatbots",
-  //   ],
-  // },
-  // {
-  //   title: "AI Consulting",
-  //   description:
-  //     "Strategic guidance on AI implementation and digital transformation for your organization.",
-  //   features: [
-  //     "Strategy Development",
-  //     "Technical Assessment",
-  //     "Implementation",
-  //     "Training",
-  //   ],
-  // },
+  {
+    id: "agentic-ai-sm",
+    name: "Agentic AI SM",
+    domain: "Auto Socials",
+    category: "Auto Socials",
+    description:
+      "Deploy agentic systems that can reason, act, coordinate across tools, and automate complex business workflows beyond chat and voice.",
+    features: [
+      "Multi-agent orchestration",
+      "Workflow execution",
+      "Tool use and business actions",
+      "Enterprise-grade observability",
+    ],
+  },
+  {
+    id: "marketing-automation-agent",
+    name: "Marketing Automation Agent",
+    domain: "Lead Management AI",
+    category: "AI Agent for Lead Management",
+    description:
+      "Automate lead capture, qualification, follow-up, and CRM handoff so sales teams can focus on high-intent opportunities.",
+    features: [
+      "Inbound and outbound lead handling",
+      "Qualification and scoring",
+      "Automated follow-up workflows",
+      "CRM routing and sales handoff",
+    ],
+  },
 ];
 
 export default function Products() {
   return (
-    <section className="py-32 bg-gray-50">
+    <section id="products" className="bg-white py-24">
       <Container>
-        <div className="max-w-3xl mb-24">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900 font-raleway">
-            Comprehensive AI Solutions
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <span className="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-900 font-raleway">
+            Our Products
+          </span>
+          <h2 className="mb-6 text-4xl font-bold text-gray-900 font-raleway md:text-5xl">
+            A Product Suite for Agentic Enterprise Automation
           </h2>
-          <p className="text-gray-900/60 text-lg font-raleway">
-            Leverage the power of artificial intelligence to transform your
-            business and stay ahead of the competition.
+          <p className="text-lg leading-relaxed text-gray-600 font-raleway">
+            From conversational AI and lead management to financial workflows
+            and autonomous enterprise agents, our products are built to help
+            businesses automate operations, customer engagement, and
+            decision-making at scale.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
           {products.map((product, index) => (
             <div
-              key={product.title}
-              className="bg-white p-12 relative group rounded-xl shadow-sm border border-gray-200"
+              key={product.id}
+              className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-gradient-to-b from-white to-slate-50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="relative">
-                <div className="mb-8">
-                  <span className="text-gray-400 text-sm font-raleway">
-                    0{index + 1}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-raleway">
-                  {product.title}
-                </h3>
-                <p className="text-gray-600 mb-8 leading-relaxed font-raleway">
-                  {product.description}
-                </p>
-                <ul className="space-y-3 mb-12">
-                  {product.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="text-gray-500 flex items-center gap-2 font-raleway"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-gray-400" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="secondary" size="sm" className="font-raleway">
-                  Learn More →
-                </Button>
+              <div className="mb-5 flex items-center justify-between gap-3">
+                <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-semibold text-gray-500 font-raleway">
+                  0{index + 1}
+                </span>
+                <span className="max-w-[70%] rounded-full bg-slate-900 px-3 py-1 text-right text-xs font-medium leading-snug text-white font-raleway">
+                  {product.domain}
+                </span>
               </div>
+
+              <p className="mb-2 text-sm font-semibold text-blue-700 font-raleway">
+                {product.category}
+              </p>
+              <h3 className="mb-4 min-h-[4rem] text-2xl font-bold leading-tight text-gray-900 font-raleway">
+                {product.name}
+              </h3>
+
+              <p className="mb-6 min-h-[6.5rem] text-sm leading-relaxed text-gray-600 font-raleway">
+                {product.description}
+              </p>
+
+              <ul className="mb-8 space-y-3 border-t border-gray-100 pt-5">
+                {product.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-start gap-3 text-sm text-gray-700 font-raleway"
+                  >
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Button
+                href={`/products#${product.id}`}
+                variant="secondary"
+                size="sm"
+                className="mt-auto min-h-11 w-full whitespace-normal text-center leading-snug font-raleway"
+              >
+                Explore {product.name}
+              </Button>
             </div>
           ))}
         </div>

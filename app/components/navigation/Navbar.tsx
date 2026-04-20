@@ -6,8 +6,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Solutions", href: "/solutions" },
   { name: "Products", href: "/products" },
+  { name: "Platform", href: "/products#platform" },
+  { name: "Use Cases", href: "/solutions" },
   { name: "About", href: "/about" },
   { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
@@ -92,7 +93,7 @@ export default function Navbar() {
             </div>
             <a href="https://calendly.com/indusai-app/meet">
               <Button size="sm" className="font-raleway">
-                Book a Demo
+                Talk to Sales
               </Button>
             </a>
             <button 

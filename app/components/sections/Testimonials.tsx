@@ -26,13 +26,13 @@ const testimonials = [
   },
   {
     quote: "As a D2C brand, customer support costs were eating into our margins. IndusAI's solution handles 80% of our customer queries automatically, allowing us to scale without proportionally increasing support staff.",
-    author: "Arjun Patel",
+    author: "Nilanjan Das",
     role: "Founder & CEO",
-    company: "BoAt Lifestyle",
+    company: "Exide Batteries",
     industry: "D2C & FMCG",
     metrics: "80% Query Automation, 3x Customer LTV",
-    avatar: "/images/avatars/arjun-patel.jpg",
-    companyLogo: "/images/logos/boat.png"
+    avatar: "/images/avatars/nilanjan-das.jpg",
+    companyLogo: "/images/logos/exide.png"
   }
 ]
 
@@ -63,12 +63,13 @@ export default function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white font-raleway">
             Trusted by{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              India's Leading
+              Enterprise
             </span>{" "}
-            Enterprises
+            Teams
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto font-raleway">
-            See how enterprises across industries are achieving measurable results with IndusAI's voice automation platform.
+            See how teams across industries are using IndusAI products to
+            automate conversations, workflows, and high-volume operations.
           </p>
         </div>
 

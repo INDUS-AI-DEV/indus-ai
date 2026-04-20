@@ -16,7 +16,7 @@ const openPositions = [
     title: 'AI Engineering Intern',
     type: 'Internship',
     location: 'Remote',
-    description: 'Join our AI engineering team to work on cutting-edge voice AI solutions. You\'ll help develop and optimize our AI models and infrastructure.',
+    description: 'Join our AI engineering team to work on enterprise agentic AI products across voice, workflow automation, and production AI infrastructure.',
     responsibilities: [
       'Assist in developing and optimizing AI/ML models for voice processing',
       'Implement and test new algorithms and approaches',
@@ -46,14 +46,14 @@ export default function Careers() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Join Our Team?</h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                We're building the future of voice AI, and we want you to be part of our journey. Here's what makes working at IndusAI special.
+                We&apos;re building the future of enterprise agentic AI products, and we want you to be part of our journey. Here&apos;s what makes working at IndusAI special.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
                   title: 'Cutting-Edge Work',
-                  description: 'Work on challenging problems in AI, NLP, and voice technology that impact millions of users.'
+                  description: 'Work on challenging problems in AI, workflow automation, and voice systems that power real business operations.'
                 },
                 {
                   title: 'Learning & Growth',
@@ -88,7 +88,7 @@ export default function Careers() {
               </span>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Open Positions</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Join our team of talented individuals working on cutting-edge AI solutions.
+                Join our team of talented individuals building product-grade AI systems for enterprise workflows.
               </p>
             </div>
             
@@ -200,10 +200,10 @@ export default function Careers() {
           <Container>
             <div className="max-w-4xl mx-auto text-center px-4">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                Ready to build the future of voice AI with us?
+                Ready to build the future of agentic AI with us?
               </h2>
               <p className="text-xl text-indigo-100 mb-10 max-w-2xl mx-auto">
-                Join our team of passionate engineers and researchers creating cutting-edge AI solutions that make a difference.
+                Join our team of engineers and builders creating enterprise AI products that automate real workflows at scale.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button 

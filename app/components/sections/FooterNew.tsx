@@ -3,32 +3,33 @@ import Container from "../ui/Container";
 import Image from "next/image";
 
 const navigation = {
-  solutions: [
-    { name: "Automotive", href: "/solutions/automotive" },
-    { name: "Banking & Finance", href: "/solutions/banking" },
-    { name: "D2C & FMCG", href: "/solutions/d2c-fmcg" },
-    { name: "Healthcare", href: "/solutions/healthcare" },
+  products: [
+    { name: "IndusLabs", href: "/products#induslabs" },
+    {
+      name: "Marketing Automation Agent",
+      href: "/products#marketing-automation-agent",
+    },
+    { name: "FinoLabs", href: "/products#finolabs" },
+    { name: "Agentic AI SM", href: "/products#agentic-ai-sm" },
+    { name: "Platform", href: "/products#platform" },
+  ],
+  useCases: [
+    { name: "Customer Operations", href: "/solutions#customer-operations" },
+    { name: "Financial Workflows", href: "/solutions#financial-workflows" },
+    { name: "Enterprise Automation", href: "/solutions#enterprise-automation" },
+    { name: "Industry Deployments", href: "/solutions#industry-deployments" },
   ],
   company: [
     { name: "About IndusAI", href: "/about" },
-    { name: "Our Story", href: "/story" },
-    { name: "Leadership", href: "/leadership" },
     { name: "Careers", href: "/careers" },
-  ],
-  resources: [
-    { name: "Whitepapers", href: "/whitepapers" },
-    { name: "API Documentation", href: "/docs" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ],
   support: [
-    { name: "Contact Sales", href: "/contact-sales" },
-    { name: "Technical Support", href: "/support" },
-    { name: "System Status", href: "/status" },
-    { name: "Security", href: "/security" },
-  ],
-  legal: [
+    { name: "Dashboard", href: "https://dashboard.indusai.app", external: true },
+    { name: "Book a Demo", href: "https://calendly.com/indusai-app/meet", external: true },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
-    { name: "Data Processing", href: "/data-processing" },
   ],
   social: [
     {
@@ -58,185 +59,196 @@ const navigation = {
       href: "https://youtube.com/@indusai",
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
         </svg>
       ),
     },
   ],
 };
 
+function FooterLink({
+  href,
+  children,
+  external,
+}: {
+  href: string;
+  children: React.ReactNode;
+  external?: boolean;
+}) {
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm text-blue-200 transition-colors hover:text-white"
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      className="text-sm text-blue-200 transition-colors hover:text-white"
+    >
+      {children}
+    </Link>
+  );
+}
+
 export default function FooterNew() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 to-blue-900 relative overflow-hidden font-raleway">
-      {/* Background decorative elements */}
+    <footer className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 font-raleway">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute right-1/4 bottom-1/4 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
       </div>
-      
+
       <Container className="relative z-10">
-        <div className="py-16 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-            {/* Company Info */}
-            <div className="col-span-1 md:col-span-2 lg:col-span-2">
-              <Link href="/" className="block mb-6">
-                <Image
-                  src="/images/logo.png"
-                  alt="IndusAI"
-                  width={120}
-                  height={120}
-                  className="h-12 w-auto brightness-0 invert"
-                />
-              </Link>
-              <p className="text-sm text-blue-200 mb-8 leading-relaxed">
-                The Proven Voice AI Platform for India's Leading Enterprises. Automate 80% of customer conversations and reduce costs by 40%.
-              </p>
-              
-              {/* Key Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-white">22+</div>
-                  <div className="text-xs text-blue-300">Enterprises</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold text-white">95%</div>
-                  <div className="text-xs text-blue-300">FCR Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold text-white">24/7</div>
-                  <div className="text-xs text-blue-300">AI Support</div>
-                </div>
+        <div className="grid grid-cols-1 gap-8 py-16 md:grid-cols-2 lg:grid-cols-6 lg:py-20">
+          <div className="col-span-1 md:col-span-2 lg:col-span-2">
+            <Link href="/" className="mb-6 block">
+              <Image
+                src="/images/logo.png"
+                alt="IndusAI"
+                width={120}
+                height={120}
+                className="h-12 w-auto brightness-0 invert"
+              />
+            </Link>
+            <p className="mb-8 text-sm leading-relaxed text-blue-100">
+              Enterprise AI products for voice, lead management, financial
+              workflows, and autonomous business operations.
+            </p>
+
+            <div className="mb-8 grid grid-cols-2 gap-4">
+              <div className="text-center">
+                <div className="text-lg font-bold text-white">4</div>
+                <div className="text-xs text-blue-300">Core Products</div>
               </div>
-              
-              {/* Social Links */}
-              <div className="flex space-x-4">
-                {navigation.social.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-blue-300 hover:text-white transition-colors p-2 bg-white/10 rounded-lg hover:bg-white/20"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="sr-only">{item.name}</span>
-                    <item.icon className="h-5 w-5" aria-hidden="true" />
-                  </Link>
-                ))}
+              <div className="text-center">
+                <div className="text-lg font-bold text-white">22+</div>
+                <div className="text-xs text-blue-300">Languages</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-white">CRM</div>
+                <div className="text-xs text-blue-300">Lead Routing</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-white">24/7</div>
+                <div className="text-xs text-blue-300">Autonomous Ops</div>
               </div>
             </div>
 
-            {/* Solutions */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4">Solutions</h3>
-              <ul className="space-y-3">
-                {navigation.solutions.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-blue-200 hover:text-white transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <div className="flex space-x-4">
+              {navigation.social.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="rounded-lg bg-white/10 p-2 text-blue-300 transition-colors hover:bg-white/20 hover:text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              ))}
             </div>
+          </div>
 
-            {/* Company */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4">Company</h3>
-              <ul className="space-y-3">
-                {navigation.company.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-blue-200 hover:text-white transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <h3 className="mb-4 text-sm font-semibold text-white">Products</h3>
+            <ul className="space-y-3">
+              {navigation.products.map((item) => (
+                <li key={item.name}>
+                  <FooterLink href={item.href}>{item.name}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Resources */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4">Resources</h3>
-              <ul className="space-y-3">
-                {navigation.resources.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-blue-200 hover:text-white transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <h3 className="mb-4 text-sm font-semibold text-white">Use Cases</h3>
+            <ul className="space-y-3">
+              {navigation.useCases.map((item) => (
+                <li key={item.name}>
+                  <FooterLink href={item.href}>{item.name}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Support */}
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-4">Support</h3>
-              <ul className="space-y-3">
-                {navigation.support.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-blue-200 hover:text-white transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <h3 className="mb-4 text-sm font-semibold text-white">Company</h3>
+            <ul className="space-y-3">
+              {navigation.company.map((item) => (
+                <li key={item.name}>
+                  <FooterLink href={item.href}>{item.name}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-sm font-semibold text-white">Resources</h3>
+            <ul className="space-y-3">
+              {navigation.support.map((item) => (
+                <li key={item.name}>
+                  <FooterLink href={item.href} external={item.external}>
+                    {item.name}
+                  </FooterLink>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* CTA Section */}
         <div className="border-t border-white/20 py-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Transform Your Customer Experience?
+          <div className="mb-8 text-center">
+            <h3 className="mb-4 text-2xl font-bold text-white">
+              Ready to Deploy Agentic AI in Production?
             </h3>
-            <p className="text-blue-200 mb-6 max-w-2xl mx-auto">
-              Join 20+ enterprises already using IndusAI to automate conversations, increase sales, and reduce operational costs.
+            <p className="mx-auto mb-6 max-w-2xl text-blue-100">
+              Talk to us about the right product, workflow architecture, and
+              deployment path for your enterprise use case.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 href="https://calendly.com/indusai-app/meet"
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                className="rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-3 font-medium text-white transition-all duration-300 hover:from-blue-700 hover:to-emerald-700"
               >
-                Request a Demo
+                Book a Demo
               </Link>
               <Link
-                href="/contact-sales"
-                className="px-8 py-3 border-2 border-blue-400 text-blue-200 rounded-lg font-medium hover:bg-blue-400 hover:text-white transition-all duration-300"
+                href="/contact"
+                className="rounded-lg border-2 border-blue-300 px-8 py-3 font-medium text-blue-100 transition-all duration-300 hover:bg-blue-300 hover:text-slate-900"
               >
-                Contact Sales
+                Talk to Sales
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-white/20 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-blue-300">
               © {new Date().getFullYear()} IndusAI. All rights reserved.
             </p>
             <div className="flex gap-6">
-              {navigation.legal.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm text-blue-300 hover:text-white transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              <Link
+                href="/privacy"
+                className="text-sm text-blue-300 transition-colors hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-sm text-blue-300 transition-colors hover:text-white"
+              >
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>

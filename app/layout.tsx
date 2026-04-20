@@ -9,7 +9,8 @@ const raleway = Raleway({
 
 export const metadata: Metadata = {
   title: "Indus AI",
-  description: "Empowering businesses with cutting-edge AI solutions",
+  description:
+    "Enterprise AI products for voice, lead management, financial workflows, and autonomous business operations.",
 };
 
 export default function RootLayout({

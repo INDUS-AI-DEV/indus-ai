@@ -3,39 +3,39 @@
 import Container from "../ui/Container";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 
 const faqs = [
   {
     question:
       "What is Indus AI, and how is it different from other AI companies?",
     answer:
-      "Indus AI is not just another AI company—we specialize in personalized and secure AI solutions that are cost-effective and enterprise-ready. From custom LLMs to AI-powered customer support, we ensure that businesses of all sizes can harness AI without the complexity or high costs.",
+      "IndusAI is an enterprise agentic AI product company. Instead of positioning ourselves only as a solutions vendor, we are building a product suite for voice automation, financial workflows, and autonomous enterprise systems that can be deployed across real business operations.",
   },
   {
     question: "What products does Indus AI offer?",
     answer:
-      "We offer comprehensive AI solutions including personalized Large Language Models designed for enterprises and government organizations, providing on-premise and cloud AI deployment at a fraction of the cost. Our intelligent AI agents provide chat and voice-based customer support, helping businesses automate and enhance customer interactions with human-like accuracy.",
+      "Our product suite includes IndusLabs for enterprise voice AI, Marketing Automation Agent for lead management and qualification, FinoLabs for financial operations and BFSI workflows, and Agentic AI SM for broader autonomous workflow execution and multi-agent orchestration.",
   },
   {
     question: "Why should businesses choose Indus AI for AI deployment?",
     answer:
-      "Tailored AI models – No one-size-fits-all; we fine-tune AI for your specific needs. Secure & Scalable – Deploy AI on-premise or in the cloud with full data control. Cost Savings – Achieve up to 70% cost reduction compared to traditional AI solutions. Enterprise-Ready – We build AI solutions that seamlessly integrate into your existing business workflows.",
+      "Businesses choose IndusAI because we focus on production workflows, not just prototypes. Our products are built for enterprise deployment, with integrations, observability, multilingual capability, and workflow automation that can support real business operations at scale.",
   },
   {
-    question: "Can SMEs afford AI solutions from Indus AI?",
+    question: "Can SMEs adopt IndusAI products without a large internal AI team?",
     answer:
       "Absolutely! Our mission is to make AI accessible to SMEs by offering affordable, high-impact solutions that optimize processes, improve decision-making, and enhance customer experiences—without the need for an in-house AI team.",
   },
   {
     question: "How does IndusAI improve customer support?",
     answer:
-      "IndusAI provides instant, context-aware responses through chat and voice AI, reducing wait times and enhancing user experience. Whether it's handling FAQs, assisting with orders, or escalating complex queries to human agents, IndusAI ensures seamless customer interactions—24/7.",
+      "IndusAI improves customer support through voice agents, workflow automation, multilingual servicing, and human handoff controls. Teams can automate repetitive conversations while keeping escalation paths, oversight, and customer experience quality intact.",
   },
   {
-    question: "What industries can benefit from IndusAI solutions?",
+    question: "What industries can benefit from IndusAI products?",
     answer:
-      "Our AI solutions cater to a wide range of industries, including: E-commerce & Retail – AI-driven customer support and product recommendations. Banking & Finance – Secure AI models for fraud detection and customer service. Healthcare – AI assistants for patient queries and medical data processing. Government & Enterprises – On-premise AI for secure and large-scale operations. Automotive – 24/7 lead qualification and service automation. D2C & FMCG – Supply chain optimization and customer engagement.",
+      "Our products are relevant anywhere enterprises need scalable automation for conversations, workflows, and operational actions. Strong fits include banking and finance, hospitality, healthcare, retail and commerce, automotive, and broader enterprise operations.",
   },
   {
     question: "How does Indus AI ensure data security and privacy?",
@@ -45,12 +45,12 @@ const faqs = [
   {
     question: "Can I integrate Indus AI products into my existing system?",
     answer:
-      "Yes! Our AI solutions are designed to be plug-and-play, with APIs and SDKs that easily integrate into your CRM, ERP, or customer service platforms.",
+      "Yes. Our products are designed to connect with telephony, CRM, ERP, finance systems, and internal business tools so enterprises can deploy automation without rebuilding their existing operating stack.",
   },
   {
     question: "What’s the future of AI at Indus AI?",
     answer:
-      "We’re constantly innovating! Future plans include AI-powered business insights, multilingual AI agents, and hyper-personalized AI solutions for even more industries. Stay tuned as we shape the future of AI adoption!",
+      "We are expanding from voice-first deployments into a broader agentic AI product ecosystem that supports enterprise workflows, financial operations, and autonomous systems with stronger execution, observability, and control.",
   },
   {
     question: "How can I get started with Indus AI?",
@@ -163,7 +163,7 @@ export default function FAQ() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Everything you need to know about our AI solutions. Can't find the answer you're looking for? 
+            Everything you need to know about our products, platform, and deployment model. Can't find the answer you're looking for? 
             <a href="/contact" className="text-blue-600 hover:underline font-medium ml-1">Contact our team</a>.
           </motion.p>
         </div>

@@ -187,7 +187,7 @@ export default function DemoBotsPage() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-gray-600 mb-6 font-raleway">
-              Schedule a personalized demo to see how our AI solutions can be tailored to your specific needs.
+              Schedule a personalized walkthrough to see which IndusAI product fits your workflow, team, and deployment model.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button size="md">
