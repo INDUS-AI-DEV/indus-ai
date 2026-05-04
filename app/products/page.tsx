@@ -126,7 +126,7 @@ export default function ProductsPage() {
                 Explore Products
               </Button>
               <Button
-                href="https://calendly.com/indusai-app/meet"
+                href="https://calendly.com/hello-induslabs/30min"
                 variant="secondary"
                 size="lg"
                 className="font-raleway"

@@ -91,7 +91,7 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
-            <a href="https://calendly.com/indusai-app/meet">
+            <a href="https://calendly.com/hello-induslabs/30min">
               <Button size="sm" className="font-raleway">
                 Talk to Sales
               </Button>

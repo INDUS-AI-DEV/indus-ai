@@ -598,7 +598,7 @@ Deployment benefit cards:
 
 ### Main Functional Element
 
-- Embedded Calendly widget pointing to `https://calendly.com/indusai-app/meet`
+- Embedded Calendly widget pointing to `https://calendly.com/hello-induslabs/30min`
 
 ### Commented Out / Not Rendered
 

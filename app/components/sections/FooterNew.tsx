@@ -27,7 +27,7 @@ const navigation = {
   ],
   support: [
     { name: "Dashboard", href: "https://dashboard.indusai.app", external: true },
-    { name: "Book a Demo", href: "https://calendly.com/indusai-app/meet", external: true },
+    { name: "Book a Demo", href: "https://calendly.com/hello-induslabs/30min", external: true },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
   ],
@@ -216,7 +216,7 @@ export default function FooterNew() {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
-                href="https://calendly.com/indusai-app/meet"
+                href="https://calendly.com/hello-induslabs/30min"
                 className="rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-3 font-medium text-white transition-all duration-300 hover:from-blue-700 hover:to-emerald-700"
               >
                 Book a Demo

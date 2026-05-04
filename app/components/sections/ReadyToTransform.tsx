@@ -15,7 +15,7 @@ export default function ReadyToTransform() {
           </p>
           <div className="flex justify-center gap-4">
             <Button
-              href="https://calendly.com/indusai-app/meet"
+              href="https://calendly.com/hello-induslabs/30min"
               size="lg"
               className="font-raleway"
             >

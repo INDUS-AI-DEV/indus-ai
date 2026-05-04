@@ -123,7 +123,7 @@ export default function Contact() {
 
       <div
         className="calendly-inline-widget min-w-[320px] h-[700px]"
-        data-url="https://calendly.com/indusai-app/meet"
+        data-url="https://calendly.com/hello-induslabs/30min"
       ></div>
       <script
         type="text/javascript"

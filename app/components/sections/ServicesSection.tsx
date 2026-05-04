@@ -230,7 +230,7 @@ export default function ServicesSection() {
               and workflow architecture for their use case.
             </p>
             <div className="flex justify-center">
-              <a href="https://calendly.com/indusai-app/meet" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-raleway inline-block">
+              <a href="https://calendly.com/hello-induslabs/30min" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-raleway inline-block">
                 Book Product Demo
               </a>
             </div>
