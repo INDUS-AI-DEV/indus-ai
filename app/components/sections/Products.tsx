@@ -6,6 +6,8 @@ const products = [
     id: "induslabs",
     name: "IndusLabs",
     domain: "induslabs.io",
+    href: "https://induslabs.io",
+    external: true,
     category: "Enterprise Voice AI Platform",
     description:
       "Build and deploy multilingual voice agents for support, sales, collections, booking, onboarding, and customer operations.",
@@ -20,6 +22,8 @@ const products = [
     id: "finolabs",
     name: "FinoLabs",
     domain: "finolabs.io",
+    href: "https://finolabs.ai",
+    external: true,
     category: "AI for Financial Operations",
     description:
       "Purpose-built AI workflows for lending, collections, financial servicing, customer verification, and process automation in BFSI.",
@@ -34,6 +38,7 @@ const products = [
     id: "agentic-ai-sm",
     name: "Agentic AI SM",
     domain: "Auto Socials",
+    href: "/products#agentic-ai-sm",
     category: "Auto Socials",
     description:
       "Deploy agentic systems that can reason, act, coordinate across tools, and automate complex business workflows beyond chat and voice.",
@@ -48,6 +53,7 @@ const products = [
     id: "marketing-automation-agent",
     name: "Marketing Automation Agent",
     domain: "Lead Management AI",
+    href: "/products#marketing-automation-agent",
     category: "AI Agent for Lead Management",
     description:
       "Automate lead capture, qualification, follow-up, and CRM handoff so sales teams can focus on high-intent opportunities.",
@@ -118,7 +124,9 @@ export default function Products() {
               </ul>
 
               <Button
-                href={`/products#${product.id}`}
+                href={product.href}
+                target={product.external ? "_blank" : undefined}
+                rel={product.external ? "noopener noreferrer" : undefined}
                 variant="secondary"
                 size="sm"
                 className="mt-auto min-h-11 w-full whitespace-normal text-center leading-snug font-raleway"
