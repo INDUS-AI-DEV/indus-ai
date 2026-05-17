@@ -12,7 +12,7 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
-  { name: "Dashboard", href: "https://dashboard.indusai.app", external: true },
+  { name: "Dashboard", href: "https://playground.induslabs.io", external: true },
 ];
 
 const languages = [

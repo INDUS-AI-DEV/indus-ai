@@ -4,13 +4,14 @@ import Image from "next/image";
 
 const navigation = {
   products: [
-    { name: "IndusLabs", href: "/products#induslabs" },
+    { name: "IndusLabs", href: "https://induslabs.io", external: true },
     {
       name: "Marketing Automation Agent",
-      href: "/products#marketing-automation-agent",
+      href: "https://induslabs.io",
+      external: true,
     },
-    { name: "FinoLabs", href: "/products#finolabs" },
-    { name: "Agentic AI SM", href: "/products#agentic-ai-sm" },
+    { name: "FinoLabs", href: "https://finolabs.ai", external: true },
+    { name: "Agentic AI SM", href: "https://induslabs.io", external: true },
     { name: "Platform", href: "/products#platform" },
   ],
   useCases: [
@@ -26,7 +27,7 @@ const navigation = {
     { name: "Contact", href: "/contact" },
   ],
   support: [
-    { name: "Dashboard", href: "https://dashboard.indusai.app", external: true },
+    { name: "Dashboard", href: "https://playground.induslabs.io", external: true },
     { name: "Book a Demo", href: "https://calendly.com/hello-induslabs/30min", external: true },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
@@ -163,7 +164,9 @@ export default function FooterNew() {
             <ul className="space-y-3">
               {navigation.products.map((item) => (
                 <li key={item.name}>
-                  <FooterLink href={item.href}>{item.name}</FooterLink>
+                  <FooterLink href={item.href} external={item.external}>
+                    {item.name}
+                  </FooterLink>
                 </li>
               ))}
             </ul>
