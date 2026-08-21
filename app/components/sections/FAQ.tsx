@@ -1,209 +1,139 @@
 "use client";
 
-import Container from "../ui/Container";
+import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FiChevronDown } from "react-icons/fi";
+import Container from "../ui/Container";
+import { faqs } from "../../lib/faqs";
 
-const faqs = [
-  {
-    question:
-      "What is Indus AI, and how is it different from other AI companies?",
-    answer:
-      "IndusAI is an enterprise agentic AI product company. Instead of positioning ourselves only as a solutions vendor, we are building a product suite for voice automation, financial workflows, and autonomous enterprise systems that can be deployed across real business operations.",
-  },
-  {
-    question: "What products does Indus AI offer?",
-    answer:
-      "Our product suite includes IndusLabs for enterprise voice AI, Marketing Automation Agent for lead management and qualification, FinoLabs for financial operations and BFSI workflows, and Agentic AI SM for broader autonomous workflow execution and multi-agent orchestration.",
-  },
-  {
-    question: "Why should businesses choose Indus AI for AI deployment?",
-    answer:
-      "Businesses choose IndusAI because we focus on production workflows, not just prototypes. Our products are built for enterprise deployment, with integrations, observability, multilingual capability, and workflow automation that can support real business operations at scale.",
-  },
-  {
-    question: "Can SMEs adopt IndusAI products without a large internal AI team?",
-    answer:
-      "Absolutely! Our mission is to make AI accessible to SMEs by offering affordable, high-impact solutions that optimize processes, improve decision-making, and enhance customer experiences—without the need for an in-house AI team.",
-  },
-  {
-    question: "How does IndusAI improve customer support?",
-    answer:
-      "IndusAI improves customer support through voice agents, workflow automation, multilingual servicing, and human handoff controls. Teams can automate repetitive conversations while keeping escalation paths, oversight, and customer experience quality intact.",
-  },
-  {
-    question: "What industries can benefit from IndusAI products?",
-    answer:
-      "Our products are relevant anywhere enterprises need scalable automation for conversations, workflows, and operational actions. Strong fits include banking and finance, hospitality, healthcare, retail and commerce, automotive, and broader enterprise operations.",
-  },
-  {
-    question: "How does Indus AI ensure data security and privacy?",
-    answer:
-      "We prioritize data sovereignty and offer on-premise deployment, meaning businesses can keep sensitive information within their own infrastructure. For cloud solutions, we implement end-to-end encryption and enterprise-grade security to safeguard user data.",
-  },
-  {
-    question: "Can I integrate Indus AI products into my existing system?",
-    answer:
-      "Yes. Our products are designed to connect with telephony, CRM, ERP, finance systems, and internal business tools so enterprises can deploy automation without rebuilding their existing operating stack.",
-  },
-  {
-    question: "What’s the future of AI at Indus AI?",
-    answer:
-      "We are expanding from voice-first deployments into a broader agentic AI product ecosystem that supports enterprise workflows, financial operations, and autonomous systems with stronger execution, observability, and control.",
-  },
-  {
-    question: "How can I get started with Indus AI?",
-    answer:
-      "Simple! Reach out to us at info@indusai.app or visit www.indusai.app to schedule a free AI consultation. Let’s build the future of AI together!",
-  },
-];
-
-const FAQItem = ({ 
-  question, 
-  answer, 
-  isOpen, 
-  onClick 
-}: { 
-  question: string; 
-  answer: string; 
-  isOpen: boolean; 
-  onClick: () => void 
-}) => {
+/**
+ * Answers stay mounted and are collapsed with a grid-rows transition rather
+ * than unmounted, so the copy is always present in the HTML for crawlers and
+ * matches the FAQPage structured data rendered on the homepage.
+ */
+function FaqItem({
+  id,
+  question,
+  answer,
+  isOpen,
+  onToggle,
+}: {
+  id: string;
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <motion.div 
-      className="overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 mb-4 transition-all duration-300 hover:shadow-md"
-      initial={false}
-      animate={{ 
-        backgroundColor: isOpen ? '#f8fafc' : '#ffffff',
-        borderColor: isOpen ? '#e2e8f0' : '#f1f5f9'
-      }}
+    <div
+      className={`overflow-hidden rounded-xl border bg-white transition-shadow duration-300 ${
+        isOpen ? "border-gray-200 shadow-md" : "border-gray-100 shadow-sm hover:shadow-md"
+      }`}
     >
-      <motion.button
-        className="flex justify-between items-center w-full p-6 text-left cursor-pointer"
-        onClick={onClick}
-        whileTap={{ scale: 0.98 }}
-      >
-        <h3 className="text-lg font-semibold text-gray-800">{question}</h3>
-        <motion.span 
-          className="ml-4 text-gray-500"
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+      <h3>
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={isOpen}
+          aria-controls={`${id}-answer`}
+          id={`${id}-question`}
+          className="flex w-full cursor-pointer items-center justify-between gap-4 p-6 text-left font-raleway text-lg font-semibold text-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2C514C] focus-visible:ring-offset-2"
         >
-          <FiChevronDown size={24} />
-        </motion.span>
-      </motion.button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ 
-              opacity: 1, 
-              height: 'auto',
-              transition: { 
-                opacity: { duration: 0.3 },
-                height: { duration: 0.3 }
-              }
-            }}
-            exit={{ 
-              opacity: 0, 
-              height: 0,
-              transition: { 
-                opacity: { duration: 0.2 },
-                height: { duration: 0.2 }
-              }
-            }}
-            className="px-6 pb-6 -mt-2"
+          <span>{question}</span>
+          <svg
+            className={`h-6 w-6 flex-shrink-0 text-gray-500 transition-transform duration-300 motion-reduce:transition-none ${
+              isOpen ? "rotate-180" : ""
+            }`}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+            aria-hidden="true"
           >
-            <div className="prose prose-indigo text-gray-600">
-              <p>{answer}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </h3>
+
+      <div
+        id={`${id}-answer`}
+        role="region"
+        aria-labelledby={`${id}-question`}
+        className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="px-6 pb-6 font-raleway leading-relaxed text-gray-600">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const handleClick = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/20">
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="bg-gradient-to-b from-white to-blue-50/20 py-20"
+    >
       <Container>
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-block"
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <span className="mb-4 inline-block rounded-full bg-blue-50 px-4 py-1.5 font-raleway text-sm font-medium text-blue-700">
+            Agentic AI, explained
+          </span>
+          <h2
+            id="faq-heading"
+            className="mb-4 font-raleway text-4xl font-bold text-gray-900"
           >
-            <span className="inline-block px-4 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-full mb-4">
-              Need Help?
-            </span>
-          </motion.div>
-          <motion.h2 
-            className="text-4xl font-bold text-gray-900 mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Frequently Asked Questions
-          </motion.h2>
-          <motion.p 
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Everything you need to know about our products, platform, and deployment model. Can't find the answer you're looking for? 
-            <a href="/contact" className="text-blue-600 hover:underline font-medium ml-1">Contact our team</a>.
-          </motion.p>
+            Frequently asked questions
+          </h2>
+          <p className="font-raleway text-lg leading-relaxed text-gray-600">
+            What an agentic AI platform is, how it differs from a chatbot, and
+            what it takes to deploy AI agents on real enterprise workflows.
+          </p>
         </div>
-        
-        <motion.div 
-          className="max-w-4xl mx-auto space-y-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
+
+        <div className="mx-auto max-w-4xl space-y-4">
           {faqs.map((faq, index) => (
-            <FAQItem 
-              key={index} 
-              question={faq.question} 
-              answer={faq.answer} 
+            <FaqItem
+              key={faq.question}
+              id={`faq-${index}`}
+              question={faq.question}
+              answer={faq.answer}
               isOpen={openIndex === index}
-              onClick={() => handleClick(index)}
+              onToggle={() => setOpenIndex(openIndex === index ? null : index)}
             />
           ))}
-        </motion.div>
-        
-        <motion.div 
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <p className="text-gray-600 mb-6">Still have questions?</p>
-          <a 
-            href="/contact" 
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200 shadow-sm"
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="mb-6 font-raleway text-gray-600">
+            Still have questions about deploying AI agents in your workflows?
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center rounded-full bg-[#2C514C] px-6 py-3 font-raleway text-base font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#132A22]"
           >
-            Contact Support
-            <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            Send us an enquiry
+            <svg
+              className="ml-2 -mr-1 h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
             </svg>
-          </a>
-        </motion.div>
+          </Link>
+        </div>
       </Container>
     </section>
   );

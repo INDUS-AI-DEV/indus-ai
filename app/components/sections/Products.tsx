@@ -1,141 +1,92 @@
 import Container from "../ui/Container";
 import Button from "../ui/Button";
-
-const products = [
-  {
-    id: "induslabs",
-    name: "IndusLabs",
-    domain: "induslabs.io",
-    href: "https://induslabs.io",
-    external: true,
-    category: "Enterprise Voice AI Platform",
-    description:
-      "Build and deploy multilingual voice agents for support, sales, collections, booking, onboarding, and customer operations.",
-    features: [
-      "Real-time voice agents",
-      "Multilingual conversations",
-      "Telephony and CRM integrations",
-      "Analytics and workflow automation",
-    ],
-  },
-  {
-    id: "finolabs",
-    name: "FinoLabs",
-    domain: "finolabs.io",
-    href: "https://finolabs.ai",
-    external: true,
-    category: "AI for Financial Operations",
-    description:
-      "Purpose-built AI workflows for lending, collections, financial servicing, customer verification, and process automation in BFSI.",
-    features: [
-      "Loan servicing and collections",
-      "Financial customer support",
-      "Verification and compliance workflows",
-      "Automation for operations teams",
-    ],
-  },
-  {
-    id: "agentic-ai-sm",
-    name: "Agentic AI SM",
-    domain: "Auto Socials",
-    href: "/products#agentic-ai-sm",
-    category: "Auto Socials",
-    description:
-      "Deploy agentic systems that can reason, act, coordinate across tools, and automate complex business workflows beyond chat and voice.",
-    features: [
-      "Multi-agent orchestration",
-      "Workflow execution",
-      "Tool use and business actions",
-      "Enterprise-grade observability",
-    ],
-  },
-  {
-    id: "marketing-automation-agent",
-    name: "Marketing Automation Agent",
-    domain: "Lead Management AI",
-    href: "/products#marketing-automation-agent",
-    category: "AI Agent for Lead Management",
-    description:
-      "Automate lead capture, qualification, follow-up, and CRM handoff so sales teams can focus on high-intent opportunities.",
-    features: [
-      "Inbound and outbound lead handling",
-      "Qualification and scoring",
-      "Automated follow-up workflows",
-      "CRM routing and sales handoff",
-    ],
-  },
-];
+import { products } from "../../lib/site";
 
 export default function Products() {
   return (
-    <section id="products" className="bg-white py-24">
+    <section
+      id="products"
+      aria-labelledby="products-heading"
+      className="bg-white py-24"
+    >
       <Container>
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <span className="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-900 font-raleway">
-            Our Products
+          <span className="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 font-raleway text-sm font-medium text-emerald-900">
+            The product suite
           </span>
-          <h2 className="mb-6 text-4xl font-bold text-gray-900 font-raleway md:text-5xl">
-            A Product Suite for Agentic Enterprise Automation
+          <h2
+            id="products-heading"
+            className="mb-6 font-raleway text-4xl font-bold text-gray-900 md:text-5xl"
+          >
+            Four AI agent products on one enterprise platform
           </h2>
-          <p className="text-lg leading-relaxed text-gray-600 font-raleway">
-            From conversational AI and lead management to financial workflows
-            and autonomous enterprise agents, our products are built to help
-            businesses automate operations, customer engagement, and
-            decision-making at scale.
+          <p className="font-raleway text-lg leading-relaxed text-gray-600">
+            Voice agents, lead management, financial operations, and multi-agent
+            orchestration — each product solves a specific set of enterprise
+            workflows, and all four share the same integration, control, and
+            observability layer.
           </p>
         </div>
 
         <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {products.map((product, index) => (
-            <div
+          {products.map((product) => (
+            <article
               key={product.id}
-              className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-gradient-to-b from-white to-slate-50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-gradient-to-b from-white to-slate-50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
-              <div className="mb-5 flex items-center justify-between gap-3">
-                <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-semibold text-gray-500 font-raleway">
-                  0{index + 1}
-                </span>
-                <span className="max-w-[70%] rounded-full bg-slate-900 px-3 py-1 text-right text-xs font-medium leading-snug text-white font-raleway">
+              <div className="mb-5 flex items-center justify-end">
+                <span className="max-w-full rounded-full bg-slate-900 px-3 py-1 text-right font-raleway text-xs font-medium leading-snug text-white">
                   {product.domain}
                 </span>
               </div>
 
-              <p className="mb-2 text-sm font-semibold text-blue-700 font-raleway">
+              <p className="mb-2 font-raleway text-sm font-semibold text-blue-700">
                 {product.category}
               </p>
-              <h3 className="mb-4 min-h-[4rem] text-2xl font-bold leading-tight text-gray-900 font-raleway">
+              <h3 className="mb-4 min-h-[3.5rem] font-raleway text-2xl font-bold leading-tight text-gray-900">
                 {product.name}
               </h3>
 
-              <p className="mb-6 min-h-[6.5rem] text-sm leading-relaxed text-gray-600 font-raleway">
-                {product.description}
+              <p className="mb-6 min-h-[6.5rem] font-raleway text-sm leading-relaxed text-gray-600">
+                {product.shortDescription}
               </p>
 
               <ul className="mb-8 space-y-3 border-t border-gray-100 pt-5">
                 {product.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-3 text-sm text-gray-700 font-raleway"
+                    className="flex items-start gap-3 font-raleway text-sm text-gray-700"
                   >
-                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500" />
+                    <span
+                      className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500"
+                      aria-hidden="true"
+                    />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <Button
-                href={product.href}
+                href={product.url}
                 target={product.external ? "_blank" : undefined}
-                rel={product.external ? "noopener noreferrer" : undefined}
+                rel={product.external ? "noopener" : undefined}
                 variant="secondary"
                 size="sm"
-                className="mt-auto min-h-11 w-full whitespace-normal text-center leading-snug font-raleway"
+                className="mt-auto min-h-11 w-full whitespace-normal text-center font-raleway leading-snug"
               >
                 Explore {product.name}
+                {product.external ? (
+                  <span className="sr-only"> (opens {product.domain})</span>
+                ) : null}
               </Button>
-            </div>
+            </article>
           ))}
         </div>
+
+        <p className="mx-auto mt-10 max-w-3xl text-center font-raleway text-sm leading-relaxed text-gray-500">
+          IndusLabs, FinoLabs, Agentic AI SM and the Marketing Automation Agent
+          are products of Indus AI Pvt Ltd.
+        </p>
       </Container>
     </section>
   );
