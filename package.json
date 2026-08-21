@@ -12,14 +12,11 @@
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
-    "framer-motion": "^12.23.12",
-    "heroicons": "^2.2.0",
     "livekit-client": "^2.15.2",
     "next": "15.4.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-fast-marquee": "^1.6.5",
-    "react-icons": "^5.5.0",
+    "resend": "^6.21.0",
     "three": "^0.176.0"
   },
   "devDependencies": {
