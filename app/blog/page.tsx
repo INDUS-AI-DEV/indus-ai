@@ -1,11 +1,23 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
+import Navbar from "../components/navigation/Navbar";
+import Footer from "../components/sections/FooterNew";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../lib/schema";
+import { pageMetadata } from "../lib/metadata";
 import Link from 'next/link';
 import { CalendarIcon, ClockIcon } from '@heroicons/react/24/outline';
 
-export const metadata: Metadata = {
-  title: 'AI Insights & Updates | IndusAI Blog',
-  description: 'Stay ahead with the latest insights on AI technology, enterprise solutions, and industry trends from the IndusAI team.',
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Blog — Agentic AI and Enterprise Automation",
+  description:
+    "Practical writing on agentic AI, autonomous agents, and deploying AI automation inside enterprise workflows, from the Indus AI team.",
+  path: "/blog",
+  keywords: [
+    "agentic AI blog",
+    "enterprise AI agents",
+    "AI automation insights",
+  ],
+});
 
 const blogPosts = [
   {
@@ -13,6 +25,7 @@ const blogPosts = [
     excerpt: 'Explore how AI agents are transforming industries by moving from reactive automation to proactive, goal-driven execution.',
     href: '/blog/agentic-ai',
     date: 'August 14, 2025',
+    isoDate: '2025-08-14',
     readTime: '12 min read',
     category: 'AI Technology'
   },
@@ -21,6 +34,7 @@ const blogPosts = [
     excerpt: 'A comprehensive guide to building, securing, and scaling production-ready AI agents using AWS services.',
     href: '/blog/aws-enterprise-ai-agents',
     date: 'August 14, 2025',
+    isoDate: '2025-08-14',
     readTime: '15 min read',
     category: 'Enterprise Solutions'
   },
@@ -29,6 +43,7 @@ const blogPosts = [
     excerpt: 'Discover practical, high-impact AI agents available in 2025 that are transforming businesses and workflows.',
     href: '/blog/ai-agents-today',
     date: 'August 14, 2025',
+    isoDate: '2025-08-14',
     readTime: '10 min read',
     category: 'AI Applications'
   }
@@ -36,7 +51,9 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="bg-white py-16 sm:py-24">
+    <>
+      <Navbar />
+      <main id="main" className="bg-white pt-24 pb-16 sm:pb-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -65,7 +82,7 @@ export default function BlogPage() {
                     </span>
                     <div className="flex items-center text-gray-500">
                       <CalendarIcon className="h-4 w-4 mr-1" />
-                      <time dateTime={post.date}>
+                      <time dateTime={post.isoDate}>
                         {post.date}
                       </time>
                     </div>
@@ -100,20 +117,30 @@ export default function BlogPage() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-gray-500 mb-4">Stay updated with the latest insights</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent sm:max-w-xs"
-            />
-            <button className="px-6 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 transition-colors">
-              Subscribe
-            </button>
-          </div>
+        <div className="mt-16 rounded-2xl border border-gray-200 bg-slate-50 p-8 text-center">
+          <h2 className="mb-3 text-2xl font-bold text-gray-900">
+            Working on an agentic AI deployment?
+          </h2>
+          <p className="mx-auto mb-6 max-w-2xl text-gray-600">
+            We are happy to talk through the architecture even if you are early.
+            Tell us what workflow you are trying to automate.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center rounded-full bg-[#2C514C] px-6 py-3 font-bold text-white transition-colors hover:bg-[#132A22]"
+          >
+            Send an enquiry
+          </Link>
         </div>
       </div>
-    </div>
+      </main>
+      <Footer />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+        ])}
+      />
+    </>
   );
 }

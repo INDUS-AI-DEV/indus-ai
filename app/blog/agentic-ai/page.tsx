@@ -1,15 +1,36 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
+import Navbar from "../../components/navigation/Navbar";
+import Footer from "../../components/sections/FooterNew";
+import JsonLd from "../../components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "../../lib/schema";
+import { pageMetadata } from "../../lib/metadata";
 import Link from 'next/link';
 import { CalendarIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Agentic AI: The Future of Work Is Here | IndusAI',
-  description: 'Explore how AI agents are transforming industries by moving from reactive automation to proactive, goal-driven execution, enabling humans to focus on creative and strategic tasks.',
+  ...pageMetadata({
+    title: "Agentic AI: The Future of Work Is Here",
+    description:
+      "Explore how AI agents are transforming industries by moving from reactive automation to proactive, goal-driven execution, enabling humans to focus on creative and strategic tasks.",
+    path: "/blog/agentic-ai",
+    keywords: ["agentic AI", "AI agents future of work", "autonomous AI agents"],
+  }),
+  openGraph: {
+    type: "article",
+    url: "https://indusai.app/blog/agentic-ai",
+    title: "Agentic AI: The Future of Work Is Here",
+    description:
+      "Explore how AI agents are transforming industries by moving from reactive automation to proactive, goal-driven execution, enabling humans to focus on creative and strategic tasks.",
+    publishedTime: "2025-08-14",
+  },
 };
 
 export default function AgenticAIPost() {
   return (
-    <article className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navbar />
+      <main id="main" className="bg-white pt-24">
+        <article className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="prose prose-lg prose-indigo mx-auto">
         <Link href="/blog" className="inline-flex items-center text-green-700 hover:text-green-800 mb-6">
           <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -33,7 +54,7 @@ export default function AgenticAIPost() {
         
         <p className="text-xl text-gray-600 mb-8">
           The evolution of artificial intelligence has reached a pivotal moment with the advent of agentic AI systems. 
-          These aren't just tools that respond to commands—they're proactive partners that understand goals, make decisions, 
+          These aren&apos;t just tools that respond to commands—they&apos;re proactive partners that understand goals, make decisions, 
           and execute complex tasks with minimal human intervention.
         </p>
 
@@ -41,7 +62,7 @@ export default function AgenticAIPost() {
         <p>
           Traditional automation has been largely reactive, following predefined rules and workflows. Agentic AI represents 
           a paradigm shift—these systems can understand context, learn from interactions, and make independent decisions 
-          to achieve specified objectives. They don't just process data; they understand intent and take initiative.
+          to achieve specified objectives. They don&apos;t just process data; they understand intent and take initiative.
         </p>
 
         <h2>Key Characteristics of Agentic AI</h2>
@@ -71,7 +92,7 @@ export default function AgenticAIPost() {
         <p>
           Beyond simple chatbots, agentic AI can handle complex customer journeys, resolving issues from start to finish 
           while maintaining context across multiple interactions. They can access company systems, process returns, 
-          and even negotiate solutions when standard policies don't fit.
+          and even negotiate solutions when standard policies don&apos;t fit.
         </p>
 
         <h2>The Human-AI Partnership</h2>
@@ -82,8 +103,8 @@ export default function AgenticAIPost() {
         </p>
 
         <blockquote>
-          "Agentic AI doesn't just make us more efficient—it elevates the nature of work itself, 
-          allowing human creativity and strategic thinking to flourish."
+          &quot;Agentic AI doesn&apos;t just make us more efficient—it elevates the nature of work itself, 
+          allowing human creativity and strategic thinking to flourish.&quot;
         </blockquote>
 
         <h2>Challenges and Considerations</h2>
@@ -95,7 +116,7 @@ export default function AgenticAIPost() {
 
         <h2>Looking Ahead</h2>
         <p>
-          As agentic AI continues to evolve, we'll see even more sophisticated applications across every sector. 
+          As agentic AI continues to evolve, we&apos;ll see even more sophisticated applications across every sector. 
           The future of work will be defined by seamless human-AI collaboration, where each plays to their strengths, 
           driving innovation and productivity to unprecedented levels.
         </p>
@@ -107,5 +128,24 @@ export default function AgenticAIPost() {
         </div>
       </div>
     </article>
+      </main>
+      <Footer />
+      <JsonLd
+        data={[
+          articleSchema({
+            title: "Agentic AI: The Future of Work Is Here",
+            description:
+              "Explore how AI agents are transforming industries by moving from reactive automation to proactive, goal-driven execution, enabling humans to focus on creative and strategic tasks.",
+            path: "/blog/agentic-ai",
+            datePublished: "2025-08-14",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: "Agentic AI: The Future of Work Is Here", path: "/blog/agentic-ai" },
+          ]),
+        ]}
+      />
+    </>
   );
 }

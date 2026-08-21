@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/sections/FooterNew";
@@ -8,6 +9,18 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../lib/schema";
+import { pageMetadata } from "../lib/metadata";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Careers — Build Enterprise AI Agents at Indus AI",
+  description:
+    "Open roles at Indus AI Pvt Ltd. Work on production agentic AI systems for voice, workflow automation, and enterprise deployment.",
+  path: "/careers",
+  keywords: ["Indus AI careers", "AI engineering jobs India", "agentic AI jobs"],
 });
 
 const openPositions = [
@@ -39,7 +52,23 @@ export default function Careers() {
   return (
     <div className={`${inter.variable} font-sans min-h-screen flex flex-col bg-gray-50`}>
       <Navbar />
-      <main className="flex-grow pt-24">
+      <main id="main" className="flex-grow pt-24">
+        <section className="bg-white pt-12 pb-4">
+          <Container>
+            <div className="mx-auto max-w-3xl text-center">
+              <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
+                Careers at Indus AI
+              </h1>
+              <p className="text-lg leading-relaxed text-gray-600">
+                We build agentic AI systems that run in production for
+                enterprise customers — voice agents, workflow orchestration, and
+                the integration layer that makes them usable. If that is the
+                problem you want to work on, we would like to hear from you.
+              </p>
+            </div>
+          </Container>
+        </section>
+
         {/* Why Join Us */}
         <section className="py-16 bg-white">
           <Container>
@@ -84,7 +113,7 @@ export default function Careers() {
           <Container>
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-50 rounded-full mb-4">
-                We're Hiring
+                We&apos;re Hiring
               </span>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Open Positions</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -178,10 +207,10 @@ export default function Careers() {
               ))}
               
               <div className="text-center mt-12 bg-white p-8 rounded-xl border border-gray-100">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Don't see the perfect role?</h3>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Don&apos;t see the perfect role?</h3>
                 <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                  We're always looking for talented individuals who are passionate about AI and innovation. 
-                  If you don't see a role that matches your skills but believe you'd be a great fit, we'd love to hear from you.
+                  We&apos;re always looking for talented individuals who are passionate about AI and innovation. 
+                  If you don&apos;t see a role that matches your skills but believe you&apos;d be a great fit, we&apos;d love to hear from you.
                 </p>
                 <Button 
                   href="mailto:hr@indusai.app?subject=General Application" 
@@ -228,6 +257,12 @@ export default function Careers() {
         </section>
       </main>
       <Footer />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Careers", path: "/careers" },
+        ])}
+      />
     </div>
   );
 }

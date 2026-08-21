@@ -3,6 +3,23 @@ import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
 import Button from "../components/ui/Button";
 import ReadyToTransform from "../components/sections/ReadyToTransform";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../lib/schema";
+import { pageMetadata } from "../lib/metadata";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Use Cases — AI Agents for Enterprise Workflows",
+  description:
+    "Where enterprise AI agents fit: customer operations, financial workflows, revenue operations, and internal automation — mapped to the Indus AI products that run them.",
+  path: "/solutions",
+  keywords: [
+    "AI agents for customer operations",
+    "AI workflow automation use cases",
+    "enterprise automation with AI agents",
+    "AI agents for financial operations",
+  ],
+});
 
 const functionalUseCases = [
   {
@@ -94,8 +111,9 @@ const industries = [
 
 export default function SolutionsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Navbar />
+      <main id="main" className="min-h-screen bg-white">
 
       <section className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20">
         <Container>
@@ -204,7 +222,14 @@ export default function SolutionsPage() {
       </section>
 
       <ReadyToTransform />
+      </main>
       <Footer />
-    </main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Use Cases", path: "/solutions" },
+        ])}
+      />
+    </>
   );
 }

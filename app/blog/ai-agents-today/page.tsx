@@ -1,15 +1,36 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
+import Navbar from "../../components/navigation/Navbar";
+import Footer from "../../components/sections/FooterNew";
+import JsonLd from "../../components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "../../lib/schema";
+import { pageMetadata } from "../../lib/metadata";
 import Link from 'next/link';
-import { CalendarIcon, ClockIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { CalendarIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Beyond the Hype: Real AI Agents You Can Use Today | IndusAI',
-  description: 'Discover practical, high-impact AI agents available in 2025 that are transforming businesses and workflows across industries.',
+  ...pageMetadata({
+    title: "Beyond the Hype: Real AI Agents You Can Use Today",
+    description:
+      "Practical, high-impact AI agents transforming businesses and workflows across industries today.",
+    path: "/blog/ai-agents-today",
+    keywords: ["real AI agents", "AI agents you can use", "practical AI agents"],
+  }),
+  openGraph: {
+    type: "article",
+    url: "https://indusai.app/blog/ai-agents-today",
+    title: "Beyond the Hype: Real AI Agents You Can Use Today",
+    description:
+      "Practical, high-impact AI agents transforming businesses and workflows across industries today.",
+    publishedTime: "2025-08-14",
+  },
 };
 
 export default function AIAgentsTodayPost() {
   return (
-    <article className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navbar />
+      <main id="main" className="bg-white pt-24">
+        <article className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="prose prose-lg prose-indigo mx-auto">
         <Link href="/blog" className="inline-flex items-center text-green-700 hover:text-green-800 mb-6">
           <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -33,13 +54,13 @@ export default function AIAgentsTodayPost() {
         
         <p className="text-xl text-gray-600 mb-8">
           While AI agents have been the subject of much speculation, 2025 brings us to a point where practical, 
-          production-ready AI agents are delivering real business value. Here's a look at the most impactful 
-          AI agents available today and how they're being used across industries.
+          production-ready AI agents are delivering real business value. Here&apos;s a look at the most impactful 
+          AI agents available today and how they&apos;re being used across industries.
         </p>
 
         <h2>1. AI Coding Assistants</h2>
         <p>
-          Modern AI coding assistants have evolved far beyond simple autocomplete. Today's agents can understand 
+          Modern AI coding assistants have evolved far beyond simple autocomplete. Today&apos;s agents can understand 
           complex requirements, write production-ready code, and even debug entire applications.
         </p>
         
@@ -76,7 +97,7 @@ export default function AIAgentsTodayPost() {
             academic papers across multiple disciplines.
           </li>
           <li>
-            <strong>Anthropic's Claude Research</strong> - Excels at processing and synthesizing 
+            <strong>Anthropic&apos;s Claude Research</strong> - Excels at processing and synthesizing 
             information from multiple sources.
           </li>
         </ul>
@@ -172,5 +193,24 @@ export default function AIAgentsTodayPost() {
         </div>
       </div>
     </article>
+      </main>
+      <Footer />
+      <JsonLd
+        data={[
+          articleSchema({
+            title: "Beyond the Hype: Real AI Agents You Can Use Today",
+            description:
+              "Practical, high-impact AI agents transforming businesses and workflows across industries today.",
+            path: "/blog/ai-agents-today",
+            datePublished: "2025-08-14",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: "Beyond the Hype: Real AI Agents You Can Use Today", path: "/blog/ai-agents-today" },
+          ]),
+        ]}
+      />
+    </>
   );
 }
