@@ -37,16 +37,25 @@ export const siteConfig = {
 export const companyFacts: {
   foundingDate?: string; // ISO 8601, e.g. "2023-06-14"
   foundingLocation?: string; // e.g. "New Delhi, India"
-  founders?: string[];
+  founders?: { name: string; alumniOf?: { name: string; url?: string } }[];
   cin?: string;
   streetAddress?: string;
   addressLocality?: string;
   addressRegion?: string;
   postalCode?: string;
 } = {
-  // foundingDate: "",
+  founders: [
+    {
+      name: "Vivek Gupta",
+      alumniOf: {
+        name: "Indian Institute of Technology Delhi",
+        url: "https://home.iitd.ac.in/",
+      },
+    },
+  ],
+  // ISO 8601 permits a bare year; narrow this to a full date when confirmed.
+  foundingDate: "2023",
   // foundingLocation: "",
-  // founders: [],
   // cin: "",
   // addressLocality: "",
   // addressRegion: "",

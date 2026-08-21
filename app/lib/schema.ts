@@ -54,7 +54,19 @@ export function organizationSchema(): Json {
     email: siteConfig.email,
     ...(founders?.length
       ? {
-          founder: founders.map((name) => ({ "@type": "Person", name })),
+          founder: founders.map((person) => ({
+            "@type": "Person",
+            name: person.name,
+            ...(person.alumniOf
+              ? {
+                  alumniOf: {
+                    "@type": "CollegeOrUniversity",
+                    name: person.alumniOf.name,
+                    ...(person.alumniOf.url ? { url: person.alumniOf.url } : {}),
+                  },
+                }
+              : {}),
+          })),
         }
       : {}),
     ...(foundingDate ? { foundingDate } : {}),

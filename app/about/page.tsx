@@ -188,7 +188,9 @@ export default function AboutPage() {
             </h2>
             <p className="mb-4 font-raleway text-lg leading-relaxed text-gray-600">
               <strong className="text-gray-900">Indus AI Pvt Ltd</strong> is an
-              enterprise software company based in India. We build agentic AI
+              enterprise software company based in India, founded in 2023
+              by <strong className="text-gray-900">Vivek Gupta</strong>, an
+              alumnus of the Indian Institute of Technology Delhi. We build agentic AI
               products that businesses deploy inside their own operations —
               voice agents, lead management automation, financial workflow
               automation, and multi-agent orchestration.
