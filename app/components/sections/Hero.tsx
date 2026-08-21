@@ -74,12 +74,15 @@ export default function Hero() {
                 Explore the products
               </Button>
               <Button
-                href="/demo"
+                href="https://induslabs.io"
+                target="_blank"
+                rel="noopener"
                 variant="secondary"
                 size="lg"
                 className="font-raleway"
               >
                 Try a live voice demo
+                <span className="sr-only"> (opens induslabs.io)</span>
               </Button>
             </div>
           </div>

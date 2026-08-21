@@ -83,10 +83,13 @@ export default function Contact() {
                     calendar invite.
                   </p>
                   <a
-                    href="/demo"
+                    href="https://induslabs.io"
+                    target="_blank"
+                    rel="noopener"
                     className="font-raleway font-semibold text-[#2C514C] underline underline-offset-2"
                   >
                     Try a live voice demo
+                    <span className="sr-only"> (opens induslabs.io)</span>
                   </a>
                 </div>
 

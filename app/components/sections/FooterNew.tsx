@@ -28,8 +28,6 @@ const navigation = {
     { name: "Contact", href: "/contact" },
   ],
   resources: [
-    { name: "Live voice demos", href: "/demo" },
-    { name: "Dashboard", href: siteConfig.dashboardUrl, external: true },
     { name: "Book a technical call", href: siteConfig.demoUrl, external: true },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },

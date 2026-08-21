@@ -88,12 +88,15 @@ export default function EnterpriseTrust() {
             >
               Send an enquiry
             </Link>
-            <Link
-              href="/demo"
+            <a
+              href="https://induslabs.io"
+              target="_blank"
+              rel="noopener"
               className="rounded-full border border-gray-300 px-6 py-3 font-raleway text-sm font-bold text-gray-700 transition-colors hover:bg-gray-50"
             >
               Try a live voice demo
-            </Link>
+              <span className="sr-only"> (opens induslabs.io)</span>
+            </a>
           </div>
         </div>
       </Container>

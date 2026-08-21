@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import styles from "../demo/medibot/medibot.module.css";
+import styles from "./testing.module.css";
 import Image from "next/image";
 
 // Language options for dropdown (full names)
