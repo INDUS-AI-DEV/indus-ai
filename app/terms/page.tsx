@@ -81,6 +81,12 @@ export default function TermsAndConditions() {
               <p className="text-gray-700 mb-4">
                 All content, branding, software, and documentation on the Site is owned by Indus AI Pvt Ltd or its licensors. You may not copy, distribute, modify, or create derivative works without express permission.
               </p>
+              <p className="text-gray-700 mb-4">
+                Indus AI&trade;, IndusLabs&trade;, FinoLabs&trade;, Agentic AI SM&trade;, Marketing Automation Agent&trade; and the Indus AI logo are trade marks of Indus AI Pvt Ltd, in use continuously since 2023 in relation to its enterprise software products. All rights are reserved.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Indus AI Pvt Ltd is not affiliated with, endorsed by, or connected to any other organisation or product using a similar name. Our products are supplied to business customers; we do not publish a consumer AI assistant or chat application.
+              </p>
             </section>
 
             <section className="mb-8">

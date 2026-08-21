@@ -173,6 +173,65 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <section
+        id="company"
+        aria-labelledby="company-heading"
+        className="border-t border-gray-100 bg-white py-20"
+      >
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <h2
+              id="company-heading"
+              className="mb-6 font-raleway text-3xl font-bold text-gray-900"
+            >
+              About the company
+            </h2>
+            <p className="mb-4 font-raleway text-lg leading-relaxed text-gray-600">
+              <strong className="text-gray-900">Indus AI Pvt Ltd</strong> is an
+              enterprise software company based in India, founded in 2023
+              by <strong className="text-gray-900">Vivek Gupta</strong>, an
+              alumnus of the Indian Institute of Technology Delhi. We build agentic AI
+              products that businesses deploy inside their own operations —
+              voice agents, lead management automation, financial workflow
+              automation, and multi-agent orchestration.
+            </p>
+            <p className="mb-4 font-raleway text-lg leading-relaxed text-gray-600">
+              Our products are sold to businesses, not to consumers. We do not
+              publish a consumer AI assistant or chat app. Everything we ship
+              runs under four brands:{" "}
+              <strong className="text-gray-900">IndusLabs</strong> for
+              enterprise voice AI,{" "}
+              <strong className="text-gray-900">FinoLabs</strong> for financial
+              operations, <strong className="text-gray-900">Agentic AI SM</strong>{" "}
+              for multi-agent orchestration, and the{" "}
+              <strong className="text-gray-900">Marketing Automation Agent</strong>{" "}
+              for lead management.
+            </p>
+            <p className="font-raleway text-lg leading-relaxed text-gray-600">
+              IndusLabs and FinoLabs operate on their own domains,{" "}
+              <a
+                href="https://induslabs.io"
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-[#2C514C] underline underline-offset-2"
+              >
+                induslabs.io
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://finolabs.ai"
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-[#2C514C] underline underline-offset-2"
+              >
+                finolabs.ai
+              </a>
+              . Both are products of Indus AI Pvt Ltd.
+            </p>
+          </div>
+        </Container>
+      </section>
+
       <ReadyToTransform />
       </main>
       <Footer />

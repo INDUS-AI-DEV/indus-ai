@@ -3,7 +3,7 @@
  * <script type="application/ld+json"> tags so crawlers get it in the HTML.
  */
 
-import { absoluteUrl, products, siteConfig } from "./site";
+import { absoluteUrl, companyFacts, products, siteConfig } from "./site";
 
 type Json = Record<string, unknown>;
 
@@ -13,24 +13,86 @@ type Json = Record<string, unknown>;
  * organisation rather than unrelated brands competing for the same queries.
  */
 export function organizationSchema(): Json {
+  const {
+    foundingDate,
+    foundingLocation,
+    founders,
+    cin,
+    streetAddress,
+    addressLocality,
+    addressRegion,
+    postalCode,
+  } = companyFacts;
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": absoluteUrl("/#organization"),
     name: siteConfig.name,
     legalName: siteConfig.legalName,
-    alternateName: ["IndusAI", "Indus AI Pvt Ltd"],
+    alternateName: ["IndusAI", "Indus AI Pvt Ltd", "Indus AI Private Limited"],
     url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
       url: absoluteUrl("/images/logo.png"),
     },
     description: siteConfig.description,
+    slogan: siteConfig.tagline,
+    // Tells a search engine what this entity is *not*, which is what resolves
+    // a name shared with unrelated organisations.
+    disambiguatingDescription:
+      "Indus AI Pvt Ltd is an enterprise B2B software company in India. It builds agentic AI products for businesses — voice agents, lead management, and financial operations automation — under the IndusLabs, FinoLabs, Agentic AI SM, and Marketing Automation Agent brands. It is not a consumer AI assistant or chat application, and is not affiliated with any similarly named consumer product.",
+    knowsAbout: [
+      "Agentic AI",
+      "Enterprise AI agents",
+      "Multi-agent orchestration",
+      "Conversational voice AI",
+      "AI workflow automation",
+      "Financial operations automation",
+      "Lead management automation",
+    ],
     email: siteConfig.email,
+    ...(founders?.length
+      ? {
+          founder: founders.map((person) => ({
+            "@type": "Person",
+            name: person.name,
+            ...(person.alumniOf
+              ? {
+                  alumniOf: {
+                    "@type": "CollegeOrUniversity",
+                    name: person.alumniOf.name,
+                    ...(person.alumniOf.url ? { url: person.alumniOf.url } : {}),
+                  },
+                }
+              : {}),
+          })),
+        }
+      : {}),
+    ...(foundingDate ? { foundingDate } : {}),
+    ...(foundingLocation
+      ? { foundingLocation: { "@type": "Place", name: foundingLocation } }
+      : {}),
+    // CIN is the Indian company registration number: a strong, verifiable
+    // identifier that ties this entity to the MCA register.
+    ...(cin ? { identifier: { "@type": "PropertyValue", propertyID: "CIN", value: cin } } : {}),
     address: {
       "@type": "PostalAddress",
       addressCountry: "IN",
+      ...(streetAddress ? { streetAddress } : {}),
+      ...(addressLocality ? { addressLocality } : {}),
+      ...(addressRegion ? { addressRegion } : {}),
+      ...(postalCode ? { postalCode } : {}),
     },
+    areaServed: { "@type": "Country", name: "India" },
+    // The product brands are far more distinctive than the company name, so
+    // declaring them anchors the entity on names nothing else competes for.
+    brand: products.map((product) => ({
+      "@type": "Brand",
+      name: product.name,
+      description: product.description,
+      ...(product.external ? { url: product.url } : {}),
+    })),
     sameAs: [
       siteConfig.social.linkedin,
       siteConfig.social.twitter,
