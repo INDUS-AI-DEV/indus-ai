@@ -24,6 +24,35 @@ export const siteConfig = {
   },
 } as const;
 
+/**
+ * Entity facts used to disambiguate Indus AI Pvt Ltd from unrelated
+ * organisations that share part of the name. Search engines resolve entities
+ * from corroborating signals — incorporation date, founders, location,
+ * registration number — so each field filled in here strengthens the match.
+ *
+ * Every field is optional and omitted from the structured data when empty,
+ * so an unknown value is never published as a guess. Fill these in as they
+ * are confirmed.
+ */
+export const companyFacts: {
+  foundingDate?: string; // ISO 8601, e.g. "2023-06-14"
+  foundingLocation?: string; // e.g. "New Delhi, India"
+  founders?: string[];
+  cin?: string;
+  streetAddress?: string;
+  addressLocality?: string;
+  addressRegion?: string;
+  postalCode?: string;
+} = {
+  // foundingDate: "",
+  // foundingLocation: "",
+  // founders: [],
+  // cin: "",
+  // addressLocality: "",
+  // addressRegion: "",
+  // postalCode: "",
+};
+
 export const products = [
   {
     id: "induslabs",
