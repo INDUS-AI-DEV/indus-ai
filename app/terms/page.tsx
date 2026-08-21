@@ -82,7 +82,7 @@ export default function TermsAndConditions() {
                 All content, branding, software, and documentation on the Site is owned by Indus AI Pvt Ltd or its licensors. You may not copy, distribute, modify, or create derivative works without express permission.
               </p>
               <p className="text-gray-700 mb-4">
-                Indus AI&trade;, IndusLabs&trade;, FinoLabs&trade;, Agentic AI SM&trade; and the Indus AI logo are trademarks of Indus AI Pvt Ltd, the subject of trade mark applications numbered 7767362, 7767363 and 7767364 in classes 9 and 42 before the Trade Marks Registry, India. Indus AI Pvt Ltd asserts prior and continuous use of these marks in relation to its enterprise software products.
+                Indus AI&trade; and IndusLabs&trade; are the subject of pending trade mark applications before the Trade Marks Registry, India, numbered 7767362, 7767363 and 7767364 &mdash; Indus AI in class 9 (computer software) and class 42 (software as a service), and IndusLabs in class 42. FinoLabs&trade;, Agentic AI SM&trade;, Marketing Automation Agent&trade; and the Indus AI logo are used as unregistered trade marks of Indus AI Pvt Ltd. Indus AI Pvt Ltd asserts prior and continuous use of all of these marks in relation to its enterprise software products.
               </p>
               <p className="text-gray-700 mb-4">
                 Indus AI Pvt Ltd is not affiliated with, endorsed by, or connected to any other organisation or product using a similar name. Our products are supplied to business customers; we do not publish a consumer AI assistant or chat application.
