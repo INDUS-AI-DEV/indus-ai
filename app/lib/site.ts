@@ -17,7 +17,6 @@ export const siteConfig = {
   tagline: "The agentic AI platform for enterprise workflows",
   email: "info@indusai.app",
   demoUrl: "https://calendly.com/hello-induslabs/30min",
-  dashboardUrl: "https://playground.induslabs.io",
   social: {
     linkedin: "https://www.linkedin.com/company/indus-ai/",
     twitter: "https://twitter.com/indusai_app",
