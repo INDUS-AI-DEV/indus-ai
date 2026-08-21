@@ -1,60 +1,55 @@
 "use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
-import Image from "next/image";
-import { useState } from "react";
+import { siteConfig } from "../../lib/site";
 
 const navigation = [
   { name: "Products", href: "/products" },
   { name: "Platform", href: "/products#platform" },
   { name: "Use Cases", href: "/solutions" },
+  { name: "Demos", href: "/demo" },
   { name: "About", href: "/about" },
-  { name: "Careers", href: "/careers" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
-  { name: "Dashboard", href: "https://playground.induslabs.io", external: true },
-];
-
-const languages = [
-  { code: 'en', name: 'English' },
-  { code: 'hi', name: 'हिंदी' },
-  { code: 'ta', name: 'தமிழ்' },
-  { code: 'te', name: 'తెలుగు' },
-  { code: 'kn', name: 'ಕನ್ನಡ' },
-  { code: 'mr', name: 'मराठी' },
-  { code: 'bn', name: 'বাংলা' },
+  { name: "Dashboard", href: siteConfig.dashboardUrl, external: true },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isCurrent = (href: string) =>
+    !href.startsWith("http") && pathname === href.split("#")[0];
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-white backdrop-blur-lg border-b border-gray-200">
+    <header className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-lg">
       <Container>
-        <nav className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link
-              href="/"
-              className="text-xl font-bold text-gray-900 font-raleway"
-            >
-              <Image
-                src="/images/logo.png"
-                alt="Indus AI"
-                width={100}
-                height={100}
-              />
-            </Link>
-          </div>
+        <nav className="flex h-16 items-center justify-between" aria-label="Main">
+          <Link href="/" className="flex items-center" aria-label="Indus AI — home">
+            <Image
+              src="/images/logo.png"
+              alt="Indus AI"
+              width={100}
+              height={32}
+              priority
+              className="h-8 w-auto"
+            />
+          </Link>
 
-          <div className="hidden md:flex items-center gap-8">
-            {navigation.map((item) => (
+          <div className="hidden items-center gap-6 lg:flex">
+            {navigation.map((item) =>
               item.external ? (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-raleway"
+                  rel="noopener"
+                  className="font-raleway text-sm text-gray-600 transition-colors hover:text-gray-900"
                 >
                   {item.name}
                 </a>
@@ -62,87 +57,63 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-raleway"
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                  className={`font-raleway text-sm transition-colors hover:text-gray-900 ${
+                    isCurrent(item.href)
+                      ? "font-semibold text-gray-900"
+                      : "text-gray-600"
+                  }`}
                 >
                   {item.name}
                 </Link>
               )
-            ))}
+            )}
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors font-raleway">
-                <span>🌐</span>
-                <span className="hidden md:inline">English</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
-                {languages.map((lang) => (
-                  <a
-                    key={lang.code}
-                    href={`?lang=${lang.code}`}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    {lang.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <a href="https://calendly.com/hello-induslabs/30min">
-              <Button size="sm" className="font-raleway">
-                Talk to Sales
-              </Button>
-            </a>
-            <button 
-              className="md:hidden p-2" 
-              aria-label="Menu"
-              onClick={() => setIsOpen(!isOpen)}
+          <div className="flex items-center gap-3">
+            <Button href="/contact" size="sm" className="hidden font-raleway sm:inline-flex">
+              Talk to sales
+            </Button>
+
+            <button
+              type="button"
+              className="p-2 lg:hidden"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? (
-                <svg
-                  className="w-6 h-6 text-gray-700"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              ) : (
-                <svg
-                  className="w-6 h-6 text-gray-700"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-              )}
+              <svg
+                className="h-6 w-6 text-gray-700"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                {isOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
             </button>
           </div>
         </nav>
 
-        {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div id="mobile-menu" className="lg:hidden">
+            <div className="space-y-1 px-2 pt-2 pb-4">
               {navigation.map((item) =>
                 item.external ? (
                   <a
                     key={item.name}
                     href={item.href}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md font-raleway"
+                    rel="noopener"
+                    className="block rounded-md px-3 py-2 font-raleway text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -151,13 +122,21 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md font-raleway"
+                    aria-current={isCurrent(item.href) ? "page" : undefined}
+                    className="block rounded-md px-3 py-2 font-raleway text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
                   </Link>
                 )
               )}
+              <Link
+                href="/contact"
+                className="mt-2 block rounded-full bg-[#2C514C] px-3 py-2 text-center font-raleway text-base font-bold text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Talk to sales
+              </Link>
             </div>
           </div>
         )}

@@ -2,6 +2,22 @@ import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
 import ReadyToTransform from "../components/sections/ReadyToTransform";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../lib/schema";
+import { pageMetadata } from "../lib/metadata";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = pageMetadata({
+  title: "About Indus AI — Enterprise Agentic AI Company",
+  description:
+    "Indus AI Pvt Ltd builds enterprise agentic AI products for voice, lead management, financial operations, and autonomous workflow execution. IndusLabs and FinoLabs are its products.",
+  path: "/about",
+  keywords: [
+    "Indus AI Pvt Ltd",
+    "enterprise agentic AI company",
+    "AI agent company India",
+  ],
+});
 
 const stats = [
   { value: "4", label: "Core Products" },
@@ -35,8 +51,9 @@ const principles = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Navbar />
+      <main id="main" className="min-h-screen bg-white">
 
       <section className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20">
         <Container>
@@ -157,7 +174,14 @@ export default function AboutPage() {
       </section>
 
       <ReadyToTransform />
+      </main>
       <Footer />
-    </main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
+    </>
   );
 }

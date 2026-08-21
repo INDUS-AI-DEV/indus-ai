@@ -26,7 +26,7 @@ export default function HotelbotDemoPage() {
   const [language, setLanguage] = useState("Hi");
   const roomRef = useRef<unknown>(null); // Will be cast to Room after import
   const [isDesktop, setIsDesktop] = useState(false);
-  const [agentType, setAgentType] = useState("hotel_booking");
+  const agentType = "hotel_booking";
 
   useEffect(() => {
     if (!room) return;
@@ -49,7 +49,6 @@ export default function HotelbotDemoPage() {
           };
         }
       };
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const handleTrackUnsubscribed = (track: unknown) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((track as any).kind === livekit.Track.Kind.Audio) {

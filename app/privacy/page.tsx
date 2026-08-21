@@ -1,9 +1,22 @@
-import Container from "../components/ui/Container";
+import type { Metadata } from "next";
 import Link from "next/link";
+import Container from "../components/ui/Container";
+import Navbar from "../components/navigation/Navbar";
+import Footer from "../components/sections/FooterNew";
+import { pageMetadata } from "../lib/metadata";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
+  description:
+    "How Indus AI Pvt Ltd collects, uses, and protects personal data under the Digital Personal Data Protection Act, 2023.",
+  path: "/privacy",
+});
 
 export default function PrivacyPolicy() {
   return (
-    <div className="bg-white min-h-screen">
+    <>
+      <Navbar />
+      <main id="main" className="bg-white min-h-screen pt-24">
       <Container>
         <div className="py-12 md:py-16 max-w-4xl mx-auto">
           {/* Close/Back Button */}
@@ -32,14 +45,14 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 mb-4">
-                IndusAI (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy describes how we collect, use, process, and share your Personal Data in compliance with the Digital Personal Data Protection Act, 2023 and other applicable laws.
+                Indus AI Pvt Ltd (&quot;Indus AI&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy describes how we collect, use, process, and share your Personal Data in compliance with the Digital Personal Data Protection Act, 2023 and other applicable laws.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Scope & Applicability</h2>
               <p className="text-gray-700 mb-4">
-                This Policy applies to all individuals ("Data Principals") whose personal data is processed by IndusAI, whether through our website, services, or otherwise.
+                This Policy applies to all individuals (&quot;Data Principals&quot;) whose personal data is processed by IndusAI, whether through our website, services, or otherwise.
               </p>
             </section>
 
@@ -59,7 +72,7 @@ export default function PrivacyPolicy() {
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li><strong>Directly:</strong> When you register, request a demo, fill forms, or contact us.</li>
                 <li><strong>Automatically:</strong> Via cookies, analytics tools, server logs when you visit or use our platform.</li>
-                <li><strong>Third-party sources:</strong> Partners or affiliates, only if you've consented or it's for expected purposes.</li>
+                <li><strong>Third-party sources:</strong> Partners or affiliates, only if you&apos;ve consented or it&apos;s for expected purposes.</li>
               </ul>
             </section>
 
@@ -99,7 +112,7 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Cross‑Border Transfers</h2>
               <p className="text-gray-700 mb-4">
-                Your data may be processed or stored outside India. Transfers will comply with the DPDP Act's provisions, including safeguards when transferring to jurisdictions not on India's restricted list.
+                Your data may be processed or stored outside India. Transfers will comply with the DPDP Act&apos;s provisions, including safeguards when transferring to jurisdictions not on India&apos;s restricted list.
               </p>
             </section>
 
@@ -155,6 +168,8 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </Container>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
-} 
+}

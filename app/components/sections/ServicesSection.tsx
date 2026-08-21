@@ -19,7 +19,6 @@ const industries = [
       "Dining & Amenities Booking",
       "Feedback & Review Collection"
     ],
-    metrics: { primary: "50%", secondary: "Faster Bookings" },
     color: "from-amber-500 to-yellow-500"
   },
   {
@@ -39,7 +38,6 @@ const industries = [
       "Fraud Detection Support",
       "Personalized Product Recommendations"
     ],
-    metrics: { primary: "89%", secondary: "First-Call Resolution" },
     color: "from-green-500 to-emerald-500"
   },
   {
@@ -58,7 +56,6 @@ const industries = [
       "Inventory Management Alerts",
       "Customer Feedback Collection"
     ],
-    metrics: { primary: "3x", secondary: "Higher Customer LTV" },
     color: "from-purple-500 to-pink-500"
   },
   {
@@ -77,7 +74,6 @@ const industries = [
       "CRM Routing & Handoff",
       "Campaign Response Handling"
     ],
-    metrics: { primary: "24/7", secondary: "Lead Response" },
     color: "from-sky-500 to-blue-500"
   },
   {
@@ -96,7 +92,6 @@ const industries = [
       "Symptom Pre-screening",
       "Post-care Follow-ups"
     ],
-    metrics: { primary: "40%", secondary: "Reduced No-shows" },
     color: "from-red-500 to-orange-500"
   },
   {
@@ -115,7 +110,6 @@ const industries = [
       "After-sales Support Automation",
       "Logistics Communication"
     ],
-    metrics: { primary: "65%", secondary: "Faster Service Bookings" },
     color: "from-blue-500 to-cyan-500"
   }
 ];
@@ -174,12 +168,6 @@ export default function ServicesSection() {
                   <div className="w-full h-full bg-white rounded-xl flex items-center justify-center text-gray-700 group-hover:text-white group-hover:bg-transparent transition-all duration-300">
                     {industry.icon}
                   </div>
-                </div>
-                
-                {/* Floating metrics badge */}
-                <div className="absolute -top-2 -right-2 bg-white rounded-full px-3 py-1 shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <div className="text-xs font-bold text-gray-900">{industry.metrics.primary}</div>
-                  <div className="text-xs text-gray-500">{industry.metrics.secondary}</div>
                 </div>
               </div>
               

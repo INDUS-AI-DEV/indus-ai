@@ -1,15 +1,36 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
+import Navbar from "../../components/navigation/Navbar";
+import Footer from "../../components/sections/FooterNew";
+import JsonLd from "../../components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "../../lib/schema";
+import { pageMetadata } from "../../lib/metadata";
 import Link from 'next/link';
 import { CalendarIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Deploying AI Agents at Enterprise Scale with AWS | IndusAI',
-  description: 'A comprehensive guide to building, securing, and scaling production-ready AI agents using AWS services to drive enterprise transformation.',
+  ...pageMetadata({
+    title: "Deploying AI Agents at Enterprise Scale with AWS",
+    description:
+      "A comprehensive guide to building, securing, and scaling production-ready AI agents using AWS services to drive enterprise transformation.",
+    path: "/blog/aws-enterprise-ai-agents",
+    keywords: ["enterprise AI agents AWS", "scaling AI agents", "production AI agents"],
+  }),
+  openGraph: {
+    type: "article",
+    url: "https://indusai.app/blog/aws-enterprise-ai-agents",
+    title: "Deploying AI Agents at Enterprise Scale with AWS",
+    description:
+      "A comprehensive guide to building, securing, and scaling production-ready AI agents using AWS services to drive enterprise transformation.",
+    publishedTime: "2025-08-14",
+  },
 };
 
 export default function AWSEnterpriseAIPost() {
   return (
-    <article className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navbar />
+      <main id="main" className="bg-white pt-24">
+        <article className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="prose prose-lg prose-indigo mx-auto">
         <Link href="/blog" className="inline-flex items-center text-green-700 hover:text-green-800 mb-6">
           <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -130,5 +151,24 @@ export default function AWSEnterpriseAIPost() {
         </div>
       </div>
     </article>
+      </main>
+      <Footer />
+      <JsonLd
+        data={[
+          articleSchema({
+            title: "Deploying AI Agents at Enterprise Scale with AWS",
+            description:
+              "A comprehensive guide to building, securing, and scaling production-ready AI agents using AWS services to drive enterprise transformation.",
+            path: "/blog/aws-enterprise-ai-agents",
+            datePublished: "2025-08-14",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: "Deploying AI Agents at Enterprise Scale with AWS", path: "/blog/aws-enterprise-ai-agents" },
+          ]),
+        ]}
+      />
+    </>
   );
 }

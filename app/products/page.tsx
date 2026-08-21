@@ -1,71 +1,27 @@
+import type { Metadata } from "next";
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
 import Button from "../components/ui/Button";
 import ReadyToTransform from "../components/sections/ReadyToTransform";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema, productSuiteSchema } from "../lib/schema";
+import { pageMetadata } from "../lib/metadata";
+import { products, siteConfig } from "../lib/site";
 
-const products = [
-  {
-    id: "induslabs",
-    name: "IndusLabs",
-    domain: "induslabs.io",
-    category: "Enterprise Voice AI Platform",
-    description:
-      "A production-grade product for multilingual voice agents across support, collections, booking, onboarding, and customer operations.",
-    forTeams: "Customer operations, support, sales, hospitality, BFSI, service teams",
-    workflows: [
-      "Inbound and outbound voice automation",
-      "Multilingual customer conversations",
-      "Telephony and CRM-connected flows",
-      "Escalation, analytics, and workflow automation",
-    ],
-  },
-  {
-    id: "finolabs",
-    name: "FinoLabs",
-    domain: "finolabs.io",
-    category: "AI for Financial Operations",
-    description:
-      "Purpose-built financial workflow automation for lending, collections, servicing, verification, and regulated customer operations.",
-    forTeams: "BFSI, lending, collections, servicing, verification, ops teams",
-    workflows: [
-      "Loan servicing and repayment journeys",
-      "Collections and recovery workflows",
-      "Customer verification and KYC support",
-      "Finance operations automation and oversight",
-    ],
-  },
-  {
-    id: "agentic-ai-sm",
-    name: "Agentic AI SM",
-    domain: "Auto Socials",
-    category: "Auto Socials",
-    description:
-      "A broader enterprise system for orchestrating agents that reason, act, use tools, and automate multi-step business workflows.",
-    forTeams: "Operations, internal platforms, enterprise transformation, workflow owners",
-    workflows: [
-      "Multi-agent orchestration",
-      "Tool use and task execution",
-      "Cross-system workflow automation",
-      "Observability, review, and operational control",
-    ],
-  },
-  {
-    id: "marketing-automation-agent",
-    name: "Marketing Automation Agent",
-    domain: "Lead Management AI",
-    category: "AI Agent for Lead Management",
-    description:
-      "An AI agent for managing inbound and outbound leads, qualifying prospects, routing high-intent opportunities, and keeping sales teams focused on conversion-ready conversations.",
-    forTeams: "Sales, marketing, growth, customer acquisition, CRM, and revenue operations teams",
-    workflows: [
-      "Lead capture and enrichment",
-      "Lead qualification and scoring",
-      "Automated follow-up and nurturing",
-      "CRM updates, routing, and sales handoff",
-    ],
-  },
-];
+export const metadata: Metadata = pageMetadata({
+  title: "AI Agent Products — Voice, Workflows, Finance, Leads",
+  description:
+    "Four enterprise AI agent products on one platform: IndusLabs voice AI, Agentic AI SM multi-agent orchestration, FinoLabs for BFSI workflows, and the Marketing Automation Agent for lead management.",
+  path: "/products",
+  keywords: [
+    "enterprise AI agent products",
+    "agentic AI platform",
+    "multi-agent orchestration platform",
+    "AI voice agent platform",
+    "AI agents for BFSI",
+  ],
+});
 
 const capabilities = [
   "Voice agents",
@@ -103,8 +59,9 @@ const deploymentBenefits = [
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Navbar />
+      <main id="main" className="min-h-screen bg-white">
 
       <section className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20">
         <Container>
@@ -141,17 +98,14 @@ export default function ProductsPage() {
       <section id="products" className="py-20">
         <Container>
           <div className="grid gap-8">
-            {products.map((product, index) => (
-              <div
+            {products.map((product) => (
+              <article
                 key={product.id}
                 id={product.id}
                 className="grid gap-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm md:p-8 lg:grid-cols-[1.1fr_0.9fr]"
               >
                 <div>
                   <div className="mb-5 flex flex-wrap items-center gap-3">
-                    <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-semibold text-gray-500 font-raleway">
-                      0{index + 1}
-                    </span>
                     <span className="rounded-full bg-slate-900 px-3 py-1 text-xs font-medium text-white font-raleway">
                       {product.domain}
                     </span>
@@ -165,10 +119,26 @@ export default function ProductsPage() {
                   <p className="mb-6 text-lg leading-relaxed text-gray-600 font-raleway">
                     {product.description}
                   </p>
-                  <p className="rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm leading-relaxed text-gray-700 font-raleway">
+                  <p className="mb-6 rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm leading-relaxed text-gray-700 font-raleway">
                     <span className="font-semibold text-gray-900">Best fit for:</span>{" "}
                     {product.forTeams}
                   </p>
+
+                  {product.external ? (
+                    <Button
+                      href={product.url}
+                      target="_blank"
+                      rel="noopener"
+                      size="sm"
+                      className="font-raleway"
+                    >
+                      Visit {product.domain}
+                    </Button>
+                  ) : (
+                    <Button href="/contact" size="sm" className="font-raleway">
+                      Enquire about {product.name}
+                    </Button>
+                  )}
                 </div>
 
                 <div>
@@ -187,9 +157,14 @@ export default function ProductsPage() {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
+
+          <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-relaxed text-gray-500 font-raleway">
+            IndusLabs, FinoLabs, Agentic AI SM and the Marketing Automation
+            Agent are products of {siteConfig.legalName}.
+          </p>
         </Container>
       </section>
 
@@ -248,7 +223,17 @@ export default function ProductsPage() {
       </section>
 
       <ReadyToTransform />
+      </main>
       <Footer />
-    </main>
+      <JsonLd
+        data={[
+          productSuiteSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Products", path: "/products" },
+          ]),
+        ]}
+      />
+    </>
   );
 }

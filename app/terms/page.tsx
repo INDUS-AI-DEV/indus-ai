@@ -1,9 +1,22 @@
-import Container from "../components/ui/Container";
+import type { Metadata } from "next";
 import Link from "next/link";
+import Container from "../components/ui/Container";
+import Navbar from "../components/navigation/Navbar";
+import Footer from "../components/sections/FooterNew";
+import { pageMetadata } from "../lib/metadata";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Terms & Conditions",
+  description:
+    "The terms governing use of the Indus AI website and services, operated by Indus AI Pvt Ltd.",
+  path: "/terms",
+});
 
 export default function TermsAndConditions() {
   return (
-    <div className="bg-white min-h-screen">
+    <>
+      <Navbar />
+      <main id="main" className="bg-white min-h-screen pt-24">
       <Container>
         <div className="py-12 md:py-16 max-w-4xl mx-auto">
           {/* Close/Back Button */}
@@ -32,7 +45,7 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of the Terms</h2>
               <p className="text-gray-700 mb-4">
-                By accessing or using https://indusai.app/ (the &quot;Site&quot;) and related services, you agree to be bound by these Terms. If you do not agree, please do not use the Site.
+                By accessing or using https://indusai.app/ (the &quot;Site&quot;) and related services operated by Indus AI Pvt Ltd (&quot;Indus AI&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;), you agree to be bound by these Terms. If you do not agree, please do not use the Site.
               </p>
             </section>
 
@@ -66,7 +79,7 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Intellectual Property</h2>
               <p className="text-gray-700 mb-4">
-                All content, branding, software, and documentation on the Site is owned by IndusAI or its licensors. You may not copy, distribute, modify, or create derivative works without express permission.
+                All content, branding, software, and documentation on the Site is owned by Indus AI Pvt Ltd or its licensors. You may not copy, distribute, modify, or create derivative works without express permission.
               </p>
             </section>
 
@@ -80,21 +93,21 @@ export default function TermsAndConditions() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Disclaimers</h2>
               <p className="text-gray-700 mb-4">
-                Our services are provided "as‑is" and "as‑available". To the maximum extent permitted by law, we disclaim all warranties, express or implied, including merchantability or fitness for a particular purpose.
+                Our services are provided &quot;as‑is&quot; and &quot;as‑available&quot;. To the maximum extent permitted by law, we disclaim all warranties, express or implied, including merchantability or fitness for a particular purpose.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Limitation of Liability</h2>
               <p className="text-gray-700 mb-4">
-                To the fullest extent permitted by law, IndusAI shall not be liable for indirect, incidental, special, punitive, or consequential damages. Our aggregate liability shall not exceed the total amount you paid to us in the preceding 12 months.
+                To the fullest extent permitted by law, Indus AI Pvt Ltd shall not be liable for indirect, incidental, special, punitive, or consequential damages. Our aggregate liability shall not exceed the total amount you paid to us in the preceding 12 months.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Indemnification</h2>
               <p className="text-gray-700 mb-4">
-                You agree to indemnify and hold IndusAI harmless from any claims, losses, liabilities arising out of your use of the Site, violation of these Terms, or infringement of rights.
+                You agree to indemnify and hold Indus AI Pvt Ltd harmless from any claims, losses, liabilities arising out of your use of the Site, violation of these Terms, or infringement of rights.
               </p>
             </section>
 
@@ -121,6 +134,8 @@ export default function TermsAndConditions() {
           </div>
         </div>
       </Container>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
-} 
+}

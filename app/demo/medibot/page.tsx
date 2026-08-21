@@ -16,7 +16,7 @@ export default function MedibotDemoPage() {
   const [telephonyStatus, setTelephonyStatus] = useState("");
   const roomRef = useRef<unknown>(null); // Will be cast to Room after import
   const [isDesktop, setIsDesktop] = useState(false);
-  const [agentType, setAgentType] = useState("medibot");
+  const agentType = "medibot";
 
   useEffect(() => {
     const checkDesktop = () => setIsDesktop(window.innerWidth > 700);

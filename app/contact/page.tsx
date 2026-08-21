@@ -1,231 +1,160 @@
+import type { Metadata } from "next";
+import Script from "next/script";
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
-// import Button from "../components/ui/Button";
-import ReadyToTransform from "../components/sections/ReadyToTransform";
+import EnquiryForm from "../components/forms/EnquiryForm";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../lib/schema";
+import { pageMetadata } from "../lib/metadata";
+import { siteConfig } from "../lib/site";
 
-// const contactMethods = [
-//   {
-//     name: "Sales",
-//     description: "Discuss AI solutions for your business",
-//     phone: "+1 (555) 123-4567",
-//     email: "sales@indusai.com",
-//     icon: (
-//       <svg
-//         className="w-6 h-6"
-//         fill="none"
-//         stroke="currentColor"
-//         viewBox="0 0 24 24"
-//       >
-//         <path
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//           strokeWidth={2}
-//           d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-//         />
-//       </svg>
-//     ),
-//   },
-//   {
-//     name: "Support",
-//     description: "Get help with your AI implementation",
-//     phone: "+1 (555) 234-5678",
-//     email: "support@indusai.com",
-//     icon: (
-//       <svg
-//         className="w-6 h-6"
-//         fill="none"
-//         stroke="currentColor"
-//         viewBox="0 0 24 24"
-//       >
-//         <path
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//           strokeWidth={2}
-//           d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
-//         />
-//       </svg>
-//     ),
-//   },
-//   {
-//     name: "Partnerships",
-//     description: "Explore collaboration opportunities",
-//     phone: "+1 (555) 345-6789",
-//     email: "partners@indusai.com",
-//     icon: (
-//       <svg
-//         className="w-6 h-6"
-//         fill="none"
-//         stroke="currentColor"
-//         viewBox="0 0 24 24"
-//       >
-//         <path
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//           strokeWidth={2}
-//           d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-//         />
-//       </svg>
-//     ),
-//   },
-// ];
+export const metadata: Metadata = pageMetadata({
+  title: "Contact — Talk to the Indus AI Team",
+  description:
+    "Tell us the enterprise workflow you want to automate with AI agents. Send an enquiry or book a technical call with the Indus AI team.",
+  path: "/contact",
+  keywords: [
+    "contact Indus AI",
+    "enterprise AI agent consultation",
+    "agentic AI platform demo",
+  ],
+});
 
 export default function Contact() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
       <Navbar />
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 font-raleway">
-              Get in Touch
-            </h1>
-            <p className="text-xl text-gray-600 font-raleway">
-              Talk to us about the right product, workflow, or enterprise deployment path for your team.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      {/* Contact Methods
-      <section className="py-4">
-        <Container>
-          <div className="grid md:grid-cols-3 gap-8">
-            {contactMethods.map((method) => (
-              <div
-                key={method.name}
-                className="bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 transition-colors"
-              >
-                <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center text-gray-900 mb-6">
-                  {method.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 font-raleway">
-                  {method.name}
-                </h3>
-                <p className="text-gray-600 mb-6 font-raleway">
-                  {method.description}
-                </p>
-                <div className="space-y-2">
-                  <p className="text-gray-900 font-medium font-raleway">
-                    {method.phone}
-                  </p>
-                  <p className="text-gray-900 font-medium font-raleway">
-                    {method.email}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section> */}
-
-      <div
-        className="calendly-inline-widget min-w-[320px] h-[700px]"
-        data-url="https://calendly.com/hello-induslabs/30min"
-      ></div>
-      <script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      />
-
-      {/* Contact Form
-      <section className="py-24 bg-gray-50">
-        <Container>
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 font-raleway">
-                Send us a Message
-              </h2>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="first-name"
-                      className="block text-sm font-medium text-gray-900 mb-2 font-raleway"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      id="first-name"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all font-raleway"
-                      placeholder="John"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="last-name"
-                      className="block text-sm font-medium text-gray-900 mb-2 font-raleway"
-                    >
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      id="last-name"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all font-raleway"
-                      placeholder="Doe"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-900 mb-2 font-raleway"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all font-raleway"
-                    placeholder="john@example.com"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-gray-900 mb-2 font-raleway"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all font-raleway"
-                    placeholder="How can we help?"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-900 mb-2 font-raleway"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={6}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all font-raleway"
-                    placeholder="Tell us about your project..."
-                  />
-                </div>
-                <div>
-                  <Button size="lg" className="w-full">
-                    Send Message
-                  </Button>
-                </div>
-              </form>
+      <main id="main" className="min-h-screen bg-white">
+        <section className="bg-gradient-to-b from-gray-50 to-white pt-32 pb-16">
+          <Container>
+            <div className="mx-auto max-w-3xl text-center">
+              <h1 className="mb-6 font-raleway text-5xl font-bold text-balance text-gray-900">
+                Talk to the team building your AI agents
+              </h1>
+              <p className="font-raleway text-xl leading-relaxed text-gray-600">
+                Tell us which workflow you want to automate. We will tell you
+                which product fits, whether it is a good fit at all, and what a
+                scoped first deployment involves.
+              </p>
             </div>
-          </div>
-        </Container>
-      </section> */}
+          </Container>
+        </section>
 
-      <ReadyToTransform />
+        <section className="pb-20" aria-labelledby="enquiry-heading">
+          <Container>
+            <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[1.4fr_0.6fr]">
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-10">
+                <h2
+                  id="enquiry-heading"
+                  className="mb-2 font-raleway text-3xl font-bold text-gray-900"
+                >
+                  Send an enquiry
+                </h2>
+                <p className="mb-8 font-raleway leading-relaxed text-gray-600">
+                  Fields marked with an asterisk are required. Everything you
+                  send goes straight to our team inbox.
+                </p>
+                <EnquiryForm />
+              </div>
 
+              <aside className="space-y-6">
+                <div className="rounded-2xl border border-gray-200 bg-slate-50 p-6">
+                  <h2 className="mb-4 font-raleway text-lg font-bold text-gray-900">
+                    Prefer email?
+                  </h2>
+                  <p className="mb-2 font-raleway text-sm leading-relaxed text-gray-600">
+                    Write to us directly and we will route it to the right team.
+                  </p>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="font-raleway font-semibold text-[#2C514C] underline underline-offset-2"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </div>
+
+                <div className="rounded-2xl border border-gray-200 bg-slate-50 p-6">
+                  <h2 className="mb-4 font-raleway text-lg font-bold text-gray-900">
+                    Want to hear an agent first?
+                  </h2>
+                  <p className="mb-3 font-raleway text-sm leading-relaxed text-gray-600">
+                    Our live voice demos run in the browser — no signup, no
+                    calendar invite.
+                  </p>
+                  <a
+                    href="/demo"
+                    className="font-raleway font-semibold text-[#2C514C] underline underline-offset-2"
+                  >
+                    Try a live voice demo
+                  </a>
+                </div>
+
+                <div className="rounded-2xl border border-gray-200 bg-slate-50 p-6">
+                  <h2 className="mb-4 font-raleway text-lg font-bold text-gray-900">
+                    Careers
+                  </h2>
+                  <p className="mb-3 font-raleway text-sm leading-relaxed text-gray-600">
+                    Applying for a role? Those go to a different inbox.
+                  </p>
+                  <a
+                    href="/careers"
+                    className="font-raleway font-semibold text-[#2C514C] underline underline-offset-2"
+                  >
+                    See open positions
+                  </a>
+                </div>
+              </aside>
+            </div>
+          </Container>
+        </section>
+
+        <section
+          className="border-t border-gray-100 bg-slate-50 py-20"
+          aria-labelledby="booking-heading"
+        >
+          <Container>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <h2
+                id="booking-heading"
+                className="mb-4 font-raleway text-3xl font-bold text-gray-900"
+              >
+                Or book a technical call directly
+              </h2>
+              <p className="font-raleway leading-relaxed text-gray-600">
+                Thirty minutes with someone who can answer integration and
+                deployment questions. If the scheduler below does not load,{" "}
+                <a
+                  href={siteConfig.demoUrl}
+                  target="_blank"
+                  rel="noopener"
+                  className="font-semibold text-[#2C514C] underline underline-offset-2"
+                >
+                  open it in a new tab
+                </a>
+                .
+              </p>
+            </div>
+
+            <div
+              className="calendly-inline-widget mx-auto min-w-[320px] max-w-4xl overflow-hidden rounded-2xl border border-gray-200 bg-white"
+              data-url={siteConfig.demoUrl}
+              style={{ height: 700 }}
+            />
+            <Script
+              src="https://assets.calendly.com/assets/external/widget.js"
+              strategy="lazyOnload"
+            />
+          </Container>
+        </section>
+      </main>
       <Footer />
-    </main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
+    </>
   );
 }
