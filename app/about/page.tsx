@@ -137,6 +137,10 @@ export default function AboutPage() {
                   A shared platform layer for integrations, analytics,
                   observability, and human control.
                 </li>
+                <li>
+                  Indus AI Academy for AI training, corporate upskilling, and AI
+                  consulting.
+                </li>
               </ul>
             </div>
           </div>
@@ -226,7 +230,17 @@ export default function AboutPage() {
               >
                 finolabs.ai
               </a>
-              . Both are products of Indus AI Pvt Ltd.
+              . Both are products of Indus AI Pvt Ltd. Our training and
+              consulting arm, Indus AI Academy, runs at{" "}
+              <a
+                href="https://indusai.academy"
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-[#2C514C] underline underline-offset-2"
+              >
+                indusai.academy
+              </a>
+              .
             </p>
           </div>
         </Container>
