@@ -25,6 +25,11 @@ const navigation = {
     { name: "About Indus AI", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
+    {
+      name: "Indus AI Academy",
+      href: "https://indusai.academy",
+      external: true,
+    },
     { name: "Contact", href: "/contact" },
   ],
   resources: [
@@ -128,7 +133,16 @@ export default function FooterNew() {
             </p>
             <p className="mb-8 text-sm leading-relaxed text-blue-300">
               IndusLabs, FinoLabs, Agentic AI SM and the Marketing Automation
-              Agent are products of {siteConfig.legalName}.
+              Agent are products of {siteConfig.legalName}.{" "}
+              <a
+                href="https://indusai.academy"
+                target="_blank"
+                rel="noopener"
+                className="underline underline-offset-4 transition-colors hover:text-white"
+              >
+                Indus AI Academy
+              </a>{" "}
+              is its AI training and consulting arm.
             </p>
 
             <div className="flex space-x-4">

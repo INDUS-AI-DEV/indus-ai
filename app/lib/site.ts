@@ -62,6 +62,19 @@ export const companyFacts: {
   // postalCode: "",
 };
 
+/**
+ * Indus AI Academy is the training and consulting arm of Indus AI Pvt Ltd, on
+ * its own domain. It is not a product, so it stays out of `products` and the
+ * product listings, but it is declared as a sub-organisation for search.
+ */
+export const academy = {
+  name: "Indus AI Academy",
+  domain: "indusai.academy",
+  url: "https://indusai.academy",
+  description:
+    "AI training and consulting: live AI courses and certification for professionals, role-based corporate AI upskilling, and AI consulting for businesses in India.",
+} as const;
+
 export const products = [
   {
     id: "induslabs",

@@ -7,10 +7,11 @@ import { useState } from "react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 
-const navigation = [
+const navigation: { name: string; href: string; external?: boolean }[] = [
   { name: "Products", href: "/products" },
   { name: "Platform", href: "/products#platform" },
   { name: "Use Cases", href: "/solutions" },
+  { name: "Academy", href: "https://indusai.academy", external: true },
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
@@ -38,20 +39,32 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-6 lg:flex">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                aria-current={isCurrent(item.href) ? "page" : undefined}
-                className={`font-raleway text-sm transition-colors hover:text-gray-900 ${
-                  isCurrent(item.href)
-                    ? "font-semibold text-gray-900"
-                    : "text-gray-600"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) =>
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="font-raleway text-sm text-gray-600 transition-colors hover:text-gray-900"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                  className={`font-raleway text-sm transition-colors hover:text-gray-900 ${
+                    isCurrent(item.href)
+                      ? "font-semibold text-gray-900"
+                      : "text-gray-600"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ),
+            )}
           </div>
 
           <div className="flex items-center gap-3">
@@ -90,17 +103,30 @@ export default function Navbar() {
         {isOpen && (
           <div id="mobile-menu" className="lg:hidden">
             <div className="space-y-1 px-2 pt-2 pb-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  aria-current={isCurrent(item.href) ? "page" : undefined}
-                  className="block rounded-md px-3 py-2 font-raleway text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="block rounded-md px-3 py-2 font-raleway text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    aria-current={isCurrent(item.href) ? "page" : undefined}
+                    className="block rounded-md px-3 py-2 font-raleway text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ),
+              )}
               <Link
                 href="/contact"
                 className="mt-2 block rounded-full bg-[#2C514C] px-3 py-2 text-center font-raleway text-base font-bold text-white"

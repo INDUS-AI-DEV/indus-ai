@@ -3,7 +3,7 @@
  * <script type="application/ld+json"> tags so crawlers get it in the HTML.
  */
 
-import { absoluteUrl, companyFacts, products, siteConfig } from "./site";
+import { absoluteUrl, academy, companyFacts, products, siteConfig } from "./site";
 
 type Json = Record<string, unknown>;
 
@@ -99,6 +99,7 @@ export function organizationSchema(): Json {
       siteConfig.social.youtube,
       "https://induslabs.io",
       "https://finolabs.ai",
+      academy.url,
     ],
     subOrganization: [
       {
@@ -112,6 +113,12 @@ export function organizationSchema(): Json {
         name: "FinoLabs",
         url: "https://finolabs.ai",
         description: products[2].description,
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: academy.name,
+        url: academy.url,
+        description: academy.description,
       },
     ],
     contactPoint: [
