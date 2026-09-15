@@ -7,6 +7,7 @@ import ReadyToTransform from "../components/sections/ReadyToTransform";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema, productSuiteSchema } from "../lib/schema";
 import { pageMetadata } from "../lib/metadata";
+import AcademyCallout from "../components/sections/AcademyCallout";
 import { products, siteConfig } from "../lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -161,9 +162,12 @@ export default function ProductsPage() {
             ))}
           </div>
 
+          <AcademyCallout />
+
           <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-relaxed text-gray-500 font-raleway">
             IndusLabs, FinoLabs, Agentic AI SM and the Marketing Automation
-            Agent are products of {siteConfig.legalName}.
+            Agent are products of {siteConfig.legalName}. Indus AI Academy is
+            its AI training and consulting arm.
           </p>
         </Container>
       </section>
