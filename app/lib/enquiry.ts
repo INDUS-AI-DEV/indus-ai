@@ -10,6 +10,7 @@ export const PRODUCT_INTERESTS = [
   "Agentic AI SM — workflow orchestration",
   "FinoLabs — financial operations",
   "Marketing Automation Agent — lead management",
+  "Indus AI Academy — AI training and upskilling",
   "Partnership or something else",
 ] as const;
 

@@ -23,6 +23,11 @@ export const faqs: readonly Faq[] = [
       "Four. IndusLabs is our enterprise voice AI platform for multilingual voice agents. Agentic AI SM handles multi-agent orchestration and autonomous workflow execution. FinoLabs covers financial operations and BFSI workflows including lending, collections, and verification. The Marketing Automation Agent manages lead capture, qualification, follow-up, and CRM handoff.",
   },
   {
+    question: "Does Indus AI offer AI training for teams?",
+    answer:
+      "Yes, through Indus AI Academy at indusai.academy. It runs live AI courses and certification for professionals, role-based AI upskilling for entire organizations, and AI consulting. It is the training and consulting arm of Indus AI Pvt Ltd, separate from the AI agent products.",
+  },
+  {
     question: "What is multi-agent orchestration?",
     answer:
       "Multi-agent orchestration coordinates several specialised AI agents on one process — for example, one agent qualifies an inbound lead, another checks eligibility against internal systems, and a third schedules the follow-up call. The orchestration layer decides which agent runs when, passes context between them, enforces business rules, and keeps an auditable record of every action taken.",

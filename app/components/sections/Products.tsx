@@ -1,5 +1,6 @@
 import Container from "../ui/Container";
 import Button from "../ui/Button";
+import AcademyCallout from "./AcademyCallout";
 import { products } from "../../lib/site";
 
 export default function Products() {
@@ -83,9 +84,12 @@ export default function Products() {
           ))}
         </div>
 
+        <AcademyCallout />
+
         <p className="mx-auto mt-10 max-w-3xl text-center font-raleway text-sm leading-relaxed text-gray-500">
           IndusLabs, FinoLabs, Agentic AI SM and the Marketing Automation Agent
-          are products of Indus AI Pvt Ltd.
+          are products of Indus AI Pvt Ltd. Indus AI Academy is its AI training
+          and consulting arm.
         </p>
       </Container>
     </section>
