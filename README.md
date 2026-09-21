@@ -1,4 +1,4 @@
-# Indus AI — indusai.app
+# Indus AI — indusai.app portal
 
 Corporate and product site for **Indus AI Pvt Ltd**, the parent company of
 [IndusLabs](https://induslabs.io) (enterprise voice AI) and
