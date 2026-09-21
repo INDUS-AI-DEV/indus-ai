@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/sections/FooterNew";
 import Container from "../components/ui/Container";
@@ -5,47 +6,86 @@ import ReadyToTransform from "../components/sections/ReadyToTransform";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema } from "../lib/schema";
 import { pageMetadata } from "../lib/metadata";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Indus AI — Enterprise Agentic AI Company",
   description:
-    "Indus AI Pvt Ltd builds enterprise agentic AI products for voice, lead management, financial operations, and autonomous workflow execution. IndusLabs and FinoLabs are its products.",
+    "Indus AI Pvt Ltd builds enterprise agentic AI products for voice, lead management, financial operations, and autonomous workflow execution. IndusLabs and FinoLabs are its specialized divisions.",
   path: "/about",
   keywords: [
     "Indus AI Pvt Ltd",
     "enterprise agentic AI company",
     "AI agent company India",
+    "Vivek Gupta IIT Delhi Indus AI",
   ],
 });
 
 const stats = [
   { value: "4", label: "Core Products" },
-  { value: "22+", label: "Language Coverage" },
-  { value: "24/7", label: "Autonomous Ops" },
-  { value: "Enterprise", label: "Deployment Focus" },
+  { value: "29+", label: "Regional Languages" },
+  { value: "<500ms", label: "Voice Latency" },
+  { value: "100%", label: "India Data Sovereignty" },
 ];
 
 const principles = [
   {
-    title: "Product-Led Thinking",
+    number: "01",
+    title: "Product-Led Reliability",
     description:
-      "We build repeatable enterprise AI products instead of one-off demo experiences or services-only offerings.",
+      "We build robust, repeatable enterprise AI software instead of brittle custom scripts, fragile wrappers, or services-only offerings.",
   },
   {
-    title: "Workflow-First Design",
+    number: "02",
+    title: "Workflow-First Architecture",
     description:
-      "Our systems are designed around real operational workflows in support, growth, finance, service, and enterprise operations.",
+      "Our agents are engineered around messy, real-world operational flows across customer service, digital lending, debt collections, and sales ops.",
   },
   {
-    title: "Enterprise Readiness",
+    number: "03",
+    title: "Zero-Hallucination Guardrails",
     description:
-      "We focus on integrations, oversight, control, deployment flexibility, and business outcomes from day one.",
+      "Deterministic policy enforcement, multi-step rule validation, and human-in-the-loop review ensure that AI agents never execute unauthorized business actions.",
   },
   {
-    title: "Agentic Systems, Not Just Interfaces",
+    number: "04",
+    title: "Autonomous Action Over Chat",
     description:
-      "We are building systems that can reason, act, coordinate across tools, and automate complex business processes.",
+      "We build systems that can reason, invoke APIs, mutate CRM records, schedule calls, and solve customer problems rather than just generating advisory text.",
+  },
+];
+
+const productsList = [
+  {
+    name: "IndusLabs",
+    domain: "induslabs.io",
+    href: "https://induslabs.io",
+    role: "Voice AI Operating System",
+    desc: "Multilingual voice agents with sub-500ms latency, native SIP telephony, and emotion-aware speech synthesis in 29+ languages.",
+    tagColor: "bg-cyan-50 border-cyan-200 text-cyan-900",
+  },
+  {
+    name: "FinoLabs",
+    domain: "finolabs.ai",
+    href: "https://finolabs.ai",
+    role: "BFSI & Lending Operations AI",
+    desc: "Autonomous debt recovery, digital loan lead scoring, and borrower KYC verification with RBI regulatory compliance.",
+    tagColor: "bg-amber-50 border-amber-200 text-amber-900",
+  },
+  {
+    name: "Agentic AI Suite",
+    domain: "indusai.app/products",
+    href: "/products",
+    role: "Multi-Agent Orchestration",
+    desc: "Autonomous multi-agent execution coordinating complex business logic, third-party API mutations, and enterprise tools.",
+    tagColor: "bg-violet-50 border-violet-200 text-violet-900",
+  },
+  {
+    name: "Indus AI Academy",
+    domain: "indusai.academy",
+    href: "https://indusai.academy",
+    role: "Corporate AI Upskilling & Advisory",
+    desc: "Executive AI advisory, hands-on agent development certifications, and corporate upskilling cohorts.",
+    tagColor: "bg-emerald-50 border-emerald-200 text-emerald-900",
   },
 ];
 
@@ -54,199 +94,197 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main id="main" className="min-h-screen bg-white">
+        {/* Compact Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white pt-28 pb-14 md:pt-32 md:pb-18">
+          <Container>
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3.5 py-1 font-raleway text-xs font-semibold uppercase tracking-wider text-cyan-900">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                About Indus AI &bull; Parent Organization
+              </span>
+              <h1 className="mb-4 font-raleway text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                Building Enterprise Agentic AI for Real-World Operations
+              </h1>
+              <p className="mx-auto mb-8 max-w-2xl font-raleway text-sm leading-relaxed text-slate-600 sm:text-base">
+                Indus AI is an enterprise agentic AI company based in India. We develop autonomous systems
+                that execute complex operations across voice, digital lending, lead routing, and business workflow orchestration.
+              </p>
 
-      <section className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20">
-        <Container>
-          <div className="mx-auto max-w-4xl text-center">
-            <span className="mb-4 inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-900 font-raleway">
-              About IndusAI
-            </span>
-            <h1 className="mb-6 text-5xl font-bold text-gray-900 font-raleway md:text-6xl">
-              Building Enterprise Agentic AI Products for Real-World Operations
-            </h1>
-            <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-gray-600 font-raleway">
-              IndusAI is evolving from a voice-AI-first company into a broader
-              enterprise agentic AI product company. We build products for
-              voice, lead management, financial operations, and autonomous
-              workflow execution across modern enterprise teams.
-            </p>
-
-            <div className="grid gap-4 md:grid-cols-4">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
-                >
-                  <div className="mb-2 text-3xl font-bold text-blue-700 font-raleway">
-                    {stat.value}
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-slate-200/90 bg-white p-4 shadow-sm"
+                  >
+                    <div className="mb-1 font-raleway text-2xl font-extrabold text-slate-900 sm:text-3xl">
+                      {stat.value}
+                    </div>
+                    <div className="font-raleway text-xs font-medium text-slate-500">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-sm text-gray-600 font-raleway">
-                    {stat.label}
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Mission & Product Ecosystem Section */}
+        <section className="py-14 md:py-18 bg-white border-t border-slate-100">
+          <Container>
+            <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
+              <div>
+                <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-0.5 font-raleway text-xs font-semibold uppercase tracking-wider text-blue-900">
+                  Our Mission
+                </span>
+                <h2 className="mb-3.5 font-raleway text-2xl font-extrabold text-slate-900 sm:text-3xl">
+                  Transition enterprises from manual procedures to autonomous agentic execution
+                </h2>
+                <p className="mb-4 font-raleway text-sm leading-relaxed text-slate-600">
+                  The next generation of enterprise software will not simply surface information or generate text.
+                  It will act. That means voice systems that converse naturally with sub-500ms latency, financial
+                  workflows that execute compliant collections, and autonomous multi-agent systems that coordinate
+                  across legacy CRMs and ERPs without human bottleneck.
+                </p>
+                <p className="font-raleway text-sm leading-relaxed text-slate-600">
+                  Our focus is on production-grade, highly audited AI products that deliver demonstrable operational
+                  ROI for enterprise teams in banking, hospitality, automotive, and high-growth services.
+                </p>
+              </div>
+
+              {/* Ecosystem Card (Light Themed) */}
+              <div className="rounded-2xl border border-slate-200/90 bg-gradient-to-br from-slate-50/80 via-white to-cyan-50/20 p-6 shadow-sm sm:p-7">
+                <span className="mb-2.5 inline-block font-raleway text-xs font-bold uppercase tracking-wider text-[#0284c7]">
+                  Product Architecture
+                </span>
+                <h3 className="mb-4 font-raleway text-xl font-bold text-slate-900">
+                  A Unified Multi-Product AI Ecosystem
+                </h3>
+                <div className="space-y-3">
+                  {productsList.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener" : undefined}
+                      className="group block rounded-xl border border-slate-100 bg-white p-3.5 transition-all duration-300 hover:border-slate-300 hover:shadow-sm"
+                    >
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span className="font-raleway text-sm font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors">
+                          {item.name}
+                        </span>
+                        <span
+                          className={`rounded-full border px-2.5 py-0.5 font-raleway text-[11px] font-semibold ${item.tagColor}`}
+                        >
+                          {item.role}
+                        </span>
+                      </div>
+                      <p className="font-raleway text-xs leading-relaxed text-slate-600">
+                        {item.desc}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* How We Build Principles */}
+        <section className="border-t border-slate-200/80 bg-slate-50/50 py-14 md:py-18">
+          <Container>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-3.5 py-1 font-raleway text-xs font-semibold uppercase tracking-wider text-violet-900">
+                Core Engineering Philosophy
+              </span>
+              <h2 className="mb-3 font-raleway text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                How We Build
+              </h2>
+              <p className="font-raleway text-sm leading-relaxed text-slate-600 sm:text-base">
+                Engineered with enterprise product discipline, strict operational guardrails, and measurable business impact.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {principles.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex gap-4 rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all duration-300 hover:border-slate-300 hover:shadow-md"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-50 font-raleway text-sm font-extrabold text-slate-800">
+                    {item.number}
+                  </div>
+                  <div>
+                    <h3 className="mb-1.5 font-raleway text-base font-bold text-slate-900">
+                      {item.title}
+                    </h3>
+                    <p className="font-raleway text-xs leading-relaxed text-slate-600">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-        </Container>
-      </section>
+          </Container>
+        </section>
 
-      <section className="py-20">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-blue-700 font-raleway">
-                Our Mission
-              </p>
-              <h2 className="mb-5 text-4xl font-bold text-gray-900 font-raleway">
-                Move enterprises from manual workflows to agentic execution
-              </h2>
-              <p className="mb-5 text-lg leading-relaxed text-gray-600 font-raleway">
-                We believe the next generation of enterprise software will not
-                just surface information. It will act. That means voice systems
-                that can operate in real time, finance workflows that can
-                execute reliably, and autonomous agents that can coordinate work
-                across business tools.
-              </p>
-              <p className="text-lg leading-relaxed text-gray-600 font-raleway">
-                Our focus is on practical, production-oriented AI products that
-                deliver measurable value in customer operations, financial
-                servicing, growth operations, and enterprise automation.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-gray-100 bg-slate-950 p-8 text-white shadow-sm">
-              <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-blue-200 font-raleway">
-                What We Are Building
-              </p>
-              <h3 className="mb-5 text-3xl font-bold font-raleway">
-                A product ecosystem for voice, lead management, finance, and
-                autonomous workflows
-              </h3>
-              <ul className="space-y-4 text-sm leading-relaxed text-slate-200 font-raleway">
-                <li>IndusLabs for multilingual enterprise voice AI.</li>
-                <li>
-                  Marketing Automation Agent for lead management and
-                  qualification.
-                </li>
-                <li>FinoLabs for BFSI and financial workflow automation.</li>
-                <li>
-                  Agentic AI SM for broader enterprise orchestration and
-                  multi-step business execution.
-                </li>
-                <li>
-                  A shared platform layer for integrations, analytics,
-                  observability, and human control.
-                </li>
-                <li>
-                  Indus AI Academy for AI training, corporate upskilling, and AI
-                  consulting.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-slate-50 py-20">
-        <Container>
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 font-raleway">
-              How We Build
-            </h2>
-            <p className="text-lg leading-relaxed text-gray-600 font-raleway">
-              The company is increasingly shaped around enterprise product
-              thinking, operational rigor, and real deployment outcomes.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {principles.map((principle) => (
-              <div
-                key={principle.title}
-                className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
-              >
-                <h3 className="mb-3 text-xl font-semibold text-gray-900 font-raleway">
-                  {principle.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-600 font-raleway">
-                  {principle.description}
-                </p>
+        {/* Corporate Entity Details Section */}
+        <section
+          id="company"
+          aria-labelledby="company-heading"
+          className="border-t border-slate-200/80 bg-white py-14 md:py-18"
+        >
+          <Container>
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 font-raleway text-xs font-semibold uppercase tracking-wider text-slate-800">
+                Corporate Entity Details
               </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              <h2
+                id="company-heading"
+                className="mb-4 font-raleway text-2xl font-extrabold text-slate-900 sm:text-3xl"
+              >
+                About Indus AI Pvt Ltd
+              </h2>
+              <p className="mb-3.5 font-raleway text-sm leading-relaxed text-slate-600">
+                <strong className="text-slate-900">Indus AI Pvt Ltd</strong> is an enterprise software organization
+                headquartered in India, founded in 2023 by <strong className="text-slate-900">Vivek Gupta</strong>, an
+                alumnus of the Indian Institute of Technology Delhi (IIT Delhi). We build production-grade agentic AI products
+                that enterprise teams deploy directly inside their mission-critical business workflows.
+              </p>
+              <p className="mb-3.5 font-raleway text-sm leading-relaxed text-slate-600">
+                Our technology is strictly enterprise B2B. We do not publish consumer chatbots. Our offerings
+                operate across specialized divisions: <strong className="text-slate-900">IndusLabs</strong> for
+                real-time multilingual voice AI OS, <strong className="text-slate-900">FinoLabs</strong> for BFSI
+                and lending lifecycle automation, <strong className="text-slate-900">Agentic AI Suite</strong> for
+                deterministic business process execution, and <strong className="text-slate-900">Indus AI Academy</strong> for
+                corporate upskilling and advisory.
+              </p>
+              <p className="font-raleway text-sm leading-relaxed text-slate-600">
+                Global Headquarters is located at <strong className="text-slate-900">Logix Cyber Park, Sector 62, Noida</strong>,
+                with regional hubs in <strong className="text-slate-900">Bengaluru (Adugodi)</strong>, <strong className="text-slate-900">Mumbai (Dahisar West)</strong>,
+                and <strong className="text-slate-900">New York (28th Street)</strong>. Direct inquiries:{" "}
+                <a
+                  href="mailto:hello@induslabs.io"
+                  className="font-semibold text-[#0284c7] underline underline-offset-2"
+                >
+                  hello@induslabs.io
+                </a>{" "}
+                or phone{" "}
+                <a
+                  href="tel:+918105870564"
+                  className="font-semibold text-slate-900 underline underline-offset-2"
+                >
+                  +91-810-587-0564
+                </a>
+                .
+              </p>
+            </div>
+          </Container>
+        </section>
 
-      <section
-        id="company"
-        aria-labelledby="company-heading"
-        className="border-t border-gray-100 bg-white py-20"
-      >
-        <Container>
-          <div className="mx-auto max-w-3xl">
-            <h2
-              id="company-heading"
-              className="mb-6 font-raleway text-3xl font-bold text-gray-900"
-            >
-              About the company
-            </h2>
-            <p className="mb-4 font-raleway text-lg leading-relaxed text-gray-600">
-              <strong className="text-gray-900">Indus AI Pvt Ltd</strong> is an
-              enterprise software company based in India, founded in 2023
-              by <strong className="text-gray-900">Vivek Gupta</strong>, an
-              alumnus of the Indian Institute of Technology Delhi. We build agentic AI
-              products that businesses deploy inside their own operations —
-              voice agents, lead management automation, financial workflow
-              automation, and multi-agent orchestration.
-            </p>
-            <p className="mb-4 font-raleway text-lg leading-relaxed text-gray-600">
-              Our products are sold to businesses, not to consumers. We do not
-              publish a consumer AI assistant or chat app. Everything we ship
-              runs under four brands:{" "}
-              <strong className="text-gray-900">IndusLabs</strong> for
-              enterprise voice AI,{" "}
-              <strong className="text-gray-900">FinoLabs</strong> for financial
-              operations, <strong className="text-gray-900">Agentic AI SM</strong>{" "}
-              for multi-agent orchestration, and the{" "}
-              <strong className="text-gray-900">Marketing Automation Agent</strong>{" "}
-              for lead management.
-            </p>
-            <p className="font-raleway text-lg leading-relaxed text-gray-600">
-              IndusLabs and FinoLabs operate on their own domains,{" "}
-              <a
-                href="https://induslabs.io"
-                target="_blank"
-                rel="noopener"
-                className="font-semibold text-[#2C514C] underline underline-offset-2"
-              >
-                induslabs.io
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://finolabs.ai"
-                target="_blank"
-                rel="noopener"
-                className="font-semibold text-[#2C514C] underline underline-offset-2"
-              >
-                finolabs.ai
-              </a>
-              . Both are products of Indus AI Pvt Ltd. Our training and
-              consulting arm, Indus AI Academy, runs at{" "}
-              <a
-                href="https://indusai.academy"
-                target="_blank"
-                rel="noopener"
-                className="font-semibold text-[#2C514C] underline underline-offset-2"
-              >
-                indusai.academy
-              </a>
-              .
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      <ReadyToTransform />
+        {/* Standard Light CTA */}
+        <ReadyToTransform />
       </main>
       <Footer />
       <JsonLd

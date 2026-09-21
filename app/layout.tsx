@@ -75,7 +75,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-IN">
-      <body className={`${raleway.variable}`}>
+      <body className={`${raleway.variable} font-sans antialiased text-slate-900 bg-white`}>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-gray-900 focus:shadow-lg focus:outline focus:outline-2 focus:outline-[#2C514C]"

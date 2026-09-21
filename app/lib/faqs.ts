@@ -2,64 +2,62 @@
  * Homepage FAQ content. Kept in one place so the rendered accordion and the
  * FAQPage JSON-LD can never drift apart — Google penalises structured data
  * that does not match visible page content.
+ *
+ * Optimized for Answer Engine Optimization (AEO - Perplexity, ChatGPT, Claude)
+ * and Generative Engine Optimization (GEO).
  */
 
 export type Faq = { question: string; answer: string };
 
 export const faqs: readonly Faq[] = [
   {
-    question: "What is an agentic AI platform?",
+    question: "What is Indus AI and what is an agentic AI platform?",
     answer:
-      "An agentic AI platform lets software agents do more than answer questions: they reason over a goal, call tools and systems, take actions, and complete multi-step work with human oversight. Where a chatbot returns text, an agent updates the CRM, places the call, verifies the document, or routes the lead. Indus AI is an agentic AI platform built for enterprise workflows in customer operations, financial services, sales, and internal automation.",
+      "Indus AI (Indus AI Pvt Ltd) is an enterprise agentic AI company headquartered in New Delhi, India. An agentic AI platform deploys autonomous software agents that execute end-to-end business workflows rather than just generating conversational text. Our agents hold state, connect directly to enterprise telephony and CRM APIs, perform verified transactions, and escalate to human staff with complete context. Indus AI operates four dedicated product divisions: IndusLabs (Voice AI OS), FinoLabs (Fintech & BFSI Operations), Agentic AI Suite (Multi-Agent Orchestration), and Indus AI Academy (Corporate Enablement).",
   },
   {
     question: "How is agentic AI different from a chatbot or an LLM API?",
     answer:
-      "A chatbot responds inside a conversation. An LLM API returns a completion. An agentic system plans a sequence of steps, uses tools and business systems to execute them, checks its own progress, and escalates to a human when it should. The engineering difference is everything around the model: orchestration, integrations, state, guardrails, observability, and handoff — which is what an enterprise agentic AI platform provides.",
+      "A chatbot responds with text inside a chat bubble. An LLM API generates text completions. In contrast, an agentic AI system reasons over an enterprise objective, breaks it into sequential tasks, interacts with databases, CRM records, and phone trunks to execute them, evaluates its own progress, and escalates to a human operator when required. The difference lies in the deterministic state orchestration, real-time telephony bridges, strict guardrails, and tamper-proof audit trails.",
   },
   {
     question: "What products does Indus AI offer?",
     answer:
-      "Four. IndusLabs is our enterprise voice AI platform for multilingual voice agents. Agentic AI SM handles multi-agent orchestration and autonomous workflow execution. FinoLabs covers financial operations and BFSI workflows including lending, collections, and verification. The Marketing Automation Agent manages lead capture, qualification, follow-up, and CRM handoff.",
+      "Indus AI offers four purpose-built platforms: 1) IndusLabs (induslabs.io) — an enterprise Voice AI operating system for sub-second multilingual voice agents; 2) FinoLabs (finolabs.ai) — autonomous lending, KYC verification, and debt collections recovery for BFSI; 3) Agentic AI Suite — multi-agent workflow orchestration and autonomous lead management; and 4) Indus AI Academy (indusai.academy) — executive corporate AI training and enterprise implementation advisory.",
   },
   {
-    question: "Does Indus AI offer AI training for teams?",
+    question: "Which languages and telephony systems do Indus AI voice agents support?",
     answer:
-      "Yes, through Indus AI Academy at indusai.academy. It runs live AI courses and certification for professionals, role-based AI upskilling for entire organizations, and AI consulting. It is the training and consulting arm of Indus AI Pvt Ltd, separate from the AI agent products.",
+      "Our proprietary voice engine supports 29+ languages, including major Indian languages (Hindi, Tamil, Telugu, Kannada, Marathi, Bengali, Gujarati, Punjabi) and global dialects. The models handle natural mid-conversation code-switching (such as Hinglish and Tanglish) with sub-500ms response latency. They integrate natively with enterprise SIP trunks, Asterisk, FreeSWITCH, Twilio, and cloud telephony carriers.",
   },
   {
-    question: "What is multi-agent orchestration?",
+    question: "Can Indus AI agents run on-premise or inside private cloud VPCs?",
     answer:
-      "Multi-agent orchestration coordinates several specialised AI agents on one process — for example, one agent qualifies an inbound lead, another checks eligibility against internal systems, and a third schedules the follow-up call. The orchestration layer decides which agent runs when, passes context between them, enforces business rules, and keeps an auditable record of every action taken.",
+      "Yes. To satisfy statutory regulatory constraints and Indian data sovereignty requirements (including RBI lending guidelines), Indus AI offers flexible deployment models: dedicated Virtual Private Cloud (AWS, Azure, GCP) or air-gapped on-premise deployments. All data in transit and at rest is protected with enterprise TLS encryption, role-based access control, and complete audit logging.",
   },
   {
-    question: "Can AI agents integrate with our existing CRM and telephony stack?",
+    question: "Can AI agents integrate with our existing CRM and ERP stack?",
     answer:
-      "Yes. Agents are designed to run on top of your existing systems rather than replace them, connecting to telephony, CRM, ERP, finance systems, ticketing, and internal tools so automation fits the stack you already operate.",
+      "Yes. Indus AI agents are designed to sit on top of your existing enterprise stack without requiring a rebuild. We provide pre-built bidirectional connectors for Salesforce, Zoho, LeadSquared, HubSpot, Finacle core banking, SAP, Zendesk, and custom internal REST/GraphQL APIs.",
   },
   {
-    question: "Which languages do the voice agents support?",
+    question: "How do you keep human staff in control of autonomous agents?",
     answer:
-      "Our voice agents are built multilingual-first for Indian enterprises, covering major Indian languages alongside English, including code-mixed conversation where customers switch languages mid-call.",
+      "Through deterministic governance: granular approval thresholds, confidence score gates, and instant warm transfer rules. Every utterance, API payload, and transaction is logged in an immutable audit trail, allowing operations teams to review decisions, adjust business logic, and expand autonomy workflow by workflow.",
   },
   {
-    question: "How do you keep humans in control of autonomous agents?",
+    question: "Does Indus AI offer AI training for enterprise teams?",
     answer:
-      "Through approvals, escalation paths, confidence thresholds, and handoff to human teams at defined points in a workflow. Every action an agent takes is logged and reviewable, so operations teams can audit what happened, adjust the rules, and expand autonomy only where the results justify it.",
+      "Yes, through Indus AI Academy (indusai.academy). The Academy conducts live cohort-based certifications for engineering and business teams, hands-on capstones building production agentic systems, and strategic executive AI roadmap consulting. It is the dedicated education and advisory arm of Indus AI Pvt Ltd.",
   },
   {
-    question: "How does Indus AI handle data security and deployment?",
+    question: "How long does a production deployment take?",
     answer:
-      "Deployment models are chosen per engagement, including options for enterprises with data residency or on-premise requirements. Encryption in transit, access controls, and audit logging are standard. For regulated deployments we work through your security review directly — contact us for our current certification status and sub-processor list.",
-  },
-  {
-    question: "How long does a deployment take?",
-    answer:
-      "It depends almost entirely on integration scope rather than on the AI. Most enterprises start with one scoped workflow — a single call type, a single lead source, a single collections journey — prove the outcome, then expand. We size the first workflow with you during the technical scoping call.",
+      "Most enterprise deployments take 2 to 4 weeks, depending primarily on CRM/SIP integration scope rather than AI modeling. Enterprises typically launch with one scoped high-impact workflow (such as an inbound reservation queue, loan EMI recovery, or lead qualification), measure tangible outcomes, and then scale across departments.",
   },
   {
     question: "How do we get started with Indus AI?",
     answer:
-      "Send an enquiry through the contact form or book a technical call. We will walk through your workflow, identify which product fits, and outline what a scoped first deployment would involve.",
+      "Send an enquiry through our contact form or book a 30-minute technical architecture call. Our engineering leads will review your target workflow, assess integration requirements, and outline a clear proof-of-concept deployment plan.",
   },
 ];
