@@ -13,8 +13,8 @@ export const siteConfig = {
   url: "https://indusai.app",
   locale: "en_IN",
   description:
-    "Indus AI is an enterprise agentic AI platform. Deploy AI agents that run real business workflows across customer operations, financial services, lead management, and internal automation.",
-  tagline: "The agentic AI platform for enterprise workflows",
+    "Indus AI is an enterprise agentic AI platform. Deploy autonomous AI agents that run real business operations across multilingual voice, BFSI lending, lead management, and multi-agent orchestration.",
+  tagline: "Autonomous AI agents that execute real enterprise operations",
   email: "info@indusai.app",
   demoUrl: "https://calendly.com/hello-induslabs/30min",
   social: {

@@ -7,8 +7,8 @@ const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
 /**
  * Defers the ~300 kB Three.js bundle until the browser is idle, so it never
- * competes with the hero text for LCP. Users who prefer reduced motion, or
- * whose browser never goes idle, keep the static placeholder.
+ * competes with the hero text for LCP. Scaled to compact 80% footprint
+ * (max-w-[400px]) to prevent screen overflow and horizontal clipping.
  */
 export default function HeroVisual() {
   const [showScene, setShowScene] = useState(false);
@@ -38,9 +38,11 @@ export default function HeroVisual() {
   }, []);
 
   return (
-    <div className="relative aspect-square w-full max-w-[400px] overflow-visible lg:max-w-[600px]">
-      <div className="absolute inset-0 scale-150 rounded-full bg-gradient-to-r from-blue-400/20 via-cyan-400/10 to-emerald-400/20 blur-3xl" />
+    <div className="relative aspect-square w-full max-w-[300px] overflow-visible sm:max-w-[350px] lg:max-w-[390px]">
+      {/* Dynamic ambient backdrop */}
+      <div className="absolute inset-0 scale-110 rounded-full bg-gradient-to-tr from-cyan-400/15 via-emerald-400/10 to-blue-500/15 blur-2xl" />
 
+      {/* 3D Scene / Fallback */}
       {showScene ? (
         <HeroScene />
       ) : (
@@ -48,22 +50,26 @@ export default function HeroVisual() {
           className="relative z-10 flex h-full w-full items-center justify-center"
           aria-hidden="true"
         >
-          <div className="h-3/5 w-3/5 rounded-full bg-gradient-to-br from-slate-200 via-white to-slate-300 shadow-2xl ring-1 ring-slate-200/70" />
+          <div className="h-3/5 w-3/5 rounded-full bg-gradient-to-br from-slate-100 via-white to-slate-200 shadow-xl ring-1 ring-slate-200/80" />
         </div>
       )}
 
-      <div className="absolute top-4 right-4 rounded-lg bg-white/90 p-3 shadow-lg backdrop-blur-sm">
-        <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-emerald-500" />
-          <span className="font-raleway text-xs font-medium text-gray-700">
-            Agents running
-          </span>
-        </div>
+      {/* Enterprise Status Chip 1 (Top right) */}
+      <div className="absolute top-2 -right-1 z-20 flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/95 px-3 py-1.5 shadow-md shadow-slate-900/5 backdrop-blur-md sm:right-1">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+        </span>
+        <span className="font-raleway text-[11px] font-bold tracking-wide text-slate-800">
+          Voice OS &bull; &lt;500ms Latency
+        </span>
       </div>
 
-      <div className="absolute bottom-4 left-4 rounded-lg bg-white/90 p-3 shadow-lg backdrop-blur-sm">
-        <span className="font-raleway text-xs font-medium text-gray-700">
-          Voice · Leads · Finance · Workflows
+      {/* Enterprise Status Chip 2 (Bottom left) */}
+      <div className="absolute -bottom-1 -left-1 z-20 flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/95 px-3 py-1.5 shadow-md shadow-slate-900/5 backdrop-blur-md sm:left-1">
+        <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 shadow-[0_0_6px_#00c3ff]" />
+        <span className="font-raleway text-[11px] font-bold tracking-wide text-slate-800">
+          29+ Languages &bull; Telephony &amp; CRM Sync
         </span>
       </div>
     </div>

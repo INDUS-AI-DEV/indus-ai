@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import Container from "../ui/Container";
+import Button from "../ui/Button";
 import { faqs } from "../../lib/faqs";
 
 /**
@@ -25,8 +25,10 @@ function FaqItem({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-xl border bg-white transition-shadow duration-300 ${
-        isOpen ? "border-gray-200 shadow-md" : "border-gray-100 shadow-sm hover:shadow-md"
+      className={`overflow-hidden rounded-xl border bg-white transition-all duration-300 ${
+        isOpen
+          ? "border-slate-300 shadow-md ring-1 ring-slate-200"
+          : "border-slate-200/80 shadow-2xs hover:border-slate-300 hover:shadow-xs"
       }`}
     >
       <h3>
@@ -36,21 +38,25 @@ function FaqItem({
           aria-expanded={isOpen}
           aria-controls={`${id}-answer`}
           id={`${id}-question`}
-          className="flex w-full cursor-pointer items-center justify-between gap-4 p-6 text-left font-raleway text-lg font-semibold text-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2C514C] focus-visible:ring-offset-2"
+          className="flex w-full cursor-pointer items-center justify-between gap-4 p-5 text-left font-raleway text-sm font-bold text-slate-900 transition-colors sm:text-base focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#2C514C] focus-visible:ring-offset-2"
         >
           <span>{question}</span>
-          <svg
-            className={`h-6 w-6 flex-shrink-0 text-gray-500 transition-transform duration-300 motion-reduce:transition-none ${
-              isOpen ? "rotate-180" : ""
+          <span
+            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ${
+              isOpen ? "rotate-180 bg-slate-100 text-slate-900" : "bg-slate-50 text-slate-500"
             }`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            aria-hidden="true"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
+            <svg
+              className="h-3.5 w-3.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
         </button>
       </h3>
 
@@ -63,7 +69,7 @@ function FaqItem({
         }`}
       >
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 font-raleway leading-relaxed text-gray-600">
+          <p className="px-5 pb-5 font-raleway text-xs leading-relaxed text-slate-600 sm:text-sm">
             {answer}
           </p>
         </div>
@@ -79,26 +85,29 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="bg-gradient-to-b from-white to-blue-50/20 py-20"
+      className="border-t border-slate-200/80 bg-gradient-to-b from-white via-slate-50/40 to-slate-50 py-14 md:py-18"
     >
       <Container>
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-4 inline-block rounded-full bg-blue-50 px-4 py-1.5 font-raleway text-sm font-medium text-blue-700">
-            Agentic AI, explained
+        {/* Compact Section Header */}
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 font-raleway text-xs font-semibold uppercase tracking-wider text-blue-900">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+            Enterprise FAQ &bull; AEO Answer Hub
           </span>
           <h2
             id="faq-heading"
-            className="mb-4 font-raleway text-4xl font-bold text-gray-900"
+            className="mb-3 font-raleway text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl"
           >
             Frequently asked questions
           </h2>
-          <p className="font-raleway text-lg leading-relaxed text-gray-600">
-            What an agentic AI platform is, how it differs from a chatbot, and
-            what it takes to deploy AI agents on real enterprise workflows.
+          <p className="font-raleway text-sm leading-relaxed text-slate-600 sm:text-base">
+            Understand how an enterprise agentic AI platform operates, how it differs from traditional
+            conversational bots, and what is required to deploy autonomous agents in production.
           </p>
         </div>
 
-        <div className="mx-auto max-w-4xl space-y-4">
+        {/* Accordion list at 80% Scale */}
+        <div className="mx-auto max-w-3xl space-y-2.5">
           {faqs.map((faq, index) => (
             <FaqItem
               key={faq.question}
@@ -111,28 +120,14 @@ export default function FAQ() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="mb-6 font-raleway text-gray-600">
-            Still have questions about deploying AI agents in your workflows?
+        {/* Bottom Contact Prompt */}
+        <div className="mt-10 text-center">
+          <p className="mb-4 font-raleway text-sm text-slate-600">
+            Have technical questions about your enterprise stack or architecture?
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-full bg-[#2C514C] px-6 py-3 font-raleway text-base font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#132A22]"
-          >
+          <Button href="/contact" size="md">
             Send us an enquiry
-            <svg
-              className="ml-2 -mr-1 h-5 w-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </Link>
+          </Button>
         </div>
       </Container>
     </section>

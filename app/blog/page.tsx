@@ -1,138 +1,172 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/sections/FooterNew";
+import Container from "../components/ui/Container";
+import ReadyToTransform from "../components/sections/ReadyToTransform";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema } from "../lib/schema";
 import { pageMetadata } from "../lib/metadata";
-import Link from 'next/link';
-import { CalendarIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = pageMetadata({
-  title: "Blog — Agentic AI and Enterprise Automation",
+  title: "Blog & Insights — Enterprise Agentic AI and Automation",
   description:
-    "Practical writing on agentic AI, autonomous agents, and deploying AI automation inside enterprise workflows, from the Indus AI team.",
+    "Practical architectural analyses on autonomous AI agents, enterprise orchestration, speech models, and deploying production AI inside real operations.",
   path: "/blog",
   keywords: [
     "agentic AI blog",
     "enterprise AI agents",
+    "autonomous AI systems",
     "AI automation insights",
   ],
 });
 
 const blogPosts = [
   {
-    title: 'Agentic AI: The Future of Work Is Here',
-    excerpt: 'Explore how AI agents are transforming industries by moving from reactive automation to proactive, goal-driven execution.',
-    href: '/blog/agentic-ai',
-    date: 'August 14, 2025',
-    isoDate: '2025-08-14',
-    readTime: '12 min read',
-    category: 'AI Technology'
+    title: "Agentic AI: The Future of Enterprise Work Is Here",
+    excerpt:
+      "Explore how autonomous AI agents are moving beyond reactive chat to proactive, goal-driven execution — mutating CRM records, triggering telephony, and automating multi-step operational pipelines.",
+    href: "/blog/agentic-ai",
+    date: "August 14, 2025",
+    isoDate: "2025-08-14",
+    readTime: "12 min read",
+    category: "Core Architecture",
+    badgeColor: "bg-cyan-50 border-cyan-200 text-cyan-900",
+    gradient: "from-cyan-500/10 via-blue-500/5 to-slate-50",
+    accentColor: "text-cyan-600",
+    icon: (
+      <svg className="h-6 w-6 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
   },
   {
-    title: 'Deploying AI Agents at Enterprise Scale with AWS',
-    excerpt: 'A comprehensive guide to building, securing, and scaling production-ready AI agents using AWS services.',
-    href: '/blog/aws-enterprise-ai-agents',
-    date: 'August 14, 2025',
-    isoDate: '2025-08-14',
-    readTime: '15 min read',
-    category: 'Enterprise Solutions'
+    title: "Deploying AI Agents at Enterprise Scale with AWS",
+    excerpt:
+      "A comprehensive guide to building, securing, and scaling production-ready agent systems using AWS VPC isolation, Bedrock guardrails, and deterministic API execution.",
+    href: "/blog/aws-enterprise-ai-agents",
+    date: "August 14, 2025",
+    isoDate: "2025-08-14",
+    readTime: "15 min read",
+    category: "Cloud & Security",
+    badgeColor: "bg-amber-50 border-amber-200 text-amber-900",
+    gradient: "from-amber-500/10 via-orange-500/5 to-slate-50",
+    accentColor: "text-amber-600",
+    icon: (
+      <svg className="h-6 w-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      </svg>
+    ),
   },
   {
-    title: 'Beyond the Hype: Real AI Agents You Can Use Today',
-    excerpt: 'Discover practical, high-impact AI agents available in 2025 that are transforming businesses and workflows.',
-    href: '/blog/ai-agents-today',
-    date: 'August 14, 2025',
-    isoDate: '2025-08-14',
-    readTime: '10 min read',
-    category: 'AI Applications'
-  }
+    title: "Beyond the Hype: Real AI Agents Operating Today",
+    excerpt:
+      "Discover practical, high-impact AI agents delivering measurable ROI across debt collections, 24/7 multilingual hotel concierge, and 60-second automotive lead qualification.",
+    href: "/blog/ai-agents-today",
+    date: "August 14, 2025",
+    isoDate: "2025-08-14",
+    readTime: "10 min read",
+    category: "Real Deployments",
+    badgeColor: "bg-emerald-50 border-emerald-200 text-emerald-900",
+    gradient: "from-emerald-500/10 via-teal-500/5 to-slate-50",
+    accentColor: "text-emerald-600",
+    icon: (
+      <svg className="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <main id="main" className="bg-white pt-24 pb-16 sm:pb-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Insights & Updates
-          </h1>
-          <p className="mt-4 text-xl text-gray-600">
-            The latest in AI technology, enterprise solutions, and industry trends.
-          </p>
-        </div>
+      <main id="main" className="min-h-screen bg-white">
+        {/* Compact Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white pt-28 pb-14 md:pt-32 md:pb-18">
+          <Container>
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3.5 py-1 font-raleway text-xs font-semibold uppercase tracking-wider text-cyan-900">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                Technical Insights &bull; Engineering Perspectives
+              </span>
+              <h1 className="mb-4 font-raleway text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                Insights on Agentic AI &amp; Enterprise Automation
+              </h1>
+              <p className="mx-auto max-w-2xl font-raleway text-sm leading-relaxed text-slate-600 sm:text-base">
+                Engineering deep-dives, operational frameworks, and architecture blueprints for deploying
+                autonomous AI agents inside production enterprise workflows.
+              </p>
+            </div>
+          </Container>
+        </section>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <article key={post.href} className="flex flex-col items-start justify-between">
-              <div className="relative w-full">
-                <div className="aspect-[16/9] w-full bg-gray-100 rounded-2xl overflow-hidden mb-6">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-4xl font-bold text-gray-300">
-                      {post.title.split(' ').map(word => word[0]).join('')}
+        {/* Blog Post Cards Grid */}
+        <section className="py-14 md:py-18 bg-white border-t border-slate-100">
+          <Container>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {blogPosts.map((post) => (
+                <article
+                  key={post.href}
+                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
+                >
+                  {/* Decorative Banner */}
+                  <div
+                    className={`relative flex h-40 w-full items-center justify-center bg-gradient-to-br ${post.gradient} border-b border-slate-100 p-6`}
+                  >
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/60 bg-white/80 shadow-xs backdrop-blur-xs transition-transform duration-300 group-hover:scale-110">
+                      {post.icon}
                     </div>
                   </div>
-                </div>
-                <div className="max-w-xl">
-                  <div className="mt-4 flex items-center gap-x-4 text-xs">
-                    <span className="text-green-700 bg-green-50 px-3 py-1.5 rounded-full text-xs font-medium">
-                      {post.category}
-                    </span>
-                    <div className="flex items-center text-gray-500">
-                      <CalendarIcon className="h-4 w-4 mr-1" />
-                      <time dateTime={post.isoDate}>
+
+                  {/* Card Content */}
+                  <div className="flex flex-1 flex-col justify-between p-6">
+                    <div>
+                      <div className="mb-3 flex flex-wrap items-center gap-2">
+                        <span
+                          className={`rounded-full border px-2.5 py-0.5 font-raleway text-xs font-semibold ${post.badgeColor}`}
+                        >
+                          {post.category}
+                        </span>
+                        <div className="flex items-center gap-1 text-[11px] text-slate-500 font-raleway">
+                          <span>&bull;</span>
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
+
+                      <h2 className="mb-2.5 font-raleway text-lg font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors">
+                        <Link href={post.href}>{post.title}</Link>
+                      </h2>
+
+                      <p className="mb-4 font-raleway text-xs leading-relaxed text-slate-600 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                    </div>
+
+                    <div className="border-t border-slate-100 pt-3.5 flex items-center justify-between">
+                      <time
+                        dateTime={post.isoDate}
+                        className="font-raleway text-[11px] text-slate-500"
+                      >
                         {post.date}
                       </time>
-                    </div>
-                    <div className="flex items-center text-gray-500">
-                      <ClockIcon className="h-4 w-4 mr-1" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                  <div className="group relative">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-green-700">
-                      <Link href={post.href}>
-                        <span className="absolute inset-0" />
-                        {post.title}
+                      <Link
+                        href={post.href}
+                        className="font-raleway text-xs font-bold text-[#0284c7] hover:underline"
+                      >
+                        Read Article &rarr;
                       </Link>
-                    </h3>
-                    <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">{post.excerpt}</p>
+                    </div>
                   </div>
-                  <div className="mt-4">
-                    <Link 
-                      href={post.href} 
-                      className="text-sm font-medium text-green-700 hover:text-green-800 flex items-center"
-                    >
-                      Read more
-                      <svg className="h-4 w-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+                </article>
+              ))}
+            </div>
+          </Container>
+        </section>
 
-        <div className="mt-16 rounded-2xl border border-gray-200 bg-slate-50 p-8 text-center">
-          <h2 className="mb-3 text-2xl font-bold text-gray-900">
-            Working on an agentic AI deployment?
-          </h2>
-          <p className="mx-auto mb-6 max-w-2xl text-gray-600">
-            We are happy to talk through the architecture even if you are early.
-            Tell us what workflow you are trying to automate.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-full bg-[#2C514C] px-6 py-3 font-bold text-white transition-colors hover:bg-[#132A22]"
-          >
-            Send an enquiry
-          </Link>
-        </div>
-      </div>
+        {/* Standard Light CTA */}
+        <ReadyToTransform />
       </main>
       <Footer />
       <JsonLd

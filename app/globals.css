@@ -1,32 +1,34 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-raleway), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-raleway: var(--font-raleway), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
 :root {
-  --primary-blue: #1a237e;
-  --secondary-blue: #303f9f;
-  --accent-yellow: #ffc107;
-  --call-green: #4CAF50;
-  --end-call-red: #f44336;
-  --text-white: #ffffff;
-  --text-gray: #b0bec5;
-  --background-dark: #0a0a0a;
-  --phone-bg: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+  --primary-brand: #2C514C;
+  --primary-dark: #132A22;
+  --accent-cyan: #00c3ff;
+  --accent-purple: #6a5fff;
+  --accent-saffron: #f0a43a;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb)));
+  font-family: var(--font-raleway), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .font-raleway {
-  font-family: var(--font-raleway);
+  font-family: var(--font-raleway), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Floating Animations */
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
 
@@ -44,73 +46,19 @@ body {
   animation-delay: 2s;
 }
 
-/* Blob Animation */
-@keyframes blob {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
-}
-
-.animate-blob {
-  animation: blob 10s ease-in-out infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Smooth transitions */
+/* Micro interaction transitions */
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
 
-/* Button hover effect */
-.hover\:-translate-y-1:hover {
-  --tw-translate-y: -0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+/* Focus outline helper */
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
-
-/* Animated Underline */
-.animated-underline {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.animated-underline::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: -4px;
-  left: 0;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  transition: width 0.4s ease-in-out;
-  border-radius: 2px;
-}
-
-.animated-underline:hover::after {
-  width: 100%;
-}
-
-.animated-underline.active::after {
-  width: 100%;
-  animation: none;
-}
-
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+.focus-ring:focus-visible {
+  outline: 2px solid var(--primary-brand);
+  outline-offset: 2px;
 }
